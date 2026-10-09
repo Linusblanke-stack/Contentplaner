@@ -1,318 +1,292 @@
-window.BLUEPRINT_SEED = {
-  version: 1,
-  master: {
-    name: 'Universal Content-Trip Blueprint',
-    description: 'Wiederverwendbarer Master für City-/Location-Drehs.',
-    locationCriteria: [
-      'Mindestens zwei starke Kriterien: Tiefe, Licht, Architektur/Natur, Linien/Symmetrie, Spiegelung/Textur, Bewegung oder 5-15 m sicherer Kameradistanz.',
-      'Kernshots müssen ohne Gimbal und ohne Drohne funktionieren.',
-      'Hero-Shots wenn sinnvoll in 16:9 und 9:16 separat komponieren.',
-      'Jede Hauptlocation bekommt BTS, Thumbnail/Foto, Clean Plate, Atmosphäre und Field Recording.'
-    ],
-    standardTasks: [
-      {text:'Establishing / Clean Plate ohne dich', priority:'P1', mic:'MIC 0'},
-      {text:'Extreme Wide mit dir - Umgebung dominiert', priority:'P1', mic:'MIC 0'},
-      {text:'Wide / fast Ganzkörper', priority:'P1', mic:'MIC 0'},
-      {text:'Medium Performance', priority:'P1', mic:'MIC 0 / MIC 1 nur Live-Rap'},
-      {text:'Close-up Gesicht / Blick', priority:'P2', mic:'MIC 0'},
-      {text:'Mindestens 3 Details / Texturen', priority:'P2', mic:'MIC 0'},
-      {text:'Low Angle oder Foreground Shot', priority:'P2', mic:'MIC 0'},
-      {text:'Walk In / Walk Out / Cross Frame', priority:'P2', mic:'MIC 0'},
-      {text:'Hero 16:9', priority:'P1', mic:'MIC 0'},
-      {text:'Hero 9:16', priority:'P1', mic:'MIC 0'},
-      {text:'Outfit A am stärksten Hintergrund', priority:'P1', mic:'MIC 0 / MIC 1 nur Live-Rap'},
-      {text:'Outfit B am stärksten Hintergrund', priority:'P1', mic:'MIC 0 / MIC 1 nur Live-Rap'},
-      {text:'Foto / Thumbnail', priority:'P1', mic:'MIC 0'},
-      {text:'20-60 s Umgebungsatmo', priority:'P2', mic:'MIC S'},
-      {text:'BTS: Ankunft / Plan / Prozess / Fazit', priority:'P1', mic:'MIC 1'},
-      {text:'Field Recording: mindestens 2 isolierte Sounds + 1 Stereo-Atmo', priority:'P2', mic:'MIC S / DJI Mic nah'},
-      {text:'Materialcheck: Fokus, Linse, Belichtung, Ton', priority:'P1', mic:'MIC 0'}
-    ],
-    soundIdeas: [
-      'Stereo-Atmo 30-60 s: Stadt, Wasser, Wald, Regen, Bahnhof/Verkehr aus sicherem Bereich',
-      'Isolierte Sounds: Schritte, Laub, Reißverschluss, Mantel, Tür, Wasser, Kies, Geländer, Schirm',
-      'Gutes Geräusch dreimal: normal, leise/langsam, kräftig/schnell',
-      'Vor und nach jedem isolierten Sound 2-3 s Ruhe mit aufnehmen',
-      'Keine identifizierbaren Privatgespräche oder fremde Musik als Hauptsample'
-    ],
-    micLegend: {
-      'MIC 0':'Kein Mic nötig - Lip-Sync / Musikvideo-Performance.',
-      'MIC 1':'DJI Mic Mini - Live-Rap, Talking, BTS, Intro/Outro.',
-      'MIC S':'Breite Stereo-Atmo bevorzugt mit S24; isoliertes Foley mit DJI Mic Mini nah an der Quelle.'
-    }
-  },
-  projects: [
-    {
-      id:'schwerin-2026-10',
-      name:'Schwerin 48H Content',
-      city:'Schwerin',
-      dates:'09.10.2026 - 11.10.2026',
-      subtitle:'Ich hatte nur 48 Stunden für einen Monat Content',
-      pdf:'Schwerin_48H_Blueprint_Liquid.pdf',
-      notes:'Ziel: Schwerin nach dem Wochenende als abgehakt markieren. Doppelbesuche nur für Tag/Nacht, Wetter-Pickups oder echtes Drohnenfenster.',
-      locations:[
-        {
-          id:'media-markt', date:'Fr 09.10.', time:'12:00-12:45', name:'MediaMarkt Schwerin', address:'Marienplatz 5-7, 19053 Schwerin', type:'Logistik',
-          notes:'Stativ + mechanische Handyhalterung; optional Powerbank.',
-          tasks:[
-            {text:'Stativ / Handyhalterung kaufen', priority:'P1', mic:'MIC 0'},
-            {text:'Optional 20.000 mAh USB-C-PD Powerbank', priority:'P2', mic:'MIC 0'}
-          ]
-        },
-        {
-          id:'alter-garten', date:'Fr 09.10.', time:'13:15-14:10', name:'Alter Garten + Schlossbruecke', address:'Alter Garten, 19055 Schwerin', type:'Schloss-Cluster',
-          notes:'Schloss direkt gegenüber: Lennéstraße 1, 19053 Schwerin.',
-          tasks:[
-            {text:'BTS: erster Hauptspot + Ziel erklären', priority:'P1', mic:'MIC 1'},
-            {text:'Clean Plate Brücke / Schloss 16:9, 10 s', priority:'P1', mic:'MIC 0'},
-            {text:'Wide: du klein, Schloss dominant', priority:'P1', mic:'MIC 0'},
-            {text:'Walking auf Kamera zu + weg', priority:'P2', mic:'MIC 0'},
-            {text:'Walking-Collage seitlich, 6-8 m Abstand', priority:'P1', mic:'MIC 0'},
-            {text:'Performance Outfit A: Wide + Medium', priority:'P1', mic:'MIC 0 / MIC 1 nur Live-Rap'},
-            {text:'Performance Outfit B: urbanerer Winkel', priority:'P1', mic:'MIC 0 / MIC 1 nur Live-Rap'},
-            {text:'B-Roll: Geländer, Türme, Pferdebaendiger, nasses Pflaster/Pfütze', priority:'P2', mic:'MIC 0'},
-            {text:'Close-ups: Gesicht, Mantelkragen, Handschuhe, Schuhe', priority:'P2', mic:'MIC 0'},
-            {text:'Thumbnail / Foto mit Schloss', priority:'P1', mic:'MIC 0'},
-            {text:'Field Rec: Schritte, Wind, Wasser/Umgebung, einzelne Fahrzeuge sicher vom Standpunkt', priority:'P2', mic:'MIC S / DJI Mic nah'},
-            {text:'20-60 s Atmo ohne Sprechen', priority:'P2', mic:'MIC S'}
-          ]
-        },
-        {
-          id:'schlossinsel', date:'Fr 09.10.', time:'14:10-15:10', name:'Schlossinsel / Burggarten', address:'Lennéstraße 1, 19053 Schwerin', type:'Schloss-Cluster',
-          notes:'Architektur, Tiefe, Treppen, Geländer und Vordergrund nutzen.',
-          tasks:[
-            {text:'BTS: Weg/Eingang + gesuchte Perspektive erklären', priority:'P1', mic:'MIC 1'},
-            {text:'Architektur: Türme, Türen, Fassaden, Statuen, Treppen', priority:'P2', mic:'MIC 0'},
-            {text:'Low Angle Schlossfassade', priority:'P2', mic:'MIC 0'},
-            {text:'Foreground durch Geländer/Blätter/Torbogen', priority:'P2', mic:'MIC 0'},
-            {text:'Performance pro Outfit an 1-2 starken Winkeln', priority:'P1', mic:'MIC 0 / MIC 1 nur Live-Rap'},
-            {text:'Stillness 15-20 s - du still, Umgebung bewegt sich', priority:'P2', mic:'MIC 0'},
-            {text:'Vogelperspektive von sicherer erhöhter Position', priority:'P2', mic:'MIC 0'},
-            {text:'Clean Plate + 20 s Atmo', priority:'P2', mic:'MIC S'},
-            {text:'Field Rec: Laub, Schritte, Wind, Park-Atmo', priority:'P2', mic:'MIC S / DJI Mic nah'},
-            {text:'Foto / Thumbnail', priority:'P1', mic:'MIC 0'}
-          ]
-        },
-        {
-          id:'schlossgarten', date:'Fr 09.10.', time:'15:10-16:20', name:'Schlossgarten / Kreuzkanal', address:'Lennéstraße 1, 19053 Schwerin', type:'Schloss-Cluster',
-          notes:'Symmetrie, Wege, Blätter, Wind und Wasser nutzen.',
-          tasks:[
-            {text:'BTS: Setup + symmetrische Sichtachse', priority:'P1', mic:'MIC 1'},
-            {text:'Wide symmetrisch', priority:'P1', mic:'MIC 0'},
-            {text:'Walking-Collage auf Weg/Allee', priority:'P1', mic:'MIC 0'},
-            {text:'Performance Outfit A - P1', priority:'P1', mic:'MIC 0 / MIC 1 nur Live-Rap'},
-            {text:'Performance Outfit B - 1 gutes Setup', priority:'P2', mic:'MIC 0 / MIC 1 nur Live-Rap'},
-            {text:'B-Roll: Bäume im Wind, Blätter, Schuh durch Laub, Kanal, Wasser, Statuen', priority:'P2', mic:'MIC 0'},
-            {text:'Pfützen-Spiegelung tief, 60 fps bei Schritt durchs Bild', priority:'P1', mic:'MIC 0'},
-            {text:'Clean Plate + Foto/Thumbnail', priority:'P1', mic:'MIC 0'},
-            {text:'Field Rec: Wind in Baumkronen, Blätter, Schritte, Kanalwasser', priority:'P2', mic:'MIC S / DJI Mic nah'},
-            {text:'30-60 s Clean Atmo', priority:'P2', mic:'MIC S'}
-          ]
-        },
-        {
-          id:'burgsee', date:'Fr 09.10.', time:'16:20-18:30', name:'Schwimmende Wiese + Burgsee-Ufer', address:'Bertha-Klingberg-Platz, 19053 Schwerin', type:'Schloss-Cluster',
-          notes:'Wichtigster Ufer-/Schilfblock. Dämmerung hier mitnehmen, wenn Licht passt.',
-          tasks:[
-            {text:'BTS: Ufer/Schlossblick + Ziel "klein im Bild"', priority:'P1', mic:'MIC 1'},
-            {text:'Schloss vom Ufer mit Schilf unscharf im Vordergrund', priority:'P1', mic:'MIC 0'},
-            {text:'Du klein am Ufer, Schloss im Hintergrund', priority:'P1', mic:'MIC 0'},
-            {text:'Wide: Rücken zur Kamera, Blick aufs Wasser/Schloss', priority:'P1', mic:'MIC 0'},
-            {text:'Walking-Collage seitlich ca. 7 m entfernt', priority:'P1', mic:'MIC 0'},
-            {text:'Performance A + B je Wide/Medium an stärksten Uferwinkeln', priority:'P1', mic:'MIC 0 / MIC 1 nur Live-Rap'},
-            {text:'B-Roll: Schilf, Wellen, Reflexion, Geländer, Mantel im Wind, Silhouette', priority:'P2', mic:'MIC 0'},
-            {text:'Close-ups: Augen/Gesicht, Hände, Schuhe, Stoff', priority:'P2', mic:'MIC 0'},
-            {text:'Hero 16:9 + Hero 9:16 + Thumbnail', priority:'P1', mic:'MIC 0'},
-            {text:'Field Rec: Schilf, Wasser, Vögel, Wind, ferne Stadt', priority:'P2', mic:'MIC S / DJI Mic nah'},
-            {text:'20-60 s Stereo-Atmo', priority:'P2', mic:'MIC S'}
-          ]
-        },
-        {
-          id:'drone-castle', date:'Fr/Sa/So', time:'Nur trocken + windarm', name:'Drohnenblock Schloss / Park / Vogelperspektive', address:'Lennéstraße 1, 19053 Schwerin', type:'BONUS',
-          notes:'Nur legal, trocken, VLOS, sicherer Start/Landeplatz, Geo-Zone vorher prüfen. Kein Zwang.',
-          tasks:[
-            {text:'Ruhiger 1/4- bis 1/2-Orbit um Schloss', priority:'BONUS', mic:'MIC 0'},
-            {text:'Schloss / Insel Top-down', priority:'BONUS', mic:'MIC 0'},
-            {text:'Park / Schlossgarten Top-down oder 45 Grad', priority:'BONUS', mic:'MIC 0'},
-            {text:'Du aus Vogelperspektive für Collage', priority:'BONUS', mic:'MIC 0'},
-            {text:'Vertikaler Drohnen-Hero', priority:'BONUS', mic:'MIC 0'},
-            {text:'Vor Start: Regen, Böen, Menschenlage, Geo-Zone, Startplatz prüfen', priority:'P1', mic:'MIC 0'}
-          ]
-        },
-        {
-          id:'markt', date:'Fr 09.10.', time:'20:15-21:00', name:'Altstädtischer Markt', address:'Am Markt, 19055 Schwerin', type:'Nacht-Cluster',
-          notes:'Nasses Pflaster, Fassaden, Laternen, Reflexionen.',
-          tasks:[
-            {text:'BTS: Night-Setup + Regen/Reflexionen', priority:'P1', mic:'MIC 1'},
-            {text:'Clean Plate Markt/Fassaden 10 s', priority:'P1', mic:'MIC 0'},
-            {text:'Wide: du klein, Architektur dominant', priority:'P1', mic:'MIC 0'},
-            {text:'Performance Outfit A P1, Outfit B P2', priority:'P1', mic:'MIC 0 / MIC 1 nur Live-Rap'},
-            {text:'Walking-Collage entlang Fassade/Laternen', priority:'P1', mic:'MIC 0'},
-            {text:'B-Roll: Fassade, Fenster, Pflaster, Pfützen, Laternen, Blätter, Regenrinne', priority:'P2', mic:'MIC 0'},
-            {text:'Pfützenspiegelung extrem tief', priority:'P1', mic:'MIC 0'},
-            {text:'Close Gesicht mit Seitenlicht', priority:'P2', mic:'MIC 0'},
-            {text:'Thumbnail nasses Pflaster + Architektur', priority:'P1', mic:'MIC 0'},
-            {text:'Field Rec: Regen, Pfützen-Schritte, Stadt-Hall, Auto-Pass-bys sicher', priority:'P2', mic:'MIC S / DJI Mic nah'}
-          ]
-        },
-        {
-          id:'schelfstadt', date:'Fr 09.10.', time:'21:00-21:50', name:'Schelfstadt / Schelfkirche', address:'Puschkinstraße 3, 19055 Schwerin', type:'Nacht-Cluster',
-          notes:'Kopfsteinpflaster, Fachwerk/Backstein, enge Gassen.',
-          tasks:[
-            {text:'BTS: Gasse + Look erklären', priority:'P1', mic:'MIC 1'},
-            {text:'Walking-Collage seitlich, 5-7 m', priority:'P1', mic:'MIC 0'},
-            {text:'Performance Outfit B P1', priority:'P1', mic:'MIC 0 / MIC 1 nur Live-Rap'},
-            {text:'Performance Outfit A P2 nur bei starkem Winkel', priority:'P2', mic:'MIC 0 / MIC 1 nur Live-Rap'},
-            {text:'B-Roll: Fachwerk, Backstein, Fenster, Laternen, Äste, Blätter', priority:'P2', mic:'MIC 0'},
-            {text:'Low Angle Schuhe auf Kopfsteinpflaster, 60 fps', priority:'P2', mic:'MIC 0'},
-            {text:'Foreground durch Tor/Geländer/Äste', priority:'P2', mic:'MIC 0'},
-            {text:'Clean Plate + 20 s Atmo', priority:'P2', mic:'MIC S'},
-            {text:'Field Rec: Kopfstein-Schritte, Tropfen/Regenrinne, Wind, Tor/Tür wenn passend', priority:'P2', mic:'MIC S / DJI Mic nah'}
-          ]
-        },
-        {
-          id:'pfaffenteich', date:'Fr 09.10.', time:'21:50-22:45', name:'Pfaffenteich', address:'Pfaffenteich, 19055 Schwerin', type:'Nacht-Cluster',
-          notes:'Wasser, Lichter, Spiegelungen und Abschluss-BTS.',
-          tasks:[
-            {text:'BTS: Wasser/Häuser + was noch fehlt', priority:'P1', mic:'MIC 1'},
-            {text:'Wide: du am Wasser, Lichter/Häuser hinten', priority:'P1', mic:'MIC 0'},
-            {text:'Walking-Collage Promenade/Laternen', priority:'P1', mic:'MIC 0'},
-            {text:'Stillness: du stehst/sitzt, Wasser bewegt sich', priority:'P2', mic:'MIC 0'},
-            {text:'Performance: 1 starkes Setup pro Outfit', priority:'P1', mic:'MIC 0 / MIC 1 nur Live-Rap'},
-            {text:'B-Roll: Wasser, Reflexionen, Lichter, Geländer, Wind, Tropfen', priority:'P2', mic:'MIC 0'},
-            {text:'Silhouette gegen Lichter/Wasser', priority:'P2', mic:'MIC 0'},
-            {text:'Clean Plate + Atmo + Abschluss-BTS', priority:'P1', mic:'MIC S / MIC 1'},
-            {text:'Field Rec: Wasser, Wind, Vögel, ferne Stadt/Verkehr', priority:'P2', mic:'MIC S'}
-          ]
-        },
-        {
-          id:'zippendorf', date:'Sa 10.10.', time:'08:30-11:30', name:'Zippendorfer Strand', address:'Am Strand 14, 19063 Schwerin', type:'Bonus-Location',
-          notes:'Nur wenn Schloss/Nacht P1 sitzen. Neue Bildwelt statt redundanter Schlossvarianten.',
-          tasks:[
-            {text:'BTS: neue Bildwelt - offener See', priority:'P1', mic:'MIC 1'},
-            {text:'Extreme Wide: du klein am Wasser', priority:'P1', mic:'MIC 0'},
-            {text:'Walking seitlich an Promenade/Strandkante', priority:'P1', mic:'MIC 0'},
-            {text:'Performance Outfit B P1, Outfit A optional', priority:'P1', mic:'MIC 0 / MIC 1 nur Live-Rap'},
-            {text:'Foreground: Schilf/Gräser/Zaun/Äste', priority:'P2', mic:'MIC 0'},
-            {text:'Details: Wasser, Sand, Schuhe, Hände, Jacke im Wind', priority:'P2', mic:'MIC 0'},
-            {text:'Clean Plate + Atmo + Foto', priority:'P1', mic:'MIC S'},
-            {text:'Field Rec: Wellen, Wind, Schilf, Schritte auf Sand/Kies, Vögel', priority:'P2', mic:'MIC S / DJI Mic nah'},
-            {text:'Drohne nur legal, trocken, deutlich windarm', priority:'BONUS', mic:'MIC 0'}
-          ]
-        },
-        {
-          id:'sat-transfer', date:'Sa 10.10.', time:'11:30-12:30', name:'Transfer + Essen + kurzer Datencheck', address:'', type:'Logistik',
-          notes:'Bewusst eingeplanter Puffer. Akkus laden, Material kurz prüfen, essen und nur dann weiter, wenn der Vormittagsblock wirklich sitzt.',
-          tasks:[
-            {text:'Zippendorf-Material auf Fokus, Linse und Ton prüfen', priority:'P1', mic:'MIC 0'},
-            {text:'S24, Mic, Controller und Powerbank nachladen', priority:'P1', mic:'MIC 0'},
-            {text:'Kurze Essens-/Transferpause einhalten', priority:'P1', mic:'MIC 0'},
-            {text:'Offene P1-Liste für den Nachmittag festlegen', priority:'P1', mic:'MIC 0'}
-          ]
-        },
-        {
-          id:'sat-pickups', date:'Sa 10.10.', time:'12:30-15:00', name:'P1-Pickups / fehlende Pflichtshots', address:'Nur exakter offener Spot laut P1-Liste', type:'Pickups',
-          notes:'Keinen kompletten Cluster neu drehen. Nur gezielt fehlende P1-Shots schließen.',
-          tasks:[
-            {text:'Offene P1-Shots anzeigen und nach Weg/Location bündeln', priority:'P1', mic:'MIC 0'},
-            {text:'Fehlende Schloss-/Ufer-Hero-Shots gezielt nachholen', priority:'P1', mic:'MIC 0'},
-            {text:'Fehlende Performance A/B nur an noch offenen Hauptspots', priority:'P1', mic:'MIC 0 / MIC 1 nur Live-Rap'},
-            {text:'Fehlende Walking-/Top-down-Collage-Shots schließen', priority:'P1', mic:'MIC 0'},
-            {text:'Fehlende BTS-/Thumbnail-/Field-Recording-Pflichtpunkte schließen', priority:'P1', mic:'MIC 1 / MIC S / MIC D'},
-            {text:'Nach jedem Pickup sofort Fokus, Linse, Belichtung und Ton prüfen', priority:'P1', mic:'MIC 0'}
-          ]
-        },
-        {
-          id:'sat-universal', date:'Sa 10.10.', time:'15:15-17:15', name:'Neue Location / Universal-Blueprint', address:'Vor Ort nur eine wirklich neue Bildwelt auswählen', type:'Neue Location',
-          notes:'Nur wenn P1 weitgehend komplett ist. Ziel ist neue Optik statt noch mehr Schloss-Duplikate.',
-          tasks:[
-            {text:'Location mit mindestens zwei starken Kriterien auswählen: Tiefe, Licht, Linien, Textur, Natur/Architektur', priority:'P1', mic:'MIC 0'},
-            {text:'BTS: Warum ist diese Location visuell anders?', priority:'P1', mic:'MIC 1'},
-            {text:'Clean Plate + Extreme Wide + Wide', priority:'P1', mic:'MIC 0'},
-            {text:'Walking-Collage im gleichen Outfit und gleicher Laufrichtung', priority:'P1', mic:'MIC 0'},
-            {text:'Eine starke Performance statt mehrere ähnliche Setups', priority:'P1', mic:'MIC 0 / MIC 1 nur Live-Rap'},
-            {text:'Close-ups + 3 Details + Low/Foreground', priority:'P2', mic:'MIC 0'},
-            {text:'Thumbnail/Foto + 20-60 s Stereo-Atmo + 2 Foley-Sounds', priority:'P1', mic:'MIC S / MIC D'}
-          ]
-        },
-        {
-          id:'sat-bluehour', date:'Sa 10.10.', time:'17:15-19:15', name:'Golden Hour / Blue Hour', address:'Stärkster noch sinnvoller Spot laut P1-Liste', type:'Lichtfenster',
-          notes:'Ein zweiter Besuch ist hier nur erlaubt, wenn das Licht einen klar anderen Look erzeugt oder Freitag wetterbedingt etwas ausgefallen ist.',
-          tasks:[
-            {text:'Einen einzigen Hero-Spot für das Lichtfenster festlegen', priority:'P1', mic:'MIC 0'},
-            {text:'Hero 16:9 und 9:16 in Golden/Blue Hour', priority:'P1', mic:'MIC 0'},
-            {text:'Performance Outfit A oder B – nur die stärkere Variante', priority:'P1', mic:'MIC 0 / MIC 1 nur Live-Rap'},
-            {text:'Silhouette / Gegenlicht / Reflexion als P2', priority:'P2', mic:'MIC 0'},
-            {text:'BTS: Lichtwechsel + fertiges Ergebnis dokumentieren', priority:'P1', mic:'MIC 1'}
-          ]
-        },
-        {
-          id:'sat-evening', date:'Sa 10.10.', time:'19:15-20:15', name:'Essen + Akkus + Backup', address:'', type:'Logistik',
-          notes:'Kein Drehzwang. Material sichern, essen und Akkus für den Abend/ Sonntag voll machen.',
-          tasks:[
-            {text:'S24 / SD-Karte auf SSD kopieren – Originale behalten', priority:'P1', mic:'MIC 0'},
-            {text:'Akkus, Mic, Controller und Powerbank laden', priority:'P1', mic:'MIC 0'},
-            {text:'P1-Stand prüfen und Sonntag nur noch echte Lücken offen lassen', priority:'P1', mic:'MIC 0'}
-          ]
-        },
-        {
-          id:'sat-longform', date:'Sa 10.10.', time:'20:15-22:30', name:'Longform + Indoor / Nacht-Pickups', address:'Unterkunft oder nur ein gezielt noch fehlender Nachtspot', type:'Longform',
-          notes:'Nicht automatisch wieder die komplette Altstadt drehen. Priorität: YouTube-Story, Materialreview, Indoor-Details und nur fehlende Nacht-P1.',
-          tasks:[
-            {text:'Longform-Talking: Was wurde heute geschafft, was fehlt, was ging schief?', priority:'P1', mic:'MIC 1'},
-            {text:'BTS: Materialreview / Timeline / Backup zeigen', priority:'P1', mic:'MIC 1'},
-            {text:'Indoor-Close-ups: Hände, Kleidung, Equipment, Speichermedien', priority:'P2', mic:'MIC 0'},
-            {text:'Optional genau einen fehlenden Nacht-P1-Shot nachholen', priority:'P1', mic:'MIC 0 / MIC 1 nur Live-Rap'},
-            {text:'Zweite vollständige SSD-Sicherung / Stichprobe großer Dateien', priority:'P1', mic:'MIC 0'}
-          ]
-        },
-        {
-          id:'sun-pickups', date:'So 11.10.', time:'08:30-10:30', name:'Letzte P1/P2-Pickups + optional Drohne', address:'Nur offene Pflichtlocation laut Liste', type:'Pickups',
-          notes:'Sonntag ist kein dritter kompletter Drehtag. Erst P1, dann P2; Drohne nur bei legalem, trockenem und windarmem Fenster.',
-          tasks:[
-            {text:'Alle noch offenen P1 zuerst schließen', priority:'P1', mic:'MIC 0'},
-            {text:'Maximal 1-2 P2-Shots mit echtem Mehrwert ergänzen', priority:'P2', mic:'MIC 0'},
-            {text:'Optional Drohnen-Orbit/Top-down nur bei sicheren Bedingungen', priority:'BONUS', mic:'MIC 0'},
-            {text:'Je Pickup direkt Fokus, Linse, Belichtung und Ton prüfen', priority:'P1', mic:'MIC 0'}
-          ]
-        },
-        {
-          id:'sun-sound', date:'So 11.10.', time:'10:30-11:30', name:'Field Recording / Soundbibliothek', address:'Ruhiger, sicherer Spot auf der Abreiseroute', type:'Audio',
-          notes:'Nur wenn die visuellen P1-Shots erledigt sind.',
-          tasks:[
-            {text:'1-2 breite Stereo-Atmos à 30-60 s aufnehmen', priority:'P1', mic:'MIC S'},
-            {text:'Mindestens 4 isolierte Foley-Sounds aufnehmen', priority:'P1', mic:'MIC D'},
-            {text:'Wasser, Wind, Schritte, Laub, Stoff oder Verkehr aus sicherem Standpunkt variieren', priority:'P2', mic:'MIC S / MIC D'},
-            {text:'Keine privaten Gespräche oder fremde Musik gezielt aufnehmen', priority:'P1', mic:'MIC 0'}
-          ]
-        },
-        {
-          id:'sun-wrap', date:'So 11.10.', time:'11:30-12:45', name:'Longform-Fazit + finale Sicherung', address:'Unterkunft / ruhiger Innenraum', type:'Abschluss',
-          notes:'Schwerin inhaltlich abschließen: Ergebnis, Fehler, Umfang und nächster Schritt.',
-          tasks:[
-            {text:'Longform-Fazit: Was ist in 48 Stunden tatsächlich entstanden?', priority:'P1', mic:'MIC 1'},
-            {text:'Thumbnail-/Hero-Favoriten kurz markieren', priority:'P2', mic:'MIC 0'},
-            {text:'Finale SSD-Kopie erstellen und mehrere Videodateien öffnen', priority:'P1', mic:'MIC 0'},
-            {text:'Offene Aufgaben nur stehen lassen, wenn sie wirklich bewusst verworfen werden', priority:'P1', mic:'MIC 0'}
-          ]
-        },
-        {
-          id:'sun-pack', date:'So 11.10.', time:'12:45-13:30', name:'Packen + Equipment-Check', address:'Unterkunft', type:'Logistik',
-          notes:'Nichts mehr anfangen, was die Abreise gefährdet.',
-          tasks:[
-            {text:'S24, SSD, Mic, Drohne, Controller, Akkus, Ladegeräte, Stativ und Kleidung prüfen', priority:'P1', mic:'MIC 0'},
-            {text:'Speicherkarten / SSD sicher verstauen', priority:'P1', mic:'MIC 0'},
-            {text:'Unterkunft vollständig kontrollieren', priority:'P1', mic:'MIC 0'}
-          ]
-        },
-        {
-          id:'sun-departure', date:'So 11.10.', time:'13:30-14:00', name:'Abreise-Puffer', address:'', type:'Abreise',
-          notes:'30 Minuten Reserve. Keine neuen Drehs mehr.',
-          tasks:[
-            {text:'Abreise starten / Bahnhof oder nächste Verbindung ansteuern', priority:'P1', mic:'MIC 0'},
-            {text:'Schwerin als Dreh abgeschlossen markieren, wenn alle P1 erledigt oder bewusst verworfen sind', priority:'P1', mic:'MIC 0'}
-          ]
-        }
-      ]
-    }
-  ]
+(function(){
+const t=(text,priority='P2',category='Shot',minutes=4,mic='MIC 0',gear='S24 + Stativ')=>({text,priority,category,minutes,mic,gear});
+const loc=(id,date,time,name,address,type,notes,fieldrec,tasks)=>({id,date,time,name,address,type,notes,fieldrec,tasks});
+window.BLUEPRINT_SEED={
+version:3,
+master:{
+ name:'Universal Content-Trip Blueprint',
+ description:'Wiederverwendbarer Master für City-/Location-Drehs. Locations, Adressen, Route, Licht, Saison, Outfits und lokale Drohnenlage werden angepasst; die Produktionslogik bleibt.',
+ locationCriteria:[
+  'Mindestens zwei starke Kriterien: Tiefe, Licht, Architektur/Natur, Linien/Symmetrie, Spiegelung/Textur, Bewegung oder 5-15 m sichere Kameradistanz.',
+  'Kernshots müssen ohne Gimbal und ohne Drohne funktionieren.',
+  'Hero-Shots wenn sinnvoll in 16:9 und 9:16 separat komponieren.',
+  'Jede Hauptlocation bekommt BTS, Thumbnail/Foto, Clean Plate, Atmosphäre und Field Recording.',
+  'Location erst verlassen, wenn P1, BTS, Foto, Clean Plate, Audio und Materialcheck erledigt sind.'
+ ],
+ technicalRules:[
+  'Normale Master-Takes: 4K/30 fps',
+  'Bewegung/Detail: 4K/60 fps',
+  'Hero-Shots: 16:9 + 9:16 separat komponieren',
+  'Longform/BTS: 16:9',
+  'Reels/Shorts: 9:16',
+  'Master-Take 15-25 s; 2-3 s vor/nach Aktion halten',
+  'Bei Regen Linse ständig kontrollieren',
+  'Originale behalten + Kopie auf exFAT-SSD'
+ ],
+ standardTasks:[
+  t('Establishing Wide / Clean Plate ohne dich','P1','Clean Plate',3),
+  t('Wide mit dir','P1','Shot',5),
+  t('Medium Performance','P1','Performance',7,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
+  t('Close-up','P1','Close-up',4),
+  t('Mindestens 3 Detailshots','P1','B-Roll',6),
+  t('Low Angle oder Foreground Shot','P2','Shot',4),
+  t('Walk In / Walk Out / Cross Frame','P2','Shot',5),
+  t('Hero 16:9','P1','Hero',5),
+  t('Hero 9:16','P1','Hero',5),
+  t('Outfit A an stärksten 1-2 Hintergründen','P1','Performance',7,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
+  t('Outfit B an stärksten 1-2 Hintergründen','P1','Performance',7,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
+  t('Foto / Thumbnail','P1','Foto',3,'MIC 0','S24'),
+  t('20 s Umgebungsatmo','P1','Audio',4,'MIC S','S24 Stereo'),
+  t('BTS: Ankunft / Plan / Prozess / Ergebnis / Fazit','P1','BTS',5,'MIC 1','S24 + DJI Mic Mini'),
+  t('Field Recording: mindestens 2 Sounds + 1 Stereo-Atmo','P1','Audio',7,'MIC S / MIC D','S24 / DJI Mic Mini + Windschutz'),
+  t('Material kurz prüfen: Fokus, Tropfen, Belichtung, Ton','P1','QC',3,'MIC 0','S24')
+ ],
+ universalShotlist:[
+  'Clean Plate / Establishing 8-15 s','Extreme Wide mit dir 15-25 s','Wide 15-25 s','Medium Performance 15-25 s','Close 8-15 s',
+  'Detail x3: Hände, Schuhe, Stoff, Objekt/Oberfläche','Low Angle 10-20 s','Foreground 10-20 s','Walk In / Out 15-20 s','Cross Frame 15-20 s',
+  'Stillness 15-25 s','Reflection / Texture 10-20 s','Hero 16:9 15-25 s','Hero 9:16 15-25 s','BTS + Atmo 20-40 s'
+ ],
+ soundIdeas:[
+  'Stereo-Atmo 30-60 s: Stadt, Wald, Wasser, Regen, Bahnhof/Verkehr aus sicherem Bereich',
+  'Isoliertes Geräusch: DJI Mic Mini 10-40 cm an Quelle; Windschutz',
+  'Jedes gute Geräusch 3x: normal, leise/langsam, kräftig/schnell',
+  'Vor/nach Sound 2-3 s Ruhe aufnehmen',
+  'Keine identifizierbaren Privatgespräche/fremde Musik als Sample einplanen'
+ ],
+ walkingCollage:[
+  'Ein Outfit pro fertiger Collage konstant halten','Kamera ca. 1,1-1,3 m hoch; seitlich; 6-8 m Abstand als Startwert',
+  '1x Brennweite beibehalten; Körpergröße im Bild angleichen','Immer gleiche Laufrichtung','Gleiches Tempo; pro Spot 2-3 Takes',
+  '2 s vor Eintritt starten, 2 s nach Verlassen weiterlaufen lassen'
+ ],
+ topDownCollage:[
+  'Gleiche Körperposition im Frame; Untergrund wechselt','Pflaster, Laub, Gras, Uferweg, Sand als Texturen',
+  'Drohne nur sicher/frei; urban lieber feste erhöhte Position','Je Spot 10-15 s still + kleine Bewegung'
+ ],
+ btsChecklist:[
+  'Ankunft 10-20 s: Wo bist du, was willst du drehen?','Plan 10-20 s: konkretes Problem/Ziel (Licht, Regen, Wind, Perspektive, Outfit)',
+  'Prozess optional 10-20 s: Stativ, Outfit, Testframe','Ergebnis 10-20 s: fertiger Shot direkt im Anschluss',
+  'Fazit 10-20 s: funktioniert? was fehlt?','Atmo 20 s: Kamera ruhig, kein Sprechen'
+ ],
+ closeUpMaster:[
+  'Gesicht: Augenhöhe/leicht darunter, Seitenlicht, 8-15 s','Augen/Blick: Blick Kamera -> weg, Highlights schützen',
+  'Hände/Handschuhe: anziehen, Jacke schließen, Ärmel richten, 60 fps','Schuhe: 10-20 cm Höhe, Schritt durch Laub/Pfütze, 60 fps',
+  'Mantel/Jacke: Saum/Kragen im Wind, Gegen-/Seitenlicht','Blätter: tief, Wind oder Schritt durchs Bild, 60 fps',
+  'Pfütze: Linse knapp über Boden, Fokus auf Spiegelbild','Laterne: seitlich im Frame, du dahinter, Blue Hour/Nacht',
+  'Fassade: 45° nach oben, Verzerrung minimieren','Schilf: durch Halme auf dich/Architektur, Vordergrund unscharf',
+  'Wasser: tief am Ufer, 30 fps ruhig oder 60 fps Wellen'
+ ],
+ dataRoutine:[
+  'Nach Haupt-Cluster Material kurz prüfen; nichts löschen','Abends Handy/Drohnenkarte -> SSD kopieren; Originale behalten',
+  'Mittags Speicher/Akkus prüfen; Powerbank/Controller/Mic laden','Vor Abreise mehrere große Dateien von SSD testweise öffnen'
+ ],
+ micDecision:[
+  'Lip-Sync/Rap zu fertigem Song: MIC 0, Master später unterlegen','Live-Rap hörbar: MIC 1, DJI Mic Mini + Windschutz',
+  'BTS/Talking/Intro/Outro: MIC 1','Breite Stadt-/Natur-Atmo: S24 Stereo / Voice Recorder','Isoliertes Foley: MIC D, DJI Mic Mini nah an Quelle'
+ ],
+ season:[
+  'Herbst: Blätter, Wind, Regen, Pfützen, frühe Blue Hour','Sommer: längere Golden Hour, Wasser, Gegenlicht/Silhouetten, harte Mittagssonne meiden',
+  'Winter: frühe Nacht, Atem/Kälte, Lichtquellen, Akku-Management','Frühling: Blüte, frisches Grün, Regen/Reflexionen, längere Tage',
+  'Bekannte Stadt erneut: gleiche Pflichtstruktur, neue Saison-/Licht-/Outfitmodule'
+ ],
+ micLegend:{
+  'MIC 0':'Kein Mikro: Lip-Sync / reine Bildaufnahme.',
+  'MIC 1':'DJI Mic Mini: Talking, BTS, Live-Rap.',
+  'MIC S':'Samsung S24 Stereo: breite Stadt-/Natur-Atmosphäre.',
+  'MIC D':'DJI Mic Mini nah an Quelle: isoliertes Foley/Detail.'
+ }
+},
+projects:[{
+ id:'schwerin-2026-10',name:'Schwerin 48H Content',city:'Schwerin',dates:'09.10.2026 - 11.10.2026',
+ subtitle:'Ich hatte nur 48 Stunden für einen Monat Content',pdf:'Schwerin_48H_Blueprint_TIMED_MOBILE.pdf',
+ notes:'Timed-Mobile-PDF ist die Referenz. Keine unnötigen Doppelbesuche; Rückkehr nur für fehlende P1, echten Tag/Nacht-Mehrwert oder sicheres Drohnenfenster.',
+ locations:[
+  loc('media-markt','Fr 09.10.2026','12:00-12:45','Ausrüstung holen','Marienplatz 5-7, 19053 Schwerin','Logistik','MediaMarkt Schwerin.','',[
+   t('Stativ + mechanische Handyhalterung besorgen','P1','Organisation',14,'MIC 0','—'),
+   t('Optional: 20.000-mAh-Powerbank mit USB-C PD 25-45 W','P2','Organisation',12,'MIC 0','—'),
+   t('USB-C-Kabel / Speicher / Akkustand prüfen','P1','Organisation',14,'MIC 0','—')
+  ]),
+  loc('alter-garten','Fr 09.10.2026','13:15-14:15','Alter Garten + Schlossbrücke','Alter Garten, 19055 Schwerin','Schloss-Cluster',
+   'Schloss direkt gegenüber: Lennéstraße 1, 19053 Schwerin. Start des Schloss-Clusters.',
+   'Schritte auf Brücke/Pflaster, Wind an Geländer/Bäumen, Wasser/Umgebung, ggf. einzelne Fahrzeuge aus sicherem Standpunkt.',[
+   t("BTS: 10-20 s Selfie - 'Erster Hauptspot, Ziel ist heute Schloss komplett abzuhaken.'",'P1','BTS',4,'MIC 1','S24 + DJI Mic Mini'),
+   t('Clean Plate: Brücke / Schloss 16:9, mindestens 10 s ohne dich','P1','Clean Plate',3,'MIC 0','S24 + Stativ'),
+   t('Wide: du klein auf/nahe der Brücke, Schloss dominant','P1','Shot',5,'MIC 0','S24 + Stativ'),
+   t('Walking: auf Kamera zu + von Kamera weg; Leading Lines der Brücke nutzen','P2','Shot',4,'MIC 0','S24 + Stativ'),
+   t('Walking-Collage: seitlich, 6-8 m Abstand, Körper fast komplett sichtbar, gleiche Laufrichtung','P1','Shot',5,'MIC 0','S24 + Stativ'),
+   t('Performance Outfit A: Wide + Medium, frontal oder 20-30° seitlich','P1','Performance',7,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
+   t('Performance Outfit B: ein urbanerer Winkel; nicht jedes Setup wiederholen','P2','Performance',6,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
+   t('B-Roll: Geländer tief entlang, Schlosstürme, Pferdebändiger/Details, nasses Pflaster/Pfütze','P2','B-Roll',6,'MIC 0','S24 + Stativ'),
+   t('Close-ups: Gesicht, Mantelkragen, Handschuhe, Schuhe auf Pflaster','P2','Close-up',4,'MIC 0','S24 + Stativ'),
+   t('Thumbnail/Foto: Schloss klar erkennbar; nicht mittig vor Hauptturm','P1','Foto',3,'MIC 0','S24'),
+   t('Field Recording: 2 saubere Sounds + 1 Stereo-Atmo','P1','Audio',6,'MIC S / MIC D','S24 / DJI Mic Mini + Windschutz')
+  ]),
+  loc('schlossinsel','Fr 09.10.2026','14:15-15:15','Schlossinsel / Burggarten','Lennéstraße 1, 19053 Schwerin','Schloss-Cluster','',
+   'Laubrascheln, Schritte auf unterschiedlichen Untergründen, Wind in Bäumen, ruhige Schloss-/Park-Atmo.',[
+   t('BTS: Weg/Eingang zeigen + sagen, welche Perspektive du suchst','P1','BTS',4,'MIC 1','S24 + DJI Mic Mini'),
+   t('Architektur: Türme, Türen, Fassadendetails, Statuen, Geländer, Treppen','P2','B-Roll',7,'MIC 0','S24 + Stativ'),
+   t('Low Angle: Schlossfassade nach oben; Vertikalen möglichst gerade halten','P2','Shot',4,'MIC 0','S24 + Stativ'),
+   t('Foreground: durch Geländer/Blätter/Torbogen; du im Hintergrund','P2','Shot',4,'MIC 0','S24 + Stativ'),
+   t('Performance Outfit A an 1-2 stärksten Winkeln: Medium + Close','P1','Performance',8,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
+   t('Performance Outfit B an 1 starken Winkel: Medium + Close','P2','Performance',7,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
+   t('Stillness: 15-20 s, du fast still; Wind/Blätter/Umgebung bewegen sich','P2','Shot',4,'MIC 0','S24 + Stativ'),
+   t('Vogelperspektive ohne Drohne: sichere erhöhte Position suchen','P2','Top-down',4,'MIC 0','S24 + Stativ'),
+   t('Clean Plate + 20 s Atmo','P1','Clean Plate',4,'MIC 0','S24 + Stativ'),
+   t('Field Recording: 2 Sounds + 1 Stereo-Atmo','P1','Audio',7,'MIC S / MIC D','S24 / DJI Mic Mini + Windschutz')
+  ]),
+  loc('schlossgarten','Fr 09.10.2026','15:15-16:20','Schlossgarten / Kreuzkanal','Lennéstraße, 19053 Schwerin','Schloss-Cluster','',
+   'Wind in Baumkronen, Blätter am Boden, Schritte, Wasser am Kanal; 30-60 s Clean Atmo.',[
+   t('BTS: Setup + symmetrische Sichtachse + kurzer Vorher/Nachher-Kommentar','P1','BTS',5,'MIC 1','S24 + DJI Mic Mini'),
+   t('Wide symmetrisch: du mittig oder leicht off-center','P1','Shot',6,'MIC 0','S24 + Stativ'),
+   t('Walking-Collage: seitlich auf Weg/Allee; gleiche Kamerahöhe und Laufrichtung','P1','Shot',6,'MIC 0','S24 + Stativ'),
+   t('Performance Outfit A: P1 - Anzug/Mantel an stärkster Sichtachse','P1','Performance',9,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
+   t('Performance Outfit B: nur ein gutes Setup, wenn Zeit','P2','Performance',7,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
+   t('B-Roll: Bäume im Wind, Blätter, Schuh durch Blätter, Kreuzkanal, Wasser, Statuen','P2','B-Roll',7,'MIC 0','S24 + Stativ'),
+   t('Pfützenspiegelung: Kamera 10-20 cm hoch; 60 fps bei Schritt durchs Bild','P1','Reflection',6,'MIC 0','S24 + Stativ'),
+   t('Clean Plate + Foto/Thumbnail','P1','Foto',4,'MIC 0','S24'),
+   t('Field Recording: 2 Sounds + 1 Stereo-Atmo','P1','Audio',7,'MIC S / MIC D','S24 / DJI Mic Mini + Windschutz')
+  ]),
+  loc('burgsee','Fr 09.10.2026','16:20-18:15','Schwimmende Wiese + Burgsee-Ufer','Bertha-Klingberg-Platz, 19053 Schwerin','Schloss-Cluster','',
+   'Schilfrascheln, Wasserplätschern/Wellen, Vögel, Wind, ferne Stadt. Nahgeräusche mit DJI Mic windgeschützt.',[
+   t("BTS: Ufer/Schlossblick + 'Jetzt kommen die klein-im-Bild-Shots'",'P1','BTS',6,'MIC 1','S24 + DJI Mic Mini'),
+   t('P1 Hero: Schloss vom Ufer mit Schilf unscharf im Vordergrund','P1','Shot',8,'MIC 0','S24 + Stativ'),
+   t('P1 Hero: du am Ufer klein im Bild (ca. 10-20 % Bildhöhe), Schloss hinten','P1','Shot',8,'MIC 0','S24 + Stativ'),
+   t('Wide: Rücken zur Kamera, Blick aufs Schloss/Wasser','P1','Shot',8,'MIC 0','S24 + Stativ'),
+   t('Walking-Collage: seitlich ca. 7 m entfernt, fast Ganzkörper; See/Schloss hinten','P1','Shot',8,'MIC 0','S24 + Stativ'),
+   t('Performance Outfit A: Wide + Medium an stärkstem Uferwinkel','P1','Performance',13,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
+   t('Performance Outfit B: Wide + Medium an zweitem starken Uferwinkel','P1','Performance',13,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
+   t('B-Roll: Schilf, Wasser/Wellen, Schlossreflexion, Hände am Geländer, Wind im Mantel, Silhouette','P2','B-Roll',11,'MIC 0','S24 + Stativ'),
+   t('Close-ups: Augen/Gesicht 2x, Hände/Handschuhe, Schuhe, Mantel-/Jackenstoff','P2','Close-up',7,'MIC 0','S24 + Stativ'),
+   t('Hero 16:9 + Hero 9:16 + Thumbnail','P1','Hero',11,'MIC 0','S24 + Stativ'),
+   t('Field Recording: 2 Sounds + 1 Stereo-Atmo','P1','Audio',10,'MIC S / MIC D','S24 / DJI Mic Mini + Windschutz')
+  ]),
+  loc('drone-castle','Fr/Sa/So','nur bei sicherem Fenster','Drohnenblock Schloss','Vor Start DIPUL-Geozone und tatsächliche Bedingungen prüfen','BONUS',
+   'BONUS. Abbruch bei Regen/Niesel, starken Böen, Menschenmenge, rechtlicher Unklarheit oder schlechtem Start-/Landeplatz.','',[
+   t('Ruhiger 1/4- bis 1/2-Orbit um das Schloss','BONUS','Drohne',7,'MIC 0','DJI Mini 4 Pro'),
+   t('Schloss/Insel Top-down','BONUS','Drohne',7,'MIC 0','DJI Mini 4 Pro'),
+   t('Park/Schlossgarten Top-down oder 45° schräg','BONUS','Drohne',7,'MIC 0','DJI Mini 4 Pro'),
+   t('Du aus Vogelperspektive auf freier Fläche; gleiche Pose für Collage','BONUS','Drohne',7,'MIC 0','DJI Mini 4 Pro'),
+   t('Ein vertikaler Drohnen-Hero zusätzlich zum Querformat','BONUS','Drohne',7,'MIC 0','DJI Mini 4 Pro')
+  ]),
+  loc('markt','Fr 09.10.2026','20:15-21:05','Altstädtischer Markt - Nacht','Am Markt, 19055 Schwerin','Nacht-Cluster','',
+   'Regen auf Pflaster, Schritte durch Pfützen, einzelne Auto-Pass-bys vom sicheren Gehweg, Stadt-Hall/Markt-Atmo. Keine privaten Gespräche/fremde Musik als Hauptsample.',[
+   t('BTS: Night-Setup + Satz über Regen/Reflexionen','P1','BTS',3,'MIC 1','S24 + DJI Mic Mini'),
+   t('Clean Plate: Markt/Fassaden 10 s','P1','Clean Plate',3,'MIC 0','S24 + Stativ'),
+   t('Wide: du klein im Platz, Architektur dominant','P1','Shot',4,'MIC 0','S24 + Stativ'),
+   t('Performance Outfit A P1 am besten Hintergrund','P1','Performance',5,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
+   t('Performance Outfit B P2 nur wenn klar anderer Look','P2','Performance',5,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
+   t('Walking-Collage: seitlich entlang Häuserfront/Laternen','P1','Shot',4,'MIC 0','S24 + Stativ'),
+   t('B-Roll: Fassaden, Fenster, Pflaster, Pfützen, Laternen, Blätter, Regenrinne','P2','B-Roll',5,'MIC 0','S24 + Stativ'),
+   t('Pfützenspiegelung: Kamera extrem tief; du/Laterne/Fassade in Reflexion','P1','Reflection',4,'MIC 0','S24 + Stativ'),
+   t('Close: Gesicht mit Seitenlicht, Highlights schützen','P2','Close-up',3,'MIC 0','S24 + Stativ'),
+   t('Thumbnail: nasses Pflaster + Architektur + du','P1','Foto',3,'MIC 0','S24'),
+   t('Field Recording: 2 Sounds + 1 Stereo-Atmo','P1','Audio',5,'MIC S / MIC D','S24 / DJI Mic Mini + Windschutz')
+  ]),
+  loc('schelfstadt','Fr 09.10.2026','21:05-21:55','Schelfstadt / Schelfkirche','Puschkinstraße 3, 19055 Schwerin','Nacht-Cluster','',
+   'Kopfsteinpflaster-Schritte, Regenrinne/Tropfen, Wind in Gassen, Tür-/Torgeräusch nur öffentlich und ohne Personen zu stören.',[
+   t("BTS: 10 s Gasse + 'enge Gassen / Fachwerk / Nachtlook'",'P1','BTS',3,'MIC 1','S24 + DJI Mic Mini'),
+   t('Walking-Collage: seitlich 5-7 m, Körper fast komplett sichtbar','P1','Shot',5,'MIC 0','S24 + Stativ'),
+   t('Performance Outfit B P1: Kopfsteinpflaster/Backstein/enge Gasse','P1','Performance',7,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
+   t('Performance Outfit A P2: nur wenn Laterne/Fassade deutlich stärker wirkt','P2','Performance',6,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
+   t('B-Roll: Fachwerk, Backstein, Fenster, Laternen, Äste, Blätter','P2','B-Roll',6,'MIC 0','S24 + Stativ'),
+   t('Low Angle: Schuhe auf Kopfsteinpflaster, 60 fps','P2','Close-up',4,'MIC 0','S24 + Stativ'),
+   t('Foreground: durch Tor/Geländer/Äste auf dich','P2','Shot',4,'MIC 0','S24 + Stativ'),
+   t('Clean Plate + Atmo 20 s','P1','Clean Plate',3,'MIC 0','S24 + Stativ'),
+   t('Field Recording: 2 Sounds + 1 Stereo-Atmo','P1','Audio',6,'MIC S / MIC D','S24 / DJI Mic Mini + Windschutz')
+  ]),
+  loc('pfaffenteich','Fr 09.10.2026','21:55-22:45','Pfaffenteich - Nacht','Pfaffenteich, 19055 Schwerin','Nacht-Cluster','',
+   'Wasser, Wind, Vögel, ferne Stadt/Verkehr; ggf. Straßenbahn-Sound aus sicherem öffentlichen Bereich.',[
+   t('BTS: Wasser/Häuser zeigen + sagen, was noch fehlt','P1','BTS',4,'MIC 1','S24 + DJI Mic Mini'),
+   t('Wide: du am Wasser, Häuser/Lichter im Hintergrund','P1','Shot',5,'MIC 0','S24 + Stativ'),
+   t('Walking-Collage: Promenade/Laternen, gleiche Laufrichtung','P1','Shot',5,'MIC 0','S24 + Stativ'),
+   t('Stillness: du sitzt/stehst, Wasser bewegt sich','P2','Shot',4,'MIC 0','S24 + Stativ'),
+   t('Performance: nur 1 starkes Setup pro Outfit','P2','Performance',6,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
+   t('B-Roll: Wasser, Reflexionen, Lichter, Geländer, Bäume im Wind, Regentropfen','P2','B-Roll',6,'MIC 0','S24 + Stativ'),
+   t('Silhouette gegen helle Häuser/Wasserreflexion','P2','Shot',4,'MIC 0','S24 + Stativ'),
+   t("Clean Plate + 20 s Atmo + Abschluss-BTS 'Nacht-Cluster geschafft'",'P1','BTS',4,'MIC 1','S24 + DJI Mic Mini'),
+   t('Field Recording: 2 Sounds + 1 Stereo-Atmo','P1','Audio',6,'MIC S / MIC D','S24 / DJI Mic Mini + Windschutz')
+  ]),
+  loc('zippendorf','Sa 10.10.2026','08:30-11:30','Zippendorfer Strand - Bonuslocation','Am Strand 14, 19063 Schwerin','Bonus-Location',
+   'Nur wenn P1 Schloss + Nacht erledigt sind. Neue Bildwelt statt blindem Wiederholen.',
+   'Wellen/Wasser, Wind, Schilf/Gräser, Schritte auf Sand/Kies, Vögel; Stereo-Atmo 60 s.',[
+   t("BTS: Ankunft + 'neue Bildwelt: offener See statt Schloss'",'P1','BTS',13,'MIC 1','S24 + DJI Mic Mini'),
+   t('Extreme Wide: du klein am Wasser','P1','Shot',18,'MIC 0','S24 + Stativ'),
+   t('Walking seitlich an Promenade/Strandkante','P1','Shot',18,'MIC 0','S24 + Stativ'),
+   t('Performance Outfit B P1; Outfit A nur wenn Wind/Look passt','P1','Performance',26,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
+   t('Foreground: Schilf/Gräser/Zäune/Äste','P2','Shot',15,'MIC 0','S24 + Stativ'),
+   t('Details: Wasser, Sand, Schuhe, Hände, Jacke im Wind, Promenade','P2','B-Roll',22,'MIC 0','S24 + Stativ'),
+   t('Clean Plate + 20 s Atmo + Foto','P1','Foto',13,'MIC 0','S24'),
+   t('Drohne nur bei legalem, trockenem und deutlich windärmerem Fenster','BONUS','Drohne',21,'MIC 0','DJI Mini 4 Pro'),
+   t('Field Recording: 2 Sounds + 1 Stereo-Atmo','P1','Audio',22,'MIC S / MIC D','S24 / DJI Mic Mini + Windschutz')
+  ]),
+  loc('sat-transfer','Sa 10.10.2026','11:30-12:30','Transfer + Essen + Datencheck','','Logistik',
+   'Pufferblock zwischen Vormittag und Pickup-Block.','',[
+   t('Zippendorf-Material auf Fokus, Linse und Ton prüfen','P1','QC',10,'MIC 0','S24'),
+   t('S24, Mic, Controller und Powerbank nachladen','P1','Organisation',15,'MIC 0','—'),
+   t('Essen + Transfer','P1','Organisation',25,'MIC 0','—'),
+   t('Offene P1-Liste für den Nachmittag festlegen','P1','Organisation',5,'MIC 0','—')
+  ]),
+  loc('sat-pickups','Sa 10.10.2026','12:30-15:00','Pickup-Block','Nur laut offener P1-Liste','Pickups',
+   'Kein kompletter Wiederholungsbesuch. Exakt wie im Timed-PDF: nur offene Pflichtpunkte schließen.','',[
+   t('Offene P1-Shots in App filtern','P1','Organisation',32,'MIC 0','—'),
+   t('Nur zum exakten fehlenden Spot fahren','P1','Organisation',32,'MIC 0','—'),
+   t("Kein 'wenn ich schon mal hier bin, filme ich alles nochmal'",'P1','Organisation',32,'MIC 0','—'),
+   t('Nach jedem Pickup Fokus/Linse/Belichtung prüfen','P1','QC',15,'MIC 0','S24 + Stativ'),
+   t('Wenn alles P1 erledigt: Pause, Akkus, Daten, Longform-Talking statt redundanter B-Roll','P2','Organisation',27,'MIC 0','—')
+  ]),
+  loc('sat-universal','Sa 10.10.2026','15:15-17:15','Neue Location / Universal-Blueprint','Vor Ort eine wirklich neue Bildwelt auswählen','Neue Location',
+   'Nur wenn P1 weitgehend komplett ist. Neue Optik statt noch mehr Schloss-Duplikate.','',[
+   t('Location mit mindestens zwei starken Kriterien auswählen','P1','Organisation',8,'MIC 0','—'),
+   t('BTS: Warum ist diese Location visuell anders?','P1','BTS',5,'MIC 1','S24 + DJI Mic Mini'),
+   t('Clean Plate + Extreme Wide + Wide','P1','Shot',18,'MIC 0','S24 + Stativ'),
+   t('Walking-Collage im gleichen Outfit und gleicher Laufrichtung','P1','Shot',16,'MIC 0','S24 + Stativ'),
+   t('Eine starke Performance statt mehrere ähnliche Setups','P1','Performance',22,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
+   t('Close-ups + 3 Details + Low/Foreground','P2','B-Roll',18,'MIC 0','S24 + Stativ'),
+   t('Thumbnail/Foto + 20-60 s Stereo-Atmo + 2 Foley-Sounds','P1','Audio',18,'MIC S / MIC D','S24 / DJI Mic Mini + Windschutz')
+  ]),
+  loc('sat-bluehour','Sa 10.10.2026','17:30-19:15','Optionale Dämmerung','Nur falls Freitagabend ausgefallen ist oder klar anderer Lichtlook','Lichtfenster',
+   'Maximal EIN Cluster wiederholen. Nur bei echtem Mehrwert.','',[
+   t('Nur Hero, Performance und Reflection - keine komplette B-Roll-Liste','P1','Performance',62,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
+   t('BTS kurz erklären, warum zweiter Besuch visuell nötig ist','P1','BTS',31,'MIC 1','S24 + DJI Mic Mini')
+  ]),
+  loc('sat-evening','Sa 10.10.2026','19:15-20:15','Essen + Akkus + Backup','','Logistik','Kein Drehzwang.','',[
+   t('S24 / SD-Karte auf SSD kopieren – Originale behalten','P1','Daten',20,'MIC 0','SSD + S24'),
+   t('Akkus, Mic, Controller und Powerbank laden','P1','Organisation',20,'MIC 0','Ladegeräte'),
+   t('P1-Stand prüfen und Sonntag nur echte Lücken offen lassen','P1','Organisation',10,'MIC 0','—')
+  ]),
+  loc('sat-longform','Sa 10.10.2026','20:15-22:30','Longform + Indoor / Nacht-Pickups','Unterkunft oder genau ein noch fehlender Nachtspot','Longform',
+   'Nicht automatisch die komplette Altstadt wiederholen.','',[
+   t('Longform-Talking: Was wurde heute geschafft, was fehlt, was ging schief?','P1','BTS',20,'MIC 1','S24 + DJI Mic Mini'),
+   t('BTS: Materialreview / Timeline / Backup zeigen','P1','BTS',15,'MIC 1','S24 + DJI Mic Mini'),
+   t('Indoor-Close-ups: Hände, Kleidung, Equipment, Speichermedien','P2','Close-up',20,'MIC 0','S24 + Stativ'),
+   t('Optional genau einen fehlenden Nacht-P1-Shot nachholen','P1','Shot',35,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ'),
+   t('Zweite vollständige SSD-Sicherung / Stichprobe großer Dateien','P1','Daten',25,'MIC 0','SSD + S24')
+  ]),
+  loc('sun-final','So 11.10.2026','08:30-13:00','Letzte Pickups + Abschluss','Nur offene P1/P2 / Unterkunft','Abschluss',
+   'Timed-PDF-Grundblock bleibt vollständig erhalten; zusätzliche Abreise-/Soundblöcke folgen danach.','',[
+   t('Offene P1 zuerst','P1','Organisation',60,'MIC 0','—'),
+   t('Drohne nur wenn Geo-Zone + Wetter + Wind + Menschenlage wirklich passen','BONUS','Drohne',31,'MIC 0','DJI Mini 4 Pro'),
+   t('Keine komplette Outfit-Matrix erneut drehen','P1','Organisation',60,'MIC 0','—'),
+   t('Finales Longform-Fazit: Was geschafft? Was ging schief? Wie viel Content entstanden?','P1','BTS',20,'MIC 1','S24 + DJI Mic Mini'),
+   t('SSD-Kopie prüfen; mehrere große Dateien testweise öffnen','P1','Daten',27,'MIC 0','SSD + S24'),
+   t('Abreise-Puffer ab ca. 13:00 Uhr','P1','Organisation',60,'MIC 0','—')
+  ]),
+  loc('sun-sound','So 11.10.2026','10:30-11:30','Field Recording / Soundbibliothek','Ruhiger, sicherer Spot auf der Abreiseroute','Audio',
+   'Nur wenn die visuellen P1-Shots erledigt sind. Dieser Block ist als optionale Ergänzung innerhalb des Sonntagfensters gedacht.','',[
+   t('1-2 breite Stereo-Atmos à 30-60 s aufnehmen','P1','Audio',15,'MIC S','S24 Stereo'),
+   t('Mindestens 4 isolierte Foley-Sounds aufnehmen','P1','Audio',20,'MIC D','DJI Mic Mini + Windschutz'),
+   t('Wasser, Wind, Schritte, Laub, Stoff oder Verkehr aus sicherem Standpunkt variieren','P2','Audio',15,'MIC S / MIC D','S24 / DJI Mic Mini'),
+   t('Keine privaten Gespräche oder fremde Musik gezielt aufnehmen','P1','Regel',2,'MIC 0','—')
+  ]),
+  loc('sun-pack','So 11.10.2026','13:00-13:30','Packen + Equipment-Check','Unterkunft','Logistik','Nichts mehr anfangen, was die Abreise gefährdet.','',[
+   t('S24, SSD, Mic, Drohne, Controller, Akkus, Ladegeräte, Stativ und Kleidung prüfen','P1','Organisation',15,'MIC 0','—'),
+   t('Speicherkarten / SSD sicher verstauen','P1','Organisation',5,'MIC 0','—'),
+   t('Unterkunft vollständig kontrollieren','P1','Organisation',5,'MIC 0','—')
+  ]),
+  loc('sun-departure','So 11.10.2026','13:30-14:00','Abreise-Puffer','','Abreise','Keine neuen Drehs mehr.','',[
+   t('Abreise starten / Bahnhof oder nächste Verbindung ansteuern','P1','Organisation',20,'MIC 0','—'),
+   t('Schwerin als Dreh abgeschlossen markieren, wenn alle P1 erledigt oder bewusst verworfen sind','P1','Organisation',5,'MIC 0','—')
+  ])
+ ]
+}]
 };
+})();
