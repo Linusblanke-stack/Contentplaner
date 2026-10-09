@@ -2,7 +2,7 @@
 const t=(text,priority='P2',category='Shot',minutes=4,mic='MIC 0',gear='S24 + Stativ')=>({text,priority,category,minutes,mic,gear});
 const loc=(id,date,time,name,address,type,notes,fieldrec,tasks)=>({id,date,time,name,address,type,notes,fieldrec,tasks});
 window.BLUEPRINT_SEED={
-version:7,
+version:8,
 master:{
  name:'Universal Content-Trip Blueprint',
  description:'Wiederverwendbarer Master für City-/Location-Drehs. Locations, Adressen, Route, Licht, Saison, Outfits und lokale Drohnenlage werden angepasst; die Produktionslogik bleibt.',
@@ -101,7 +101,7 @@ projects:[{
  id:'schwerin-2026-10',name:'Schwerin 48H Content',city:'Schwerin',dates:'09.10.2026 - 11.10.2026',
  subtitle:'Ich hatte nur 48 Stunden für einen Monat Content',pdf:'Schwerin_48H_Blueprint_TIMED_MOBILE.pdf',
  notes:'Timed-Mobile-PDF ist die Referenz. Keine unnötigen Doppelbesuche; Rückkehr nur für fehlende P1, echten Tag/Nacht-Mehrwert oder sicheres Drohnenfenster.',
- outfits:{A:'Outfit A',B:'Outfit B'},
+ outfits:{A:'Anzug',B:'Pulli + Hose (Casual)'},
  accommodation:{
    name:'The Avalon Hotel',
    address:'Bürgermeister-Bade-Platz, Schwerin',
@@ -407,6 +407,51 @@ if(p0){
      }
    }
    l.tasks=out;
+ }
+}
+
+const nightType=l=>/Nacht/i.test((l.type||'')+' '+(l.name||''));
+function clipDetails(task,l){
+ const s=(task.text||'').toLowerCase(), cat=task.category||'Shot', night=nightType(l);
+ const light=night
+   ? 'Licht: nächste Laterne/Fassade 30–60° seitlich vor dir; Gesicht nicht direkt unter die Lampe stellen. Belichtung auf Haut/Highlights sperren.'
+   : 'Licht: Gesicht möglichst 30–60° zum helleren Himmel drehen; direkte harte Frontsonne vermeiden. Bei Gegenlicht Belichtung auf Gesicht kontrollieren.';
+ const common='Stativ fest; 1x-Hauptkamera; Horizont/Vertikalen prüfen; AE/AF vor Take sperren; 2 s Vorlauf + 2 s Nachlauf.';
+ if(['Organisation','Transfer','Pause','Puffer','Daten','QC','Outfit','Regel','Abreise'].includes(cat)) return {clip:'—',how:'Keine eigentliche Videoaufnahme. Aufgabe durchführen und erst danach den nächsten Clip starten.'};
+ if(cat==='BTS') return {clip:'10–20 s',how:'16:9. S24 auf Augenhöhe ca. 1,2–1,5 m vor dir oder sauberer Selfie-Armabstand. Brust bis Kopf im Bild, Hintergrund klar erkennbar. '+light+' Ein Satz: Ort + konkretes Ziel/Problem dieses Blocks. Nicht laufen, wenn der Ton wichtig ist; 1–2 Takes.'};
+ if(cat==='Clean Plate') return {clip:'8–15 s',how:'Kamera exakt wie beim zugehörigen Hero/Wide aufbauen, aber ohne dich im Bild. '+common+' Komplett statisch aufnehmen; warten, bis möglichst keine Person durchs Hauptmotiv läuft. Keine Schwenks.'};
+ if(cat==='Performance') return {clip:'15–25 s je Framing',how:'4K30. Kamera ca. 1,15–1,30 m hoch. Wide: 4–7 m Abstand; Medium: 2–3 m. Körper ca. 20–30° zur Kamera, Gesicht zur Linse bzw. knapp daran vorbei. '+light+' Kamera statisch. Songstelle 2–3 s vor Einsatz starten; kompletten Part ohne Unterbrechung performen; 2–3 Takes pro Framing.'};
+ if(cat==='Hero') return {clip:'15–25 s je Format',how:'Einen starken, ruhigen Schlüsselshot bauen. Erst 16:9, danach neu für 9:16 komponieren – nicht nur später croppen. Kamera 1,1–1,3 m hoch, 1x, statisch; du auf Drittellinie oder bewusst mittig bei Symmetrie. '+light+' 2–3 Takes; im Take nur eine klare Aktion: stehen, Blickwechsel oder langsamer Schritt.'};
+ if(cat==='Top-down') return {clip:'10–15 s',how:'Kamera so senkrecht wie sicher möglich nach unten; gleiche Körperposition im Frame halten. 1x, statisch. Du bleibst 5 s still und machst dann nur eine kleine Bewegung (Blick/Hand/Schritt). Keine perspektivische Schräglage, wenn es als Collage gedacht ist.'};
+ if(cat==='Drohne') return {clip:'12–20 s nutzbar',how:'Nur bei legalem und sicherem Fenster. Bewegung extrem langsam und konstant; Start bereits 2–3 s vor der gewünschten Bewegung, danach 2–3 s auslaufen lassen. Keine abrupten Yaw-/Gimbal-Bewegungen. Für Orbit konstante Distanz/Höhe; für Top-down Gimbal exakt -90°.'};
+ if(cat==='Foto') return {clip:'Foto + 8–12 s Video',how:'Zuerst Foto/Thumbnail separat komponieren, danach exakt denselben Frame 8–12 s als ruhiges Video halten. 1x; Gesicht/Schloss bzw. Hauptmotiv sauber trennen. '+light+' Für Thumbnail Blick/Posing bewusst halten, nicht während der Auslösung bewegen.'};
+ if(cat==='Audio') return {clip:'30–60 s Atmo / 6–12 s je Foley',how:'Atmo: S24 ruhig und unbewegt, mindestens 30 s durchlaufen lassen; nicht sprechen und Handy nicht anfassen. Foley: DJI Mic Mini 10–40 cm an die Quelle, Windschutz drauf; 2–3 s Ruhe vor/nach dem Geräusch. Jeden guten Sound 3x aufnehmen: normal, leise/langsam, kräftig/schnell.'};
+ if(cat==='Reflection') return {clip:'8–15 s',how:'4K60. Kamera 10–20 cm über Boden/Wasser, 1x. Spiegelbild zuerst sauber ausrichten; Fokus auf Reflexion bzw. markante Kante sperren. Du gehst einmal langsam quer durchs Spiegelbild; Kamera bleibt komplett statisch. '+light};
+ if(cat==='Close-up') {
+   if(/schuh|füß|pflaster|laub|blätter/.test(s)) return {clip:'6–10 s je Detail',how:'4K60. Kamera 10–20 cm über Boden, 1x oder 3x ohne Digitalzoom, ca. 45° seitlich zur Laufrichtung. Fokus auf den Punkt, an dem der Schuh durchs Bild kommt. 2 s leer starten, ein sauberer Schritt durchs Bild, 2 s leer auslaufen lassen. Kamera statisch.'};
+   return {clip:'8–15 s je Detail',how:'4K30 für Gesicht, 4K60 für Hände/Stoff/Bewegung. Kamera auf Höhe des Details, nicht von oben herab. 3x für Gesicht/Hände wenn genug Abstand, sonst 1x. '+light+' Nur eine Aktion pro Clip: Blickwechsel, Kragen richten, Handschuh anziehen oder Stoff im Wind. Kamera statisch.'};
+ }
+ if(/walking|walk in|walk out|cross frame|promenade|auf kamera zu|von kamera weg/.test(s)) return {clip:'15–20 s pro Richtung',how:'4K60. Kamera ca. 1,1–1,3 m hoch, 1x, statisch. Seitliche Collage: 6–8 m Abstand, Körper fast komplett sichtbar, Kamera 90° zur Laufrichtung. 2 s bevor du ins Bild kommst starten, gleichmäßiges Tempo, vollständig durchs Bild laufen, danach 2 s weiterlaufen lassen. Für auf Kamera zu/weg mittig auf einer Leading Line bleiben.'};
+ if(cat==='B-Roll') {
+   if(/bäume|blätter|laub|schuh|wasser|kanal|statu/.test(s)) return {clip:'5–8 s je Motiv · 4–6 Einzelclips',how:'Nicht alles in einen Clip packen. 1) Baumkrone: Kamera 45° nach oben, 3x, statisch, Wind 6–8 s. 2) Blatt/Laub: Kamera 20–30 cm hoch, 1x, seitliches Licht, 4K60. 3) Schuh durchs Laub: 15 cm hoch, 45° seitlich, 4K60, ein Schritt. 4) Wasser/Kanal: 20–30 cm über Ufer, 1x, statisch, Wellen diagonal durchs Bild. 5) Statue/Architektur: 1x, 30–45° seitlich von unten, 6–8 s statisch. '+light};
+   if(/fassad|fenster|laterne|pflaster|regenrinne|backstein|fachwerk/.test(s)) return {clip:'5–8 s je Motiv · 4–6 Einzelclips',how:'Je Motiv eigener Clip. Fassade: Kamera 1,2 m, 1x, 30–45° seitlich für Tiefe. Fenster/Laterne: 3x, statisch, Motiv auf Drittellinie. Pflaster/Pfütze: 15–25 cm hoch, 1x, 4K60. Regenrinne/Tropfen: 3x, stabil, 6–8 s. Keine schnellen Schwenks; lieber fünf ruhige Clips. '+light};
+   if(/schilf|wellen|reflexion|mantel|silhouette/.test(s)) return {clip:'5–8 s je Motiv · 4–6 Einzelclips',how:'Schilf: 20–40 cm hinter/zwischen Halmen, 3x oder 1x, Fokus auf mittlere Ebene, Wind arbeiten lassen. Wasser/Wellen: 20–30 cm über Ufer, 1x, statisch, 4K60. Hände am Geländer: 3x, 45° seitlich, eine kleine Bewegung. Mantel im Wind: 3x, Hüfte bis Knie, 4K60. Silhouette: Kamera tief gegen hellere Wasser-/Himmelsfläche, Belichtung auf Hintergrund. '+light};
+   return {clip:'5–8 s je Motiv · 3–5 Einzelclips',how:'Jedes genannte Detail als eigenen ruhigen Clip aufnehmen. Kamera auf Höhe des Motivs, 1x oder optisches 3x; kein Digitalzoom. 4K60 bei Bewegung, sonst 4K30. Pro Clip nur ein Motiv/eine Aktion; 2 s Vor-/Nachlauf.'};
+ }
+ if(/extreme wide|wide|du klein|rücken zur kamera/.test(s)) return {clip:'15–25 s',how:'4K30. Kamera 1,1–1,3 m hoch, 1x, statisch. Abstand meist 8–15 m, sodass du nur ca. 10–25 % der Bildhöhe einnimmst. Architektur/Landschaft ist Hauptmotiv; du stehst auf einer Drittellinie oder zentral bei Symmetrie. '+light+' Eine klare Aktion: stehen, langsamer Blickwechsel oder 2–3 langsame Schritte.'};
+ if(/foreground/.test(s)) return {clip:'10–15 s',how:'1x. Kamera 30–80 cm hinter Geländer/Blättern/Torbogen positionieren; Vordergrund nimmt ca. 15–30 % des Bildrands ein und bleibt unscharf. Du stehst 3–8 m dahinter im freien Bildbereich. Kamera statisch; Fokus auf dich sperren. '+light};
+ if(/low angle/.test(s)) return {clip:'8–12 s',how:'Kamera 15–40 cm über Boden, 1x, ca. 30–45° nach oben. Senkrechte Linien möglichst gerade halten; nicht maximal nach oben kippen. Du bzw. das Hauptmotiv bleibt vollständig im Frame. Kamera statisch; 4K30, bei Schrittbewegung 4K60.'};
+ if(/stillness/.test(s)) return {clip:'15–25 s',how:'Kamera statisch auf Stativ, 1x. Du bleibst fast vollständig still; nur Blick, Atem oder minimale Kopfbewegung. Hintergrundbewegung (Wasser, Wind, Menschen in Distanz) liefert Dynamik. '+light+' Mindestens 5 s wirklich ruhig am Anfang und Ende.'};
+ if(/silhouette/.test(s)) return {clip:'10–15 s',how:'Kamera auf helle Fläche/Lichter/Wasser ausrichten und Belichtung auf den Hintergrund sperren, sodass du deutlich dunkler wirst. Du stehst seitlich oder mit Rücken zur Kamera; klare Kontur, keine Laterne direkt hinter dem Kopf. 1x, statisch.'};
+ return {clip:'10–20 s',how:common+' Kamera etwa 1,2 m hoch, 1x. Aktion aus der Shot-Beschreibung genau einmal sauber ausführen; keine zusätzliche Kamerabewegung. '+light};
+}
+if(p0){
+ for(const l of p0.locations){
+   for(const task of l.tasks){
+     const d=clipDetails(task,l);
+     task.clip=task.clip||d.clip;
+     task.how=task.how||d.how;
+   }
  }
 }
 })();
