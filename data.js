@@ -2,7 +2,7 @@
 const t=(text,priority='P2',category='Shot',minutes=4,mic='MIC 0',gear='S24 + Stativ')=>({text,priority,category,minutes,mic,gear});
 const loc=(id,date,time,name,address,type,notes,fieldrec,tasks)=>({id,date,time,name,address,type,notes,fieldrec,tasks});
 window.BLUEPRINT_SEED={
-version:3,
+version:4,
 master:{
  name:'Universal Content-Trip Blueprint',
  description:'Wiederverwendbarer Master für City-/Location-Drehs. Locations, Adressen, Route, Licht, Saison, Outfits und lokale Drohnenlage werden angepasst; die Produktionslogik bleibt.',
@@ -11,7 +11,8 @@ master:{
   'Kernshots müssen ohne Gimbal und ohne Drohne funktionieren.',
   'Hero-Shots wenn sinnvoll in 16:9 und 9:16 separat komponieren.',
   'Jede Hauptlocation bekommt BTS, Thumbnail/Foto, Clean Plate, Atmosphäre und Field Recording.',
-  'Location erst verlassen, wenn P1, BTS, Foto, Clean Plate, Audio und Materialcheck erledigt sind.'
+  'Location erst verlassen, wenn P1, BTS, Foto, Clean Plate, Audio und Materialcheck erledigt sind.',
+  'Zwischen zwei Locations immer Abbau-, Lauf-/Fahrt- und Aufbauzeit einplanen; keine Null-Minuten-Übergänge.'
  ],
  technicalRules:[
   'Normale Master-Takes: 4K/30 fps',
@@ -105,7 +106,14 @@ projects:[{
    t('Optional: 20.000-mAh-Powerbank mit USB-C PD 25-45 W','P2','Organisation',12,'MIC 0','—'),
    t('USB-C-Kabel / Speicher / Akkustand prüfen','P1','Organisation',14,'MIC 0','—')
   ]),
-  loc('alter-garten','Fr 09.10.2026','13:15-14:15','Alter Garten + Schlossbrücke','Alter Garten, 19055 Schwerin','Schloss-Cluster',
+  loc('fri-lunch-transfer','Fr 09.10.2026','12:45-13:30','Mittagessen + Weg zum Schloss-Cluster','MediaMarkt → Alter Garten','Pause / Transfer',
+   '45 Minuten bewusst blockiert: kurz essen, Ausrüstung verstauen und ohne Hektik zum ersten Hauptspot wechseln. Wenn der Weg schneller geht, bleibt der Rest als Puffer.','',[
+   t('Ausrüstung nach dem Kauf vollständig verstauen und kurz prüfen','P1','Organisation',5,'MIC 0','—'),
+   t('Mittagessen / Getränk','P1','Pause',20,'MIC 0','—'),
+   t('Weg MediaMarkt → Alter Garten / Schlossbrücke','P1','Transfer',15,'MIC 0','zu Fuß / ÖPNV je nach Lage'),
+   t('5 Minuten Ankunfts-/Aufbaupuffer','P1','Puffer',5,'MIC 0','—')
+  ]),
+  loc('alter-garten','Fr 09.10.2026','13:30-14:25','Alter Garten + Schlossbrücke','Alter Garten, 19055 Schwerin','Schloss-Cluster',
    'Schloss direkt gegenüber: Lennéstraße 1, 19053 Schwerin. Start des Schloss-Clusters.',
    'Schritte auf Brücke/Pflaster, Wind an Geländer/Bäumen, Wasser/Umgebung, ggf. einzelne Fahrzeuge aus sicherem Standpunkt.',[
    t("BTS: 10-20 s Selfie - 'Erster Hauptspot, Ziel ist heute Schloss komplett abzuhaken.'",'P1','BTS',4,'MIC 1','S24 + DJI Mic Mini'),
@@ -120,7 +128,13 @@ projects:[{
    t('Thumbnail/Foto: Schloss klar erkennbar; nicht mittig vor Hauptturm','P1','Foto',3,'MIC 0','S24'),
    t('Field Recording: 2 saubere Sounds + 1 Stereo-Atmo','P1','Audio',6,'MIC S / MIC D','S24 / DJI Mic Mini + Windschutz')
   ]),
-  loc('schlossinsel','Fr 09.10.2026','14:15-15:15','Schlossinsel / Burggarten','Lennéstraße 1, 19053 Schwerin','Schloss-Cluster','',
+  loc('fri-transfer-1','Fr 09.10.2026','14:25-14:35','Transfer: Alter Garten → Schlossinsel','Alter Garten → Schloss Schwerin','Transfer',
+   'Abbau, kurzer Fußweg und neues Setup. Die Orte liegen nah beieinander, aber Null-Minuten-Übergänge sind unrealistisch.','',[
+   t('Stativ abbauen / Equipment sichern','P1','Organisation',3,'MIC 0','—'),
+   t('Zur Schlossinsel gehen','P1','Transfer',4,'MIC 0','zu Fuß'),
+   t('Neues Setup / Linse kurz prüfen','P1','Puffer',3,'MIC 0','S24 + Stativ')
+  ]),
+  loc('schlossinsel','Fr 09.10.2026','14:35-15:30','Schlossinsel / Burggarten','Lennéstraße 1, 19053 Schwerin','Schloss-Cluster','',
    'Laubrascheln, Schritte auf unterschiedlichen Untergründen, Wind in Bäumen, ruhige Schloss-/Park-Atmo.',[
    t('BTS: Weg/Eingang zeigen + sagen, welche Perspektive du suchst','P1','BTS',4,'MIC 1','S24 + DJI Mic Mini'),
    t('Architektur: Türme, Türen, Fassadendetails, Statuen, Geländer, Treppen','P2','B-Roll',7,'MIC 0','S24 + Stativ'),
@@ -133,7 +147,12 @@ projects:[{
    t('Clean Plate + 20 s Atmo','P1','Clean Plate',4,'MIC 0','S24 + Stativ'),
    t('Field Recording: 2 Sounds + 1 Stereo-Atmo','P1','Audio',7,'MIC S / MIC D','S24 / DJI Mic Mini + Windschutz')
   ]),
-  loc('schlossgarten','Fr 09.10.2026','15:15-16:20','Schlossgarten / Kreuzkanal','Lennéstraße, 19053 Schwerin','Schloss-Cluster','',
+  loc('fri-transfer-2','Fr 09.10.2026','15:30-15:40','Transfer: Schlossinsel → Schlossgarten','Schloss Schwerin → Schlossgarten','Transfer',
+   'Kurzer Fußweg plus Abbau/Aufbau.','',[
+   t('Equipment sichern und Standort wechseln','P1','Transfer',6,'MIC 0','zu Fuß'),
+   t('Aufbau / Testframe / Linse prüfen','P1','Puffer',4,'MIC 0','S24 + Stativ')
+  ]),
+  loc('schlossgarten','Fr 09.10.2026','15:40-16:45','Schlossgarten / Kreuzkanal','Lennéstraße, 19053 Schwerin','Schloss-Cluster','',
    'Wind in Baumkronen, Blätter am Boden, Schritte, Wasser am Kanal; 30-60 s Clean Atmo.',[
    t('BTS: Setup + symmetrische Sichtachse + kurzer Vorher/Nachher-Kommentar','P1','BTS',5,'MIC 1','S24 + DJI Mic Mini'),
    t('Wide symmetrisch: du mittig oder leicht off-center','P1','Shot',6,'MIC 0','S24 + Stativ'),
@@ -145,7 +164,13 @@ projects:[{
    t('Clean Plate + Foto/Thumbnail','P1','Foto',4,'MIC 0','S24'),
    t('Field Recording: 2 Sounds + 1 Stereo-Atmo','P1','Audio',7,'MIC S / MIC D','S24 / DJI Mic Mini + Windschutz')
   ]),
-  loc('burgsee','Fr 09.10.2026','16:20-18:15','Schwimmende Wiese + Burgsee-Ufer','Bertha-Klingberg-Platz, 19053 Schwerin','Schloss-Cluster','',
+  loc('fri-transfer-3','Fr 09.10.2026','16:45-16:55','Transfer: Schlossgarten → Burgsee-Ufer','Schlossgarten → Bertha-Klingberg-Platz','Transfer',
+   'Kurzer Standortwechsel; bewusst 10 Minuten statt direkt nahtlos weiter.','',[
+   t('Abbau + Equipment sichern','P1','Organisation',3,'MIC 0','—'),
+   t('Zum Burgsee-Ufer / Schwimmende Wiese gehen','P1','Transfer',5,'MIC 0','zu Fuß'),
+   t('Ufer-Setup / Linse / Windschutz prüfen','P1','Puffer',2,'MIC 0','S24 + Stativ')
+  ]),
+  loc('burgsee','Fr 09.10.2026','16:55-18:45','Schwimmende Wiese + Burgsee-Ufer','Bertha-Klingberg-Platz, 19053 Schwerin','Schloss-Cluster','',
    'Schilfrascheln, Wasserplätschern/Wellen, Vögel, Wind, ferne Stadt. Nahgeräusche mit DJI Mic windgeschützt.',[
    t("BTS: Ufer/Schlossblick + 'Jetzt kommen die klein-im-Bild-Shots'",'P1','BTS',6,'MIC 1','S24 + DJI Mic Mini'),
    t('P1 Hero: Schloss vom Ufer mit Schilf unscharf im Vordergrund','P1','Shot',8,'MIC 0','S24 + Stativ'),
@@ -167,7 +192,15 @@ projects:[{
    t('Du aus Vogelperspektive auf freier Fläche; gleiche Pose für Collage','BONUS','Drohne',7,'MIC 0','DJI Mini 4 Pro'),
    t('Ein vertikaler Drohnen-Hero zusätzlich zum Querformat','BONUS','Drohne',7,'MIC 0','DJI Mini 4 Pro')
   ]),
-  loc('markt','Fr 09.10.2026','20:15-21:05','Altstädtischer Markt - Nacht','Am Markt, 19055 Schwerin','Nacht-Cluster','',
+  loc('fri-dinner-transfer','Fr 09.10.2026','18:45-20:10','Abendessen + Backup + Weg in die Altstadt','Burgsee-Ufer → Altstädtischer Markt','Pause / Transfer',
+   'Der 85-Minuten-Block verhindert, dass der Nachtteil direkt an den langen Schloss-Cluster anschließt. Erst essen, Material sichern, Akkus prüfen, dann entspannt in den Nachtblock.','',[
+   t('Kurzer Materialcheck des Schloss-Clusters; nichts löschen','P1','QC',10,'MIC 0','S24'),
+   t('S24 / wichtige Dateien auf SSD kopieren, Originale behalten','P1','Daten',15,'MIC 0','SSD + S24'),
+   t('Abendessen + Getränk','P1','Pause',35,'MIC 0','—'),
+   t('Akkus / Mic / Powerbank prüfen und bei Bedarf nachladen','P1','Organisation',10,'MIC 0','Ladegeräte / Powerbank'),
+   t('Weg Burgsee-Ufer → Altstädtischer Markt + Ankunftspuffer','P1','Transfer',15,'MIC 0','zu Fuß / ÖPNV je nach Lage')
+  ]),
+  loc('markt','Fr 09.10.2026','20:10-21:00','Altstädtischer Markt - Nacht','Am Markt, 19055 Schwerin','Nacht-Cluster','',
    'Regen auf Pflaster, Schritte durch Pfützen, einzelne Auto-Pass-bys vom sicheren Gehweg, Stadt-Hall/Markt-Atmo. Keine privaten Gespräche/fremde Musik als Hauptsample.',[
    t('BTS: Night-Setup + Satz über Regen/Reflexionen','P1','BTS',3,'MIC 1','S24 + DJI Mic Mini'),
    t('Clean Plate: Markt/Fassaden 10 s','P1','Clean Plate',3,'MIC 0','S24 + Stativ'),
@@ -181,7 +214,13 @@ projects:[{
    t('Thumbnail: nasses Pflaster + Architektur + du','P1','Foto',3,'MIC 0','S24'),
    t('Field Recording: 2 Sounds + 1 Stereo-Atmo','P1','Audio',5,'MIC S / MIC D','S24 / DJI Mic Mini + Windschutz')
   ]),
-  loc('schelfstadt','Fr 09.10.2026','21:05-21:55','Schelfstadt / Schelfkirche','Puschkinstraße 3, 19055 Schwerin','Nacht-Cluster','',
+  loc('fri-transfer-night-1','Fr 09.10.2026','21:00-21:15','Transfer: Altstädtischer Markt → Schelfstadt','Am Markt → Puschkinstraße 3','Transfer',
+   'Fußweg, Abbau und kurzes neues Setup.','',[
+   t('Equipment sichern / Standort verlassen','P1','Organisation',3,'MIC 0','—'),
+   t('Zur Schelfkirche / Schelfstadt gehen','P1','Transfer',9,'MIC 0','zu Fuß'),
+   t('Testframe / Nachtbelichtung prüfen','P1','Puffer',3,'MIC 0','S24 + Stativ')
+  ]),
+  loc('schelfstadt','Fr 09.10.2026','21:15-22:05','Schelfstadt / Schelfkirche','Puschkinstraße 3, 19055 Schwerin','Nacht-Cluster','',
    'Kopfsteinpflaster-Schritte, Regenrinne/Tropfen, Wind in Gassen, Tür-/Torgeräusch nur öffentlich und ohne Personen zu stören.',[
    t("BTS: 10 s Gasse + 'enge Gassen / Fachwerk / Nachtlook'",'P1','BTS',3,'MIC 1','S24 + DJI Mic Mini'),
    t('Walking-Collage: seitlich 5-7 m, Körper fast komplett sichtbar','P1','Shot',5,'MIC 0','S24 + Stativ'),
@@ -193,7 +232,12 @@ projects:[{
    t('Clean Plate + Atmo 20 s','P1','Clean Plate',3,'MIC 0','S24 + Stativ'),
    t('Field Recording: 2 Sounds + 1 Stereo-Atmo','P1','Audio',6,'MIC S / MIC D','S24 / DJI Mic Mini + Windschutz')
   ]),
-  loc('pfaffenteich','Fr 09.10.2026','21:55-22:45','Pfaffenteich - Nacht','Pfaffenteich, 19055 Schwerin','Nacht-Cluster','',
+  loc('fri-transfer-night-2','Fr 09.10.2026','22:05-22:15','Transfer: Schelfstadt → Pfaffenteich','Puschkinstraße 3 → Pfaffenteich','Transfer',
+   'Kurzer Fußweg plus Abbau/Aufbau.','',[
+   t('Equipment sichern und zum Pfaffenteich wechseln','P1','Transfer',7,'MIC 0','zu Fuß'),
+   t('Wasser-/Licht-Setup kurz prüfen','P1','Puffer',3,'MIC 0','S24 + Stativ')
+  ]),
+  loc('pfaffenteich','Fr 09.10.2026','22:15-23:05','Pfaffenteich - Nacht','Pfaffenteich, 19055 Schwerin','Nacht-Cluster','',
    'Wasser, Wind, Vögel, ferne Stadt/Verkehr; ggf. Straßenbahn-Sound aus sicherem öffentlichen Bereich.',[
    t('BTS: Wasser/Häuser zeigen + sagen, was noch fehlt','P1','BTS',4,'MIC 1','S24 + DJI Mic Mini'),
    t('Wide: du am Wasser, Häuser/Lichter im Hintergrund','P1','Shot',5,'MIC 0','S24 + Stativ'),
@@ -204,6 +248,12 @@ projects:[{
    t('Silhouette gegen helle Häuser/Wasserreflexion','P2','Shot',4,'MIC 0','S24 + Stativ'),
    t("Clean Plate + 20 s Atmo + Abschluss-BTS 'Nacht-Cluster geschafft'",'P1','BTS',4,'MIC 1','S24 + DJI Mic Mini'),
    t('Field Recording: 2 Sounds + 1 Stereo-Atmo','P1','Audio',6,'MIC S / MIC D','S24 / DJI Mic Mini + Windschutz')
+  ]),
+  loc('fri-return','Fr 09.10.2026','23:05-23:35','Rückweg zur Unterkunft + Tagesabschluss','Pfaffenteich → Unterkunft','Rückfahrt / Abschluss',
+   'Unterkunft ist im Blueprint nicht mit Adresse hinterlegt; deshalb 30 Minuten Reserve. Falls der tatsächliche Weg kürzer ist, wird die Restzeit direkt zum Backup-/Ladepuffer.','',[
+   t('Equipment vollständig einpacken und Pfaffenteich verlassen','P1','Organisation',5,'MIC 0','—'),
+   t('Rückweg zur Unterkunft','P1','Transfer',20,'MIC 0','zu Fuß / ÖPNV / Fahrzeug'),
+   t('In Unterkunft: Geräte ans Ladegerät, SSD sicher ablegen','P1','Organisation',5,'MIC 0','Ladegeräte + SSD')
   ]),
   loc('zippendorf','Sa 10.10.2026','08:30-11:30','Zippendorfer Strand - Bonuslocation','Am Strand 14, 19063 Schwerin','Bonus-Location',
    'Nur wenn P1 Schloss + Nacht erledigt sind. Neue Bildwelt statt blindem Wiederholen.',
