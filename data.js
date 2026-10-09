@@ -2,7 +2,7 @@
 const t=(text,priority='P2',category='Shot',minutes=4,mic='MIC 0',gear='S24 + Stativ')=>({text,priority,category,minutes,mic,gear});
 const loc=(id,date,time,name,address,type,notes,fieldrec,tasks)=>({id,date,time,name,address,type,notes,fieldrec,tasks});
 window.BLUEPRINT_SEED={
-version:4,
+version:5,
 master:{
  name:'Universal Content-Trip Blueprint',
  description:'Wiederverwendbarer Master für City-/Location-Drehs. Locations, Adressen, Route, Licht, Saison, Outfits und lokale Drohnenlage werden angepasst; die Produktionslogik bleibt.',
@@ -12,7 +12,8 @@ master:{
   'Hero-Shots wenn sinnvoll in 16:9 und 9:16 separat komponieren.',
   'Jede Hauptlocation bekommt BTS, Thumbnail/Foto, Clean Plate, Atmosphäre und Field Recording.',
   'Location erst verlassen, wenn P1, BTS, Foto, Clean Plate, Audio und Materialcheck erledigt sind.',
-  'Zwischen zwei Locations immer Abbau-, Lauf-/Fahrt- und Aufbauzeit einplanen; keine Null-Minuten-Übergänge.'
+  'Zwischen zwei Locations immer Abbau-, Lauf-/Fahrt- und Aufbauzeit einplanen; keine Null-Minuten-Übergänge.',
+  'Bei langen Drehtagen Essen und echte Pausen als feste Zeitblöcke einplanen, nicht nur als Restzeit.'
  ],
  technicalRules:[
   'Normale Master-Takes: 4K/30 fps',
@@ -255,6 +256,12 @@ projects:[{
    t('Rückweg zur Unterkunft','P1','Transfer',20,'MIC 0','zu Fuß / ÖPNV / Fahrzeug'),
    t('In Unterkunft: Geräte ans Ladegerät, SSD sicher ablegen','P1','Organisation',5,'MIC 0','Ladegeräte + SSD')
   ]),
+  loc('sat-outbound','Sa 10.10.2026','08:00-08:30','Unterkunft → Zippendorfer Strand','Unterkunft → Am Strand 14, 19063 Schwerin','Transfer',
+   '30 Minuten Reserve, weil die Unterkunftsadresse noch nicht im Blueprint hinterlegt ist. Vor Abfahrt Route in Maps prüfen.','',[
+   t('Tagesausrüstung vollständig prüfen und Unterkunft verlassen','P1','Organisation',5,'MIC 0','—'),
+   t('Fahrt / Weg zum Zippendorfer Strand','P1','Transfer',20,'MIC 0','zu Fuß / ÖPNV / Fahrzeug'),
+   t('5 Minuten Ankunfts- und Aufbaupuffer','P1','Puffer',5,'MIC 0','—')
+  ]),
   loc('zippendorf','Sa 10.10.2026','08:30-11:30','Zippendorfer Strand - Bonuslocation','Am Strand 14, 19063 Schwerin','Bonus-Location',
    'Nur wenn P1 Schloss + Nacht erledigt sind. Neue Bildwelt statt blindem Wiederholen.',
    'Wellen/Wasser, Wind, Schilf/Gräser, Schritte auf Sand/Kies, Vögel; Stereo-Atmo 60 s.',[
@@ -310,6 +317,12 @@ projects:[{
    t('Indoor-Close-ups: Hände, Kleidung, Equipment, Speichermedien','P2','Close-up',20,'MIC 0','S24 + Stativ'),
    t('Optional genau einen fehlenden Nacht-P1-Shot nachholen','P1','Shot',35,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ'),
    t('Zweite vollständige SSD-Sicherung / Stichprobe großer Dateien','P1','Daten',25,'MIC 0','SSD + S24')
+  ]),
+  loc('sun-outbound','So 11.10.2026','08:00-08:30','Unterkunft → erster Pickup-Spot','Unterkunft → offene P1-Location','Transfer',
+   '30 Minuten Reserve. Ziel erst vor Abfahrt anhand der offenen P1-Liste festlegen.','',[
+   t('Offene P1-Liste prüfen und genau einen ersten Zielspot festlegen','P1','Organisation',5,'MIC 0','—'),
+   t('Fahrt / Weg zum ersten Pickup-Spot','P1','Transfer',20,'MIC 0','zu Fuß / ÖPNV / Fahrzeug'),
+   t('5 Minuten Ankunfts- und Aufbaupuffer','P1','Puffer',5,'MIC 0','—')
   ]),
   loc('sun-final','So 11.10.2026','08:30-13:00','Letzte Pickups + Abschluss','Nur offene P1/P2 / Unterkunft','Abschluss',
    'Timed-PDF-Grundblock bleibt vollständig erhalten; zusätzliche Abreise-/Soundblöcke folgen danach.','',[
