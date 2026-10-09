@@ -2,7 +2,7 @@
 const t=(text,priority='P2',category='Shot',minutes=4,mic='MIC 0',gear='S24 + Stativ')=>({text,priority,category,minutes,mic,gear});
 const loc=(id,date,time,name,address,type,notes,fieldrec,tasks)=>({id,date,time,name,address,type,notes,fieldrec,tasks});
 window.BLUEPRINT_SEED={
-version:9,
+version:10,
 master:{
  name:'Universal Content-Trip Blueprint',
  description:'Wiederverwendbarer Master für City-/Location-Drehs. Locations, Adressen, Route, Licht, Saison, Outfits und lokale Drohnenlage werden angepasst; die Produktionslogik bleibt.',
@@ -13,7 +13,8 @@ master:{
   'Jede Hauptlocation bekommt BTS, Thumbnail/Foto, Clean Plate, Atmosphäre und Field Recording.',
   'Location erst verlassen, wenn P1, BTS, Foto, Clean Plate, Audio und Materialcheck erledigt sind.',
   'Zwischen zwei Locations immer Abbau-, Lauf-/Fahrt- und Aufbauzeit einplanen; keine Null-Minuten-Übergänge.',
-  'Bei langen Drehtagen Essen und echte Pausen als feste Zeitblöcke einplanen, nicht nur als Restzeit.'
+  'Bei langen Drehtagen Essen und echte Pausen als feste Zeitblöcke einplanen, nicht nur als Restzeit.',
+  'Outfitwechsel ausschließlich in der Unterkunft einplanen. Keine Outdoor-Wechsel; Drehcluster nach Outfit bündeln und Wechsel mit Essen, Backup oder Ladepause kombinieren.'
  ],
  technicalRules:[
   'Normale Master-Takes: 4K/30 fps',
@@ -131,7 +132,7 @@ projects:[{
    t('Walking: auf Kamera zu + von Kamera weg; Leading Lines der Brücke nutzen','P2','Shot',4,'MIC 0','S24 + Stativ'),
    t('Walking-Collage: seitlich, 6-8 m Abstand, Körper fast komplett sichtbar, gleiche Laufrichtung','P1','Shot',5,'MIC 0','S24 + Stativ'),
    t('Performance Outfit A: Wide + Medium, frontal oder 20-30° seitlich','P1','Performance',7,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
-   t('Performance Outfit B: ein urbanerer Winkel; nicht jedes Setup wiederholen','P2','Performance',6,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
+   t('Outfit B hier bewusst NICHT drehen: kein Hotel-Rückweg nur für diesen Spot; Casual wird im Nacht-Cluster/Zippendorf abgedeckt','P2','Organisation',1,'MIC 0','—'),
    t('B-Roll: Geländer tief entlang, Schlosstürme, Pferdebändiger/Details, nasses Pflaster/Pfütze','P2','B-Roll',6,'MIC 0','S24 + Stativ'),
    t('Close-ups: Gesicht, Mantelkragen, Handschuhe, Schuhe auf Pflaster','P2','Close-up',4,'MIC 0','S24 + Stativ'),
    t('Thumbnail/Foto: Schloss klar erkennbar; nicht mittig vor Hauptturm','P1','Foto',3,'MIC 0','S24'),
@@ -150,7 +151,7 @@ projects:[{
    t('Low Angle: Schlossfassade nach oben; Vertikalen möglichst gerade halten','P2','Shot',4,'MIC 0','S24 + Stativ'),
    t('Foreground: durch Geländer/Blätter/Torbogen; du im Hintergrund','P2','Shot',4,'MIC 0','S24 + Stativ'),
    t('Performance Outfit A an 1-2 stärksten Winkeln: Medium + Close','P1','Performance',8,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
-   t('Performance Outfit B an 1 starken Winkel: Medium + Close','P2','Performance',7,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
+   t('Outfit B hier bewusst NICHT drehen: kein Umziehen draußen und kein separater Hotel-Rückweg','P2','Organisation',1,'MIC 0','—'),
    t('Stillness: 15-20 s, du fast still; Wind/Blätter/Umgebung bewegen sich','P2','Shot',4,'MIC 0','S24 + Stativ'),
    t('Vogelperspektive ohne Drohne: sichere erhöhte Position suchen','P2','Top-down',4,'MIC 0','S24 + Stativ'),
    t('Clean Plate + 20 s Atmo','P1','Clean Plate',4,'MIC 0','S24 + Stativ'),
@@ -167,7 +168,7 @@ projects:[{
    t('Wide symmetrisch: du mittig oder leicht off-center','P1','Shot',6,'MIC 0','S24 + Stativ'),
    t('Walking-Collage: seitlich auf Weg/Allee; gleiche Kamerahöhe und Laufrichtung','P1','Shot',6,'MIC 0','S24 + Stativ'),
    t('Performance Outfit A: P1 - Anzug/Mantel an stärkster Sichtachse','P1','Performance',9,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
-   t('Performance Outfit B: nur ein gutes Setup, wenn Zeit','P2','Performance',7,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
+   t('Outfit B hier bewusst NICHT drehen: Tagescluster bleibt komplett im Anzug','P2','Organisation',1,'MIC 0','—'),
    t('B-Roll: Bäume im Wind, Blätter, Schuh durch Blätter, Kreuzkanal, Wasser, Statuen','P2','B-Roll',7,'MIC 0','S24 + Stativ'),
    t('Pfützenspiegelung: Kamera 10-20 cm hoch; 60 fps bei Schritt durchs Bild','P1','Reflection',6,'MIC 0','S24 + Stativ'),
    t('Clean Plate + Foto/Thumbnail','P1','Foto',4,'MIC 0','S24'),
@@ -187,7 +188,7 @@ projects:[{
    t('Wide: Rücken zur Kamera, Blick aufs Schloss/Wasser','P1','Shot',8,'MIC 0','S24 + Stativ'),
    t('Walking-Collage: seitlich ca. 7 m entfernt, fast Ganzkörper; See/Schloss hinten','P1','Shot',8,'MIC 0','S24 + Stativ'),
    t('Performance Outfit A: Wide + Medium an stärkstem Uferwinkel','P1','Performance',13,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
-   t('Performance Outfit B: Wide + Medium an zweitem starken Uferwinkel','P1','Performance',13,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
+   t('Outfit B am Burgsee bewusst NICHT separat drehen: Casual-P1 wird im Nacht-Cluster und am Zippendorfer Strand abgedeckt','P1','Organisation',1,'MIC 0','—'),
    t('B-Roll: Schilf, Wasser/Wellen, Schlossreflexion, Hände am Geländer, Wind im Mantel, Silhouette','P2','B-Roll',11,'MIC 0','S24 + Stativ'),
    t('Close-ups: Augen/Gesicht 2x, Hände/Handschuhe, Schuhe, Mantel-/Jackenstoff','P2','Close-up',7,'MIC 0','S24 + Stativ'),
    t('Hero 16:9 + Hero 9:16 + Thumbnail','P1','Hero',11,'MIC 0','S24 + Stativ'),
@@ -201,21 +202,22 @@ projects:[{
    t('Du aus Vogelperspektive auf freier Fläche; gleiche Pose für Collage','BONUS','Drohne',7,'MIC 0','DJI Mini 4 Pro'),
    t('Ein vertikaler Drohnen-Hero zusätzlich zum Querformat','BONUS','Drohne',7,'MIC 0','DJI Mini 4 Pro')
   ]),
-  loc('fri-dinner-transfer','Fr 09.10.2026','19:00-20:25','Abendessen + Backup + Weg in die Altstadt','Burgsee-Ufer → Altstädtischer Markt','Pause / Transfer',
-   'Der 85-Minuten-Block verhindert, dass der Nachtteil direkt an den langen Schloss-Cluster anschließt. Erst essen, Material sichern, Akkus prüfen, dann entspannt in den Nachtblock.','',[
-   t('Kurzer Materialcheck des Schloss-Clusters; nichts löschen','P1','QC',10,'MIC 0','S24'),
-   t('S24 / wichtige Dateien auf SSD kopieren, Originale behalten','P1','Daten',15,'MIC 0','SSD + S24'),
-   t('Abendessen + Getränk','P1','Pause',35,'MIC 0','—'),
-   t('Akkus / Mic / Powerbank prüfen und bei Bedarf nachladen','P1','Organisation',10,'MIC 0','Ladegeräte / Powerbank'),
-   t('Weg Burgsee-Ufer → Altstädtischer Markt + Ankunftspuffer','P1','Transfer',15,'MIC 0','zu Fuß / ÖPNV je nach Lage')
+  loc('fri-dinner-transfer','Fr 09.10.2026','19:00-20:25','Hotelpause: Backup + Essen + Outfit A→B','The Avalon Hotel, Bürgermeister-Bade-Platz 8, 19055 Schwerin','Pause / Hotel / Outfitwechsel',
+   'Pflicht-Rückkehr ins Hotel. Der komplette Tagescluster endet im Anzug. Erst im Hotel auf Casual wechseln; danach bleibt Outfit B für den gesamten Nachtcluster an.','',[
+   t('Burgsee → Avalon Hotel; Equipment sicher verstauen','P1','Transfer',15,'MIC 0','zu Fuß / ÖPNV je nach Lage'),
+   t('S24 / wichtige Dateien auf SSD kopieren und 2–3 Dateien testweise öffnen','P1','Daten',15,'MIC 0','SSD + S24'),
+   t('OUTFITWECHSEL IM HOTEL: Anzug (A) → Pulli + Hose / Casual (B); Haare/Kragen/Kontinuität kurz prüfen','P1','Outfit',10,'MIC 0','Outfit B / Spiegelcheck'),
+   t('Abendessen + Getränk','P1','Pause',20,'MIC 0','—'),
+   t('Akkus / Mic / Powerbank prüfen und kurz nachladen','P1','Organisation',10,'MIC 0','Ladegeräte / Powerbank'),
+   t('Avalon Hotel → Altstädtischer Markt; Outfit B bleibt bis Tagesende an','P1','Transfer',15,'MIC 0','zu Fuß')
   ]),
   loc('markt','Fr 09.10.2026','20:25-21:15','Altstädtischer Markt - Nacht','Am Markt, 19055 Schwerin','Nacht-Cluster','',
    'Regen auf Pflaster, Schritte durch Pfützen, einzelne Auto-Pass-bys vom sicheren Gehweg, Stadt-Hall/Markt-Atmo. Keine privaten Gespräche/fremde Musik als Hauptsample.',[
    t('BTS: Night-Setup + Satz über Regen/Reflexionen','P1','BTS',3,'MIC 1','S24 + DJI Mic Mini'),
    t('Clean Plate: Markt/Fassaden 10 s','P1','Clean Plate',3,'MIC 0','S24 + Stativ'),
    t('Wide: du klein im Platz, Architektur dominant','P1','Shot',4,'MIC 0','S24 + Stativ'),
-   t('Performance Outfit A P1 am besten Hintergrund','P1','Performance',5,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
-   t('Performance Outfit B P2 nur wenn klar anderer Look','P2','Performance',5,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
+   t('Performance Outfit B P1 am besten Hintergrund: Casual als durchgehender Nachtlook','P1','Performance',5,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
+   t('Zweites Performance-Framing in Outfit B nur wenn klar anderer Bildwinkel; kein Outfitwechsel','P2','Performance',5,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
    t('Walking-Collage: seitlich entlang Häuserfront/Laternen','P1','Shot',4,'MIC 0','S24 + Stativ'),
    t('B-Roll: Fassaden, Fenster, Pflaster, Pfützen, Laternen, Blätter, Regenrinne','P2','B-Roll',5,'MIC 0','S24 + Stativ'),
    t('Pfützenspiegelung: Kamera extrem tief; du/Laterne/Fassade in Reflexion','P1','Reflection',4,'MIC 0','S24 + Stativ'),
@@ -234,7 +236,7 @@ projects:[{
    t("BTS: 10 s Gasse + 'enge Gassen / Fachwerk / Nachtlook'",'P1','BTS',3,'MIC 1','S24 + DJI Mic Mini'),
    t('Walking-Collage: seitlich 5-7 m, Körper fast komplett sichtbar','P1','Shot',5,'MIC 0','S24 + Stativ'),
    t('Performance Outfit B P1: Kopfsteinpflaster/Backstein/enge Gasse','P1','Performance',7,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
-   t('Performance Outfit A P2: nur wenn Laterne/Fassade deutlich stärker wirkt','P2','Performance',6,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
+   t('Zweites Casual-Performance-Framing nur wenn Laterne/Fassade deutlich stärker wirkt; kein Outfitwechsel','P2','Performance',6,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
    t('B-Roll: Fachwerk, Backstein, Fenster, Laternen, Äste, Blätter','P2','B-Roll',6,'MIC 0','S24 + Stativ'),
    t('Low Angle: Schuhe auf Kopfsteinpflaster, 60 fps','P2','Close-up',4,'MIC 0','S24 + Stativ'),
    t('Foreground: durch Tor/Geländer/Äste auf dich','P2','Shot',4,'MIC 0','S24 + Stativ'),
@@ -252,7 +254,7 @@ projects:[{
    t('Wide: du am Wasser, Häuser/Lichter im Hintergrund','P1','Shot',5,'MIC 0','S24 + Stativ'),
    t('Walking-Collage: Promenade/Laternen, gleiche Laufrichtung','P1','Shot',5,'MIC 0','S24 + Stativ'),
    t('Stillness: du sitzt/stehst, Wasser bewegt sich','P2','Shot',4,'MIC 0','S24 + Stativ'),
-   t('Performance: nur 1 starkes Setup pro Outfit','P2','Performance',6,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
+   t('Performance: genau 1 starkes Setup in Outfit B; kein Outfitwechsel am Pfaffenteich','P2','Performance',6,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
    t('B-Roll: Wasser, Reflexionen, Lichter, Geländer, Bäume im Wind, Regentropfen','P2','B-Roll',6,'MIC 0','S24 + Stativ'),
    t('Silhouette gegen helle Häuser/Wasserreflexion','P2','Shot',4,'MIC 0','S24 + Stativ'),
    t("Clean Plate + 20 s Atmo + Abschluss-BTS 'Nacht-Cluster geschafft'",'P1','BTS',4,'MIC 1','S24 + DJI Mic Mini'),
@@ -283,15 +285,16 @@ projects:[{
    t('Drohne nur bei legalem, trockenem und deutlich windärmerem Fenster','BONUS','Drohne',21,'MIC 0','DJI Mini 4 Pro'),
    t('Field Recording: 2 Sounds + 1 Stereo-Atmo','P1','Audio',22,'MIC S / MIC D','S24 / DJI Mic Mini + Windschutz')
   ]),
-  loc('sat-transfer','Sa 10.10.2026','11:30-12:30','Transfer + Essen + Datencheck','','Logistik',
-   'Pufferblock zwischen Vormittag und Pickup-Block.','',[
-   t('Zippendorf-Material auf Fokus, Linse und Ton prüfen','P1','QC',10,'MIC 0','S24'),
-   t('S24, Mic, Controller und Powerbank nachladen','P1','Organisation',15,'MIC 0','—'),
-   t('Essen + Transfer','P1','Organisation',25,'MIC 0','—'),
-   t('Offene P1-Liste für den Nachmittag festlegen','P1','Organisation',5,'MIC 0','—')
+  loc('sat-transfer','Sa 10.10.2026','11:30-12:30','Hotelpause: Zippendorf → Backup + Essen + Outfit B→A','The Avalon Hotel, Bürgermeister-Bade-Platz 8, 19055 Schwerin','Logistik / Hotel / Outfitwechsel',
+   'Pflicht-Rückkehr ins Hotel. Zippendorf wird komplett Casual gedreht; der Nachmittag startet danach im Anzug.','',[
+   t('Zippendorf → Avalon Hotel','P1','Transfer',20,'MIC 0','ÖPNV / Fahrzeug / Route vorher prüfen'),
+   t('Zippendorf-Material kurz prüfen und wichtige Dateien auf SSD sichern','P1','QC',10,'MIC 0','S24 + SSD'),
+   t('OUTFITWECHSEL IM HOTEL: Pulli + Hose / Casual (B) → Anzug (A); Sitz/Kragen/Haare prüfen','P1','Outfit',10,'MIC 0','Outfit A / Spiegelcheck'),
+   t('Essen + Getränk','P1','Pause',15,'MIC 0','—'),
+   t('Offene P1-Liste festlegen; danach Hotel im Anzug verlassen','P1','Organisation',5,'MIC 0','S24')
   ]),
   loc('sat-pickups','Sa 10.10.2026','12:30-15:00','Pickup-Block','Nur laut offener P1-Liste','Pickups',
-   'Kein kompletter Wiederholungsbesuch. Exakt wie im Timed-PDF: nur offene Pflichtpunkte schließen.','',[
+   'Kein kompletter Wiederholungsbesuch. Nach der Hotelpause läuft dieser Block in Outfit A (Anzug). Nur offene Pflichtpunkte schließen, die zu Outfit A passen; Casual-Pickups nicht erzwingen.','',[
    t('Offene P1-Shots in App filtern','P1','Organisation',32,'MIC 0','—'),
    t('Nur zum exakten fehlenden Spot fahren','P1','Organisation',32,'MIC 0','—'),
    t("Kein 'wenn ich schon mal hier bin, filme ich alles nochmal'",'P1','Organisation',32,'MIC 0','—'),
@@ -299,7 +302,7 @@ projects:[{
    t('Wenn alles P1 erledigt: Pause, Akkus, Daten, Longform-Talking statt redundanter B-Roll','P2','Organisation',27,'MIC 0','—')
   ]),
   loc('sat-universal','Sa 10.10.2026','15:15-17:15','Neue Location / Universal-Blueprint','Vor Ort eine wirklich neue Bildwelt auswählen','Neue Location',
-   'Nur wenn P1 weitgehend komplett ist. Neue Optik statt noch mehr Schloss-Duplikate.','',[
+   'Nur wenn P1 weitgehend komplett ist. Dieser Block bleibt in Outfit A (Anzug). Neue Optik statt noch mehr Schloss-Duplikate; kein Outdoor-Outfitwechsel.','',[
    t('Location mit mindestens zwei starken Kriterien auswählen','P1','Organisation',8,'MIC 0','—'),
    t('BTS: Warum ist diese Location visuell anders?','P1','BTS',5,'MIC 1','S24 + DJI Mic Mini'),
    t('Clean Plate + Extreme Wide + Wide','P1','Shot',18,'MIC 0','S24 + Stativ'),
@@ -309,17 +312,20 @@ projects:[{
    t('Thumbnail/Foto + 20-60 s Stereo-Atmo + 2 Foley-Sounds','P1','Audio',18,'MIC S / MIC D','S24 / DJI Mic Mini + Windschutz')
   ]),
   loc('sat-bluehour','Sa 10.10.2026','17:30-19:15','Optionale Dämmerung','Nur falls Freitagabend ausgefallen ist oder klar anderer Lichtlook','Lichtfenster',
-   'Maximal EIN Cluster wiederholen. Nur bei echtem Mehrwert.','',[
+   'Maximal EIN Cluster wiederholen. Outfit A (Anzug) bleibt an. Nur bei echtem Mehrwert; kein Outdoor-Outfitwechsel.','',[
    t('Nur Hero, Performance und Reflection - keine komplette B-Roll-Liste','P1','Performance',62,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ + DJI Mic bei Live-Ton'),
    t('BTS kurz erklären, warum zweiter Besuch visuell nötig ist','P1','BTS',31,'MIC 1','S24 + DJI Mic Mini')
   ]),
-  loc('sat-evening','Sa 10.10.2026','19:15-20:15','Essen + Akkus + Backup','','Logistik','Kein Drehzwang.','',[
-   t('S24 / SD-Karte auf SSD kopieren – Originale behalten','P1','Daten',20,'MIC 0','SSD + S24'),
-   t('Akkus, Mic, Controller und Powerbank laden','P1','Organisation',20,'MIC 0','Ladegeräte'),
-   t('P1-Stand prüfen und Sonntag nur echte Lücken offen lassen','P1','Organisation',10,'MIC 0','—')
+  loc('sat-evening','Sa 10.10.2026','19:15-20:15','Zurück ins Hotel: Essen + Akkus + Backup + ggf. Outfit A→B','The Avalon Hotel, Bürgermeister-Bade-Platz 8, 19055 Schwerin','Logistik / Hotel',
+   'Nach dem Nachmittagscluster zurück ins Hotel. Nur wenn anschließend ein echter Nacht-P1 draußen gedreht werden muss, im Hotel auf Outfit B wechseln. Sonst kein weiterer Outfitwechsel nötig.','',[
+   t('Zum Avalon Hotel zurückkehren','P1','Transfer',10,'MIC 0','zu Fuß / ÖPNV je nach letzter Location'),
+   t('S24 / SD-Karte auf SSD kopieren – Originale soweit möglich behalten','P1','Daten',15,'MIC 0','SSD + S24'),
+   t('Essen + Getränk','P1','Pause',15,'MIC 0','—'),
+   t('Akkus, Mic, Controller und Powerbank laden','P1','Organisation',10,'MIC 0','Ladegeräte'),
+   t('P1-Stand prüfen: Nacht-P1 offen? Nur dann IM HOTEL Anzug (A) → Casual (B) wechseln','P1','Outfit',10,'MIC 0','Outfit / Spiegelcheck')
   ]),
   loc('sat-longform','Sa 10.10.2026','20:15-22:30','Longform + Indoor / Nacht-Pickups','Unterkunft oder genau ein noch fehlender Nachtspot','Longform',
-   'Nicht automatisch die komplette Altstadt wiederholen.','',[
+   'Hotel ist die Basis. Wenn ein Nacht-P1 offen ist: vorher im Hotel Outfit B anziehen und nur diesen einen Spot anfahren. Ohne Nacht-P1 bleibt der Block im Hotel; kein Outfitwechsel nur für BTS/Review.','',[
    t('Longform-Talking: Was wurde heute geschafft, was fehlt, was ging schief?','P1','BTS',20,'MIC 1','S24 + DJI Mic Mini'),
    t('BTS: Materialreview / Timeline / Backup zeigen','P1','BTS',15,'MIC 1','S24 + DJI Mic Mini'),
    t('Indoor-Close-ups: Hände, Kleidung, Equipment, Speichermedien','P2','Close-up',20,'MIC 0','S24 + Stativ'),
@@ -331,6 +337,7 @@ projects:[{
    'Früh starten, damit Sound, letzte P1, Datencheck und Abreise ohne Hektik vor dem 11:06-Zug erledigt sind.','',[
    t('Frühstück + Wasser','P1','Pause',15,'MIC 0','—'),
    t('Offene P1-Liste auf maximal 1–2 realistische Restpunkte reduzieren','P1','Organisation',5,'MIC 0','S24'),
+   t('Im Hotel EIN Outfit für den wichtigsten Rest-P1 wählen und anziehen: A oder B. Dieses Outfit bleibt bis zum letzten Außendreh an','P1','Outfit',5,'MIC 0','Outfit / Spiegelcheck'),
    t('Nur Tagesausrüstung mitnehmen; Rest bereits grob vorsortieren','P1','Organisation',5,'MIC 0','Tasche / Equipment'),
    t('Hotelzimmer kurz vorordnen, damit Packen später schnell geht','P1','Organisation',5,'MIC 0','—')
   ]),
@@ -343,7 +350,7 @@ projects:[{
    t('Aufnahmen kurz anhören / Pegel und Störgeräusche prüfen','P1','QC',4,'MIC 0','S24 + Kopfhörer')
   ]),
   loc('sun-final','So 11.10.2026','07:45-09:15','Letzte gezielte P1-Pickups','Pfaffenteich / Schelfstadt / nur nahe offene P1','Abschlussdreh',
-   'Kein neuer Voll-Dreh und keine komplette Outfit-Matrix. Maximal 1–2 konkrete fehlende P1-Shots in Hotel-/Bahnhofsnähe schließen. Weite Location nur, wenn Samstagabend als wirklich kritisch markiert.','',[
+   'Kein neuer Voll-Dreh und keine komplette Outfit-Matrix. Vor Abfahrt im Hotel genau EIN Outfit passend zum wichtigsten Rest-P1 wählen; draußen wird nicht gewechselt. Maximal 1–2 konkrete P1 in Hotel-/Bahnhofsnähe schließen. Brauchen zwei offene Shots unterschiedliche Outfits, gewinnt der wichtigere P1.','',[
    t('Genau festlegen: Welche maximal 1–2 P1 fehlen noch? Alles andere bewusst streichen','P1','Organisation',5,'MIC 0','S24'),
    t('Fehlenden P1-Hero / Performance / Walking gezielt drehen','P1','Shot',35,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ'),
    t('Falls nötig genau einen zweiten kritischen P1 drehen','P1','Shot',25,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ'),
@@ -385,18 +392,19 @@ projects:[{
 };
 
 const outfitCfg={
- 'alter-garten':{start:'A',plan:'Start in Outfit A. Walking-Collage und erste Performance in A. Vor der markierten Outfit-B-Performance wechseln.',switchText:'Performance Outfit B',switchTo:'B'},
- 'schlossinsel':{start:'A',plan:'Start in Outfit A. Outfit A zuerst komplett abarbeiten; vor Performance Outfit B wechseln.',switchText:'Performance Outfit B',switchTo:'B'},
- 'schlossgarten':{start:'A',plan:'Start in Outfit A. Performance A und Walking zuerst. Outfit B nur als zweites Setup; vor dem B-Shot wechseln.',switchText:'Performance Outfit B',switchTo:'B'},
- 'burgsee':{start:'A',plan:'Start in Outfit A. Hero/Wide/Walking und Performance A zuerst. Danach Wechsel zu Outfit B für die zweite Performance und anschließende Personen-Details.',switchText:'Performance Outfit B',switchTo:'B'},
- 'markt':{start:'A',plan:'Start in Outfit A. Nacht-Hauptlook A zuerst; Outfit B nur wenn der zweite Look wirklich anders wirkt.',switchText:'Performance Outfit B',switchTo:'B',switchPriority:'P2'},
- 'schelfstadt':{start:'B',plan:'Start in Outfit B – das ist hier der P1-Look. Outfit A nur optional danach.',switchText:'Performance Outfit A',switchTo:'A',switchPriority:'P2'},
- 'pfaffenteich':{start:'A',plan:'Start in Outfit A. Beim Performance-Block erst A aufnehmen, dann einmal zu B wechseln. Danach nicht zurückwechseln.',switchText:'Performance: nur 1 starkes Setup pro Outfit',switchTo:'B',switchAfter:true},
- 'zippendorf':{start:'B',plan:'Start in Outfit B – Hauptlook für See/Strand. Outfit A nur optional, wenn Wind und Look klar funktionieren.',switchText:'Performance Outfit B',switchTo:'A',switchAfter:true,switchPriority:'P2',switchLabel:'Optionaler Outfitwechsel B → A'},
- 'sat-universal':{start:'FLEX',plan:'Vor Block genau EIN Hauptoutfit wählen und möglichst durchziehen. Nur wechseln, wenn die neue Location einen klaren zweiten Look rechtfertigt.'},
- 'sat-bluehour':{start:'FLEX',plan:'Outfit nach dem fehlenden Hero-/Performance-Shot wählen. Kein zusätzlicher Outfitwechsel ohne konkreten Zweck.'},
- 'sat-longform':{start:'FLEX',plan:'BTS/Longform: Outfit frei, aber für zusammenhängende Talking-Passagen nicht mittendrin wechseln.'},
- 'sun-final':{start:'FLEX',plan:'Outfit ausschließlich nach der offenen P1-Liste wählen. Keine neue Outfit-Matrix anfangen.'}
+ 'alter-garten':{start:'A',plan:'OUTFIT A – Anzug. Kompletter Tages-/Schlosscluster bleibt in A. Kein Wechsel vor Ort; Casual-Shots an dieser Location werden bewusst gestrichen statt extra zum Hotel zurückzufahren.'},
+ 'schlossinsel':{start:'A',plan:'OUTFIT A – Anzug. Kein Outdoor-Wechsel. Alle Personen-/Performance-Shots hier im Anzug; Outfit B wird später als eigener Nachtlook genutzt.'},
+ 'schlossgarten':{start:'A',plan:'OUTFIT A – Anzug. Tagescluster bleibt vollständig in A. Kein Umziehen draußen.'},
+ 'burgsee':{start:'A',plan:'OUTFIT A – Anzug bis Ende Burgsee. Danach verpflichtend zurück zum Avalon Hotel: Backup + Essen + dort A→B wechseln.'},
+ 'markt':{start:'B',plan:'OUTFIT B – Pulli + Hose / Casual. Im Hotel angezogen. Der gesamte Nachtcluster Markt → Schelfstadt → Pfaffenteich bleibt in B.'},
+ 'schelfstadt':{start:'B',plan:'OUTFIT B – Casual. Kein Wechsel vor Ort; nur Casual-Framings drehen.'},
+ 'pfaffenteich':{start:'B',plan:'OUTFIT B – Casual bis Tagesende. Danach direkt zurück ins Hotel.'},
+ 'zippendorf':{start:'B',plan:'OUTFIT B – Casual ab Hotel. Kompletten Zippendorf-Block in B drehen. Anschließend zurück zum Hotel und dort B→A wechseln.'},
+ 'sat-pickups':{start:'A',plan:'OUTFIT A – Anzug nach der Hotelpause. Nur Pickups drehen, die zu A passen; kein Casual-Wechsel draußen.'},
+ 'sat-universal':{start:'A',plan:'OUTFIT A – Anzug. Neue Location komplett in A drehen; kein Outdoor-Wechsel.'},
+ 'sat-bluehour':{start:'A',plan:'OUTFIT A – Anzug. Dämmerungsblock bleibt in A. Danach zurück ins Hotel.'},
+ 'sat-longform':{start:'FLEX',plan:'Im Hotel bleiben: Outfit egal. Falls genau ein Nacht-P1 draußen offen ist, VOR dem Verlassen des Hotels Outfit B anziehen und draußen nicht mehr wechseln.'},
+ 'sun-final':{start:'FLEX',plan:'Vor dem Verlassen des Hotels EIN Outfit passend zum wichtigsten Rest-P1 auswählen. Dieses Outfit bleibt für alle Sonntag-Pickups an; kein Outdoor-Wechsel.'}
 };
 const personShot=/\b(BTS|Walking|Performance|Wide|Hero|Close|Silhouette|Stillness|Foreground|Vogelperspektive|du\b|Thumbnail\/Foto)/i;
 const p0=window.BLUEPRINT_SEED.projects.find(p=>p.id==='schwerin-2026-10');
