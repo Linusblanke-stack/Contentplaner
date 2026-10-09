@@ -2,7 +2,7 @@
 const t=(text,priority='P2',category='Shot',minutes=4,mic='MIC 0',gear='S24 + Stativ')=>({text,priority,category,minutes,mic,gear});
 const loc=(id,date,time,name,address,type,notes,fieldrec,tasks)=>({id,date,time,name,address,type,notes,fieldrec,tasks});
 window.BLUEPRINT_SEED={
-version:8,
+version:9,
 master:{
  name:'Universal Content-Trip Blueprint',
  description:'Wiederverwendbarer Master für City-/Location-Drehs. Locations, Adressen, Route, Licht, Saison, Outfits und lokale Drohnenlage werden angepasst; die Produktionslogik bleibt.',
@@ -104,7 +104,7 @@ projects:[{
  outfits:{A:'Anzug',B:'Pulli + Hose (Casual)'},
  accommodation:{
    name:'The Avalon Hotel',
-   address:'Bürgermeister-Bade-Platz, Schwerin',
+   address:'Bürgermeister-Bade-Platz 8, 19055 Schwerin',
    checkIn:'',
    checkOut:'',
    notes:'Feste Basis für Hin-/Rückwege im Schwerin-Blueprint.'
@@ -324,38 +324,61 @@ projects:[{
    t('BTS: Materialreview / Timeline / Backup zeigen','P1','BTS',15,'MIC 1','S24 + DJI Mic Mini'),
    t('Indoor-Close-ups: Hände, Kleidung, Equipment, Speichermedien','P2','Close-up',20,'MIC 0','S24 + Stativ'),
    t('Optional genau einen fehlenden Nacht-P1-Shot nachholen','P1','Shot',35,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ'),
-   t('Zweite vollständige SSD-Sicherung / Stichprobe großer Dateien','P1','Daten',25,'MIC 0','SSD + S24')
+   t('Zweite vollständige SSD-Sicherung / Stichprobe großer Dateien','P1','Daten',25,'MIC 0','SSD + S24'),
+   t('SONNTAGS-ENTSCHEIDUNG: 11:06-Zug fest einplanen. Nur wenn noch ein wirklich kritischer P1 fehlt, auf einen späteren Zug wechseln','P1','Organisation',10,'MIC 0','—')
   ]),
-  loc('sun-outbound','So 11.10.2026','08:00-08:30','Avalon Hotel → erster Pickup-Spot','Offene P1-Location','Transfer',
-   'Start: The Avalon Hotel, Bürgermeister-Bade-Platz, Schwerin. 30 Minuten Reserve. Ziel erst vor Abfahrt anhand der offenen P1-Liste festlegen.','',[
-   t('Offene P1-Liste prüfen und genau einen ersten Zielspot festlegen','P1','Organisation',5,'MIC 0','—'),
-   t('Fahrt / Weg zum ersten Pickup-Spot','P1','Transfer',20,'MIC 0','zu Fuß / ÖPNV / Fahrzeug'),
-   t('5 Minuten Ankunfts- und Aufbaupuffer','P1','Puffer',5,'MIC 0','—')
+  loc('sun-start','So 11.10.2026','06:45-07:15','Frühstück + früher Tagesstart','The Avalon Hotel, Bürgermeister-Bade-Platz 8, 19055 Schwerin','Tagesstart',
+   'Früh starten, damit Sound, letzte P1, Datencheck und Abreise ohne Hektik vor dem 11:06-Zug erledigt sind.','',[
+   t('Frühstück + Wasser','P1','Pause',15,'MIC 0','—'),
+   t('Offene P1-Liste auf maximal 1–2 realistische Restpunkte reduzieren','P1','Organisation',5,'MIC 0','S24'),
+   t('Nur Tagesausrüstung mitnehmen; Rest bereits grob vorsortieren','P1','Organisation',5,'MIC 0','Tasche / Equipment'),
+   t('Hotelzimmer kurz vorordnen, damit Packen später schnell geht','P1','Organisation',5,'MIC 0','—')
   ]),
-  loc('sun-final','So 11.10.2026','08:30-13:00','Letzte Pickups + Abschluss','Nur offene P1/P2 / The Avalon Hotel','Abschluss',
-   'Timed-PDF-Grundblock bleibt vollständig erhalten; zusätzliche Abreise-/Soundblöcke folgen danach.','',[
-   t('Offene P1 zuerst','P1','Organisation',60,'MIC 0','—'),
-   t('Drohne nur wenn Geo-Zone + Wetter + Wind + Menschenlage wirklich passen','BONUS','Drohne',31,'MIC 0','DJI Mini 4 Pro'),
-   t('Keine komplette Outfit-Matrix erneut drehen','P1','Organisation',60,'MIC 0','—'),
-   t('Finales Longform-Fazit: Was geschafft? Was ging schief? Wie viel Content entstanden?','P1','BTS',20,'MIC 1','S24 + DJI Mic Mini'),
-   t('SSD-Kopie prüfen; mehrere große Dateien testweise öffnen','P1','Daten',27,'MIC 0','SSD + S24'),
-   t('Abreise-Puffer ab ca. 13:00 Uhr','P1','Organisation',60,'MIC 0','—')
+  loc('sun-sound','So 11.10.2026','07:15-07:45','Field Recording am Pfaffenteich','Pfaffenteich, Schwerin','Audio',
+   'Direkt nahe am Hotel erledigen. Keine weite Extra-Location mehr nur für Sound anfahren. Visuelle P1 haben trotzdem Vorrang, falls noch etwas Kritisches offen ist.',
+   'Breite Wasser-/Stadtatmo, Wind/Bäume, Schritte/Laub, Wasser/Foley; keine privaten Gespräche oder fremde Musik gezielt aufnehmen.',[
+   t('Breite Pfaffenteich-Atmo 30–60 s, Handy komplett ruhig','P1','Audio',7,'MIC S','S24 Stereo'),
+   t('Wasser/Wind zweite Stereo-Atmo aus anderem Winkel','P1','Audio',6,'MIC S','S24 Stereo'),
+   t('2–4 isolierte Foley-Sounds: Schritte, Laub, Stoff oder Wasser','P1','Audio',10,'MIC D','DJI Mic Mini + Windschutz'),
+   t('Aufnahmen kurz anhören / Pegel und Störgeräusche prüfen','P1','QC',4,'MIC 0','S24 + Kopfhörer')
   ]),
-  loc('sun-sound','So 11.10.2026','10:30-11:30','Field Recording / Soundbibliothek','Ruhiger, sicherer Spot auf der Abreiseroute','Audio',
-   'Nur wenn die visuellen P1-Shots erledigt sind. Dieser Block ist als optionale Ergänzung innerhalb des Sonntagfensters gedacht.','',[
-   t('1-2 breite Stereo-Atmos à 30-60 s aufnehmen','P1','Audio',15,'MIC S','S24 Stereo'),
-   t('Mindestens 4 isolierte Foley-Sounds aufnehmen','P1','Audio',20,'MIC D','DJI Mic Mini + Windschutz'),
-   t('Wasser, Wind, Schritte, Laub, Stoff oder Verkehr aus sicherem Standpunkt variieren','P2','Audio',15,'MIC S / MIC D','S24 / DJI Mic Mini'),
-   t('Keine privaten Gespräche oder fremde Musik gezielt aufnehmen','P1','Regel',2,'MIC 0','—')
+  loc('sun-final','So 11.10.2026','07:45-09:15','Letzte gezielte P1-Pickups','Pfaffenteich / Schelfstadt / nur nahe offene P1','Abschlussdreh',
+   'Kein neuer Voll-Dreh und keine komplette Outfit-Matrix. Maximal 1–2 konkrete fehlende P1-Shots in Hotel-/Bahnhofsnähe schließen. Weite Location nur, wenn Samstagabend als wirklich kritisch markiert.','',[
+   t('Genau festlegen: Welche maximal 1–2 P1 fehlen noch? Alles andere bewusst streichen','P1','Organisation',5,'MIC 0','S24'),
+   t('Fehlenden P1-Hero / Performance / Walking gezielt drehen','P1','Shot',35,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ'),
+   t('Falls nötig genau einen zweiten kritischen P1 drehen','P1','Shot',25,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ'),
+   t('Finales Longform-Fazit: Was geschafft? Was fehlt bewusst? Wie viel Material ist entstanden?','P1','BTS',12,'MIC 1','S24 + DJI Mic Mini'),
+   t('Vor Ort letzter Materialcheck: Clips abspielbar, Ton bei Schlüsselclips vorhanden','P1','QC',8,'MIC 0','S24')
   ]),
-  loc('sun-pack','So 11.10.2026','13:00-13:30','Packen + Equipment-Check','Bürgermeister-Bade-Platz, Schwerin','Logistik','Nichts mehr anfangen, was die Abreise gefährdet.','',[
-   t('S24, SSD, Mic, Drohne, Controller, Akkus, Ladegeräte, Stativ und Kleidung prüfen','P1','Organisation',15,'MIC 0','—'),
-   t('Speicherkarten / SSD sicher verstauen','P1','Organisation',5,'MIC 0','—'),
-   t('Unterkunft vollständig kontrollieren','P1','Organisation',5,'MIC 0','—')
+  loc('sun-return','So 11.10.2026','09:15-09:30','Zurück zum Avalon Hotel','Bürgermeister-Bade-Platz 8, 19055 Schwerin','Transfer',
+   'Spätestens 09:15 den Dreh beenden. Keine spontane Zusatzlocation mehr.','',[
+   t('Equipment vollständig einpacken','P1','Organisation',4,'MIC 0','—'),
+   t('Rückweg zum Hotel','P1','Transfer',8,'MIC 0','zu Fuß'),
+   t('Ankunftspuffer','P1','Puffer',3,'MIC 0','—')
   ]),
-  loc('sun-departure','So 11.10.2026','13:30-14:00','Abreise-Puffer','','Abreise','Keine neuen Drehs mehr.','',[
-   t('Abreise starten / Bahnhof oder nächste Verbindung ansteuern','P1','Organisation',20,'MIC 0','—'),
-   t('Schwerin als Dreh abgeschlossen markieren, wenn alle P1 erledigt oder bewusst verworfen sind','P1','Organisation',5,'MIC 0','—')
+  loc('sun-review','So 11.10.2026','09:30-10:00','Finaler Daten- und Vollständigkeitscheck','The Avalon Hotel, Bürgermeister-Bade-Platz 8, 19055 Schwerin','Daten / Review',
+   'Noch nicht schneiden. Nur sichern, verifizieren und sauber notieren, damit zuhause sofort Content Reviewing möglich ist.','',[
+   t('Neue Dateien auf Reise-SSD kopieren; auf dem S24 wichtige P1 nach Möglichkeit behalten','P1','Daten',10,'MIC 0','SSD + S24'),
+   t('Mehrere große Dateien von der SSD wirklich öffnen: Anfang, Mitte, Ende','P1','QC',7,'MIC 0','SSD + S24'),
+   t('P1-Liste final abhaken / bewusst verworfene Punkte markieren','P1','Organisation',5,'MIC 0','S24'),
+   t('Kurze Review-Notiz: stärkste Clips, Probleme, erste Cut-Ideen','P2','Organisation',5,'MIC 0','S24')
+  ]),
+  loc('sun-pack','So 11.10.2026','10:00-10:30','Packen + Zimmercheck','The Avalon Hotel, Bürgermeister-Bade-Platz 8, 19055 Schwerin','Logistik',
+   'Ab 10:00 keine neuen Drehs mehr beginnen.','',[
+   t('S24, SSD, Mic, Drohne, Controller, Akkus, Ladegeräte, Stativ und beide Outfits vollständig einpacken','P1','Organisation',15,'MIC 0','—'),
+   t('SSD / Speichermedien körpernah und sicher verstauen','P1','Organisation',5,'MIC 0','—'),
+   t('Zimmer, Bad, Steckdosen und unter dem Bett vollständig kontrollieren','P1','Organisation',5,'MIC 0','—')
+  ]),
+  loc('sun-checkout','So 11.10.2026','10:30-10:40','Check-out','The Avalon Hotel, Bürgermeister-Bade-Platz 8, 19055 Schwerin','Abreise',
+   'Spätestens 10:40 wirklich das Hotel verlassen.','',[
+   t('Check-out erledigen / Schlüssel abgeben','P1','Organisation',5,'MIC 0','—'),
+   t('Direkt danach zum Hauptbahnhof losgehen','P1','Organisation',5,'MIC 0','Gepäck')
+  ]),
+  loc('sun-departure','So 11.10.2026','10:40-11:06','Avalon Hotel → Schwerin Hbf · Zug 11:06','Grunthalplatz 4, 19053 Schwerin','Abreise',
+   'Hotel und Hauptbahnhof liegen nur wenige Gehminuten auseinander. Trotzdem 10:40 los, damit Gepäck, Orientierung und Bahnsteigwechsel kein Stress werden.','',[
+   t('Zu Fuß zum Schweriner Hauptbahnhof','P1','Transfer',10,'MIC 0','Gepäck'),
+   t('Bahnsteig / Zug prüfen und spätestens ca. 10:50–10:55 am Gleis sein','P1','Organisation',6,'MIC 0','DB-App / Ticket'),
+   t('11:06 Zug nehmen – Schwerin-Dreh abgeschlossen','P1','Abreise',10,'MIC 0','Ticket')
   ])
  ]
 }]
