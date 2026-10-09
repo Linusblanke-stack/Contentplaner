@@ -260,14 +260,14 @@ projects:[{
    t("Clean Plate + 20 s Atmo + Abschluss-BTS 'Nacht-Cluster geschafft'",'P1','BTS',4,'MIC 1','S24 + DJI Mic Mini'),
    t('Field Recording: 2 Sounds + 1 Stereo-Atmo','P1','Audio',6,'MIC S / MIC D','S24 / DJI Mic Mini + Windschutz')
   ]),
-  loc('fri-return','Fr 09.10.2026','23:20-23:50','Rückweg zum Avalon Hotel + Tagesabschluss','Bürgermeister-Bade-Platz, Schwerin','Rückfahrt / Abschluss',
-   'Ziel: The Avalon Hotel, Bürgermeister-Bade-Platz, Schwerin. 30 Minuten Reserve; wenn der tatsächliche Weg kürzer ist, wird die Restzeit zum Backup-/Ladepuffer.','',[
+  loc('fri-return','Fr 09.10.2026','23:20-23:50','Rückweg zum Avalon Hotel + Tagesabschluss','Bürgermeister-Bade-Platz 8, 19055 Schwerin','Rückfahrt / Abschluss',
+   'Ziel: The Avalon Hotel, Bürgermeister-Bade-Platz 8, 19055 Schwerin. 30 Minuten Reserve; wenn der tatsächliche Weg kürzer ist, wird die Restzeit zum Backup-/Ladepuffer.','',[
    t('Equipment vollständig einpacken und Pfaffenteich verlassen','P1','Organisation',5,'MIC 0','—'),
    t('Rückweg zur Unterkunft','P1','Transfer',20,'MIC 0','zu Fuß / ÖPNV / Fahrzeug'),
    t('In Unterkunft: Geräte ans Ladegerät, SSD sicher ablegen','P1','Organisation',5,'MIC 0','Ladegeräte + SSD')
   ]),
   loc('sat-outbound','Sa 10.10.2026','08:00-08:30','Avalon Hotel → Zippendorfer Strand','Am Strand 14, 19063 Schwerin','Transfer',
-   'Start: The Avalon Hotel, Bürgermeister-Bade-Platz, Schwerin. 30 Minuten Reserve; vor Abfahrt Route in Maps prüfen.','',[
+   'Start: The Avalon Hotel, Bürgermeister-Bade-Platz 8, 19055 Schwerin. 30 Minuten Reserve; vor Abfahrt Route in Maps prüfen.','',[
    t('Tagesausrüstung vollständig prüfen und Unterkunft verlassen','P1','Organisation',5,'MIC 0','—'),
    t('Fahrt / Weg zum Zippendorfer Strand','P1','Transfer',20,'MIC 0','zu Fuß / ÖPNV / Fahrzeug'),
    t('5 Minuten Ankunfts- und Aufbaupuffer','P1','Puffer',5,'MIC 0','—')
@@ -333,7 +333,7 @@ projects:[{
    t('Zweite vollständige SSD-Sicherung / Stichprobe großer Dateien','P1','Daten',25,'MIC 0','SSD + S24'),
    t('SONNTAGS-ENTSCHEIDUNG: 11:06-Zug fest einplanen. Nur wenn noch ein wirklich kritischer P1 fehlt, auf einen späteren Zug wechseln','P1','Organisation',10,'MIC 0','—')
   ]),
-  loc('sun-start','So 11.10.2026','06:45-07:15','Frühstück + früher Tagesstart','The Avalon Hotel, Bürgermeister-Bade-Platz 8, 19055 Schwerin','Tagesstart',
+  loc('sun-start','So 11.10.2026','06:40-07:15','Frühstück + früher Tagesstart','The Avalon Hotel, Bürgermeister-Bade-Platz 8, 19055 Schwerin','Tagesstart',
    'Früh starten, damit Sound, letzte P1, Datencheck und Abreise ohne Hektik vor dem 11:06-Zug erledigt sind.','',[
    t('Frühstück + Wasser','P1','Pause',15,'MIC 0','—'),
    t('Offene P1-Liste auf maximal 1–2 realistische Restpunkte reduzieren','P1','Organisation',5,'MIC 0','S24'),
