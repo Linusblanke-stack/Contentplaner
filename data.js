@@ -2,7 +2,7 @@
 const t=(text,priority='P2',category='Shot',minutes=4,mic='MIC 0',gear='S24 + Stativ')=>({text,priority,category,minutes,mic,gear});
 const loc=(id,date,time,name,address,type,notes,fieldrec,tasks)=>({id,date,time,name,address,type,notes,fieldrec,tasks});
 window.BLUEPRINT_SEED={
-version:11,
+version:12,
 master:{
  name:'Universal Content-Trip Blueprint',
  description:'Wiederverwendbarer Master für City-/Location-Drehs. Locations, Adressen, Route, Licht, Saison, Outfits und lokale Drohnenlage werden angepasst; die Produktionslogik bleibt.',
@@ -124,7 +124,7 @@ projects:[{
    t('5 Minuten Ankunfts-/Aufbaupuffer','P1','Puffer',5,'MIC 0','—')
   ]),
   loc('alter-garten','Fr 09.10.2026','13:30-14:30','Alter Garten + Schlossbrücke','Alter Garten, 19055 Schwerin','Schloss-Cluster',
-   'Schloss direkt gegenüber: Lennéstraße 1, 19053 Schwerin. Start des Schloss-Clusters.',
+   'Schloss direkt gegenüber: Lennéstraße 1, 19053 Schwerin. Start des Schloss-Clusters. Drohne hier NICHT separat prüfen; dafür gibt es nach dem Burgsee einen gemeinsamen BONUS-Drohnenblock für Schloss/Burgsee.',
    'Schritte auf Brücke/Pflaster, Wind an Geländer/Bäumen, Wasser/Umgebung, ggf. einzelne Fahrzeuge aus sicherem Standpunkt.',[
    t("BTS: 10-20 s Selfie - 'Erster Hauptspot, Ziel ist heute Schloss komplett abzuhaken.'",'P1','BTS',4,'MIC 1','S24 + DJI Mic Mini'),
    t('Clean Plate: Brücke / Schloss 16:9, mindestens 10 s ohne dich','P1','Clean Plate',3,'MIC 0','S24 + Stativ'),
@@ -144,7 +144,7 @@ projects:[{
    t('Zur Schlossinsel gehen','P1','Transfer',4,'MIC 0','zu Fuß'),
    t('Neues Setup / Linse kurz prüfen','P1','Puffer',3,'MIC 0','S24 + Stativ')
   ]),
-  loc('schlossinsel','Fr 09.10.2026','14:40-15:40','Schlossinsel / Burggarten','Lennéstraße 1, 19053 Schwerin','Schloss-Cluster','',
+  loc('schlossinsel','Fr 09.10.2026','14:40-15:40','Schlossinsel / Burggarten','Lennéstraße 1, 19053 Schwerin','Schloss-Cluster','Drohne hier nicht separat prüfen; gemeinsamer Schloss/Burgsee-BONUSblock nach dem Tagescluster.',
    'Laubrascheln, Schritte auf unterschiedlichen Untergründen, Wind in Bäumen, ruhige Schloss-/Park-Atmo.',[
    t('BTS: Weg/Eingang zeigen + sagen, welche Perspektive du suchst','P1','BTS',4,'MIC 1','S24 + DJI Mic Mini'),
    t('Architektur: Türme, Türen, Fassadendetails, Statuen, Geländer, Treppen','P2','B-Roll',7,'MIC 0','S24 + Stativ'),
@@ -162,7 +162,7 @@ projects:[{
    t('Equipment sichern und Standort wechseln','P1','Transfer',6,'MIC 0','zu Fuß'),
    t('Aufbau / Testframe / Linse prüfen','P1','Puffer',4,'MIC 0','S24 + Stativ')
   ]),
-  loc('schlossgarten','Fr 09.10.2026','15:50-16:55','Schlossgarten / Kreuzkanal','Lennéstraße, 19053 Schwerin','Schloss-Cluster','',
+  loc('schlossgarten','Fr 09.10.2026','15:50-16:55','Schlossgarten / Kreuzkanal','Lennéstraße, 19053 Schwerin','Schloss-Cluster','Drohne hier nicht separat prüfen; gemeinsamer Schloss/Burgsee-BONUSblock nach dem Tagescluster.',
    'Wind in Baumkronen, Blätter am Boden, Schritte, Wasser am Kanal; 30-60 s Clean Atmo.',[
    t('BTS: Setup + symmetrische Sichtachse + kurzer Vorher/Nachher-Kommentar','P1','BTS',5,'MIC 1','S24 + DJI Mic Mini'),
    t('Wide symmetrisch: du mittig oder leicht off-center','P1','Shot',6,'MIC 0','S24 + Stativ'),
@@ -180,7 +180,7 @@ projects:[{
    t('Zum Burgsee-Ufer / Schwimmende Wiese gehen','P1','Transfer',5,'MIC 0','zu Fuß'),
    t('Ufer-Setup / Linse / Windschutz prüfen','P1','Puffer',2,'MIC 0','S24 + Stativ')
   ]),
-  loc('burgsee','Fr 09.10.2026','17:05-19:00','Schwimmende Wiese + Burgsee-Ufer','Bertha-Klingberg-Platz, 19053 Schwerin','Schloss-Cluster','',
+  loc('burgsee','Fr 09.10.2026','17:05-19:00','Schwimmende Wiese + Burgsee-Ufer','Bertha-Klingberg-Platz, 19053 Schwerin','Schloss-Cluster','Nach diesem Block liegt der EINZIGE gemeinsame Drohnencheck für Schloss/Burgsee. Nur durchführen, wenn Zeit und Bedingungen passen.',
    'Schilfrascheln, Wasserplätschern/Wellen, Vögel, Wind, ferne Stadt. Nahgeräusche mit DJI Mic windgeschützt.',[
    t("BTS: Ufer/Schlossblick + 'Jetzt kommen die klein-im-Bild-Shots'",'P1','BTS',6,'MIC 1','S24 + DJI Mic Mini'),
    t('P1 Hero: Schloss vom Ufer mit Schilf unscharf im Vordergrund','P1','Shot',8,'MIC 0','S24 + Stativ'),
@@ -194,13 +194,14 @@ projects:[{
    t('Hero 16:9 + Hero 9:16 + Thumbnail','P1','Hero',11,'MIC 0','S24 + Stativ'),
    t('Field Recording: 2 Sounds + 1 Stereo-Atmo','P1','Audio',10,'MIC S / MIC D','S24 / DJI Mic Mini + Windschutz')
   ]),
-  loc('drone-castle','Fr/Sa/So','nur bei sicherem Fenster','Drohnenblock Schloss','Vor Start DIPUL-Geozone und tatsächliche Bedingungen prüfen','BONUS',
-   'BONUS. Abbruch bei Regen/Niesel, starken Böen, Menschenmenge, rechtlicher Unklarheit oder schlechtem Start-/Landeplatz.','',[
-   t('Ruhiger 1/4- bis 1/2-Orbit um das Schloss','BONUS','Drohne',7,'MIC 0','DJI Mini 4 Pro'),
-   t('Schloss/Insel Top-down','BONUS','Drohne',7,'MIC 0','DJI Mini 4 Pro'),
-   t('Park/Schlossgarten Top-down oder 45° schräg','BONUS','Drohne',7,'MIC 0','DJI Mini 4 Pro'),
-   t('Du aus Vogelperspektive auf freier Fläche; gleiche Pose für Collage','BONUS','Drohne',7,'MIC 0','DJI Mini 4 Pro'),
-   t('Ein vertikaler Drohnen-Hero zusätzlich zum Querformat','BONUS','Drohne',7,'MIC 0','DJI Mini 4 Pro')
+  loc('drone-castle','Fr/Sa/So','nur bei sicherem Fenster','BONUS Drohne · Schloss/Burgsee','Burgsee-/Schlossbereich; exakten Startpunkt erst nach Vor-Ort-Check wählen','BONUS / Drohne',
+   'Nur EINMAL für den gesamten Schlosscluster prüfen – nicht an Alter Garten, Schlossinsel, Schlossgarten und Burgsee jeweils neu. Wenn ein Punkt des Checks nicht passt, Block komplett auslassen. Kein P1 hängt davon ab.','',[
+   t('DROHNEN-CHECK Schloss/Burgsee: DIPUL-Geozone + örtliche Hinweise/Verbote + trockene Bedingungen + Wind/Böen + Menschenlage + sicherer Start/Landeplatz prüfen','BONUS','Drohne',5,'MIC 0','DJI Mini 4 Pro + RC2'),
+   t('Schloss-Reveal vom sicheren freien Bereich: 12–20 s sehr langsamer Vorwärts-/Aufwärtsflug, Gimbal ca. 20–35° nach unten, Schloss mittig oder auf Drittellinie','BONUS','Drohne',6,'MIC 0','DJI Mini 4 Pro'),
+   t('Langsamer 1/4-Orbit: konstante Höhe und Distanz, Schloss als Mittelpunkt, keine hektische Yaw-Bewegung','BONUS','Drohne',6,'MIC 0','DJI Mini 4 Pro'),
+   t('Top-down/steiler Winkel auf geometrische Wege/Wasser/Schlossumfeld nur wenn dieser Überflug vor Ort rechtlich und sicher zulässig ist','BONUS','Drohne',6,'MIC 0','DJI Mini 4 Pro'),
+   t('Person klein im Bild auf freier Fläche: du bleibst stehen, Drohne bewegt sich langsam rückwärts/aufwärts; keine unbeteiligten Personen im geplanten Flugbereich','BONUS','Drohne',6,'MIC 0','DJI Mini 4 Pro'),
+   t('Vertikaler Hero 9:16 separat komponieren: 12–20 s ruhige Bewegung, nicht einfach Querformat später croppen','BONUS','Drohne',6,'MIC 0','DJI Mini 4 Pro')
   ]),
   loc('fri-dinner-transfer','Fr 09.10.2026','19:00-20:25','Hotelpause: Backup + Essen · Outfit A bleibt an','The Avalon Hotel, Bürgermeister-Bade-Platz 8, 19055 Schwerin','Pause / Hotel',
    'Pflicht-Rückkehr ins Hotel für Essen, Backup und Akkus. Heute bleibt durchgehend Outfit A = Anzug an; kein Outfitwechsel am Freitag.','',[
@@ -212,7 +213,7 @@ projects:[{
    t('Avalon Hotel → Altstädtischer Markt; Outfit A bleibt bis Tagesende an','P1','Transfer',15,'MIC 0','zu Fuß')
   ]),
   loc('markt','Fr 09.10.2026','20:25-21:15','Altstädtischer Markt - Nacht','Am Markt, 19055 Schwerin','Nacht-Cluster','',
-   'Regen auf Pflaster, Schritte durch Pfützen, einzelne Auto-Pass-bys vom sicheren Gehweg, Stadt-Hall/Markt-Atmo. Keine privaten Gespräche/fremde Musik als Hauptsample.',[
+   'Regen auf Pflaster, Schritte durch Pfützen, einzelne Auto-Pass-bys vom sicheren Gehweg, Stadt-Hall/Markt-Atmo. Keine privaten Gespräche/fremde Musik als Hauptsample. DROHNE: nicht eingeplant; hier keinen zusätzlichen Drohnencheck machen.',[
    t('BTS: Night-Setup + Satz über Regen/Reflexionen','P1','BTS',3,'MIC 1','S24 + DJI Mic Mini'),
    t('Clean Plate: Markt/Fassaden 10 s','P1','Clean Plate',3,'MIC 0','S24 + Stativ'),
    t('Wide: du klein im Platz, Architektur dominant','P1','Shot',4,'MIC 0','S24 + Stativ'),
@@ -232,7 +233,7 @@ projects:[{
    t('Testframe / Nachtbelichtung prüfen','P1','Puffer',3,'MIC 0','S24 + Stativ')
   ]),
   loc('schelfstadt','Fr 09.10.2026','21:30-22:20','Schelfstadt / Schelfkirche','Puschkinstraße 3, 19055 Schwerin','Nacht-Cluster','',
-   'Kopfsteinpflaster-Schritte, Regenrinne/Tropfen, Wind in Gassen, Tür-/Torgeräusch nur öffentlich und ohne Personen zu stören.',[
+   'Kopfsteinpflaster-Schritte, Regenrinne/Tropfen, Wind in Gassen, Tür-/Torgeräusch nur öffentlich und ohne Personen zu stören. DROHNE: nicht eingeplant; hier keinen zusätzlichen Drohnencheck machen.',[
    t("BTS: 10 s Gasse + 'enge Gassen / Fachwerk / Nachtlook'",'P1','BTS',3,'MIC 1','S24 + DJI Mic Mini'),
    t('Walking-Collage: seitlich 5-7 m, Körper fast komplett sichtbar','P1','Shot',5,'MIC 0','S24 + Stativ'),
    t('Outfit B P1 in der Schelfstadt ist auf Samstagabend verschoben; Freitag bleibt komplett Anzug','P1','Organisation',1,'MIC 0','—'),
@@ -249,7 +250,7 @@ projects:[{
    t('Wasser-/Licht-Setup kurz prüfen','P1','Puffer',3,'MIC 0','S24 + Stativ')
   ]),
   loc('pfaffenteich','Fr 09.10.2026','22:30-23:20','Pfaffenteich - Nacht','Pfaffenteich, 19055 Schwerin','Nacht-Cluster','',
-   'Wasser, Wind, Vögel, ferne Stadt/Verkehr; ggf. Straßenbahn-Sound aus sicherem öffentlichen Bereich.',[
+   'Wasser, Wind, Vögel, ferne Stadt/Verkehr; ggf. Straßenbahn-Sound aus sicherem öffentlichen Bereich. DROHNE: nicht eingeplant; hier keinen zusätzlichen Drohnencheck machen.',[
    t('BTS: Wasser/Häuser zeigen + sagen, was noch fehlt','P1','BTS',4,'MIC 1','S24 + DJI Mic Mini'),
    t('Wide: du am Wasser, Häuser/Lichter im Hintergrund','P1','Shot',5,'MIC 0','S24 + Stativ'),
    t('Walking-Collage: Promenade/Laternen, gleiche Laufrichtung','P1','Shot',5,'MIC 0','S24 + Stativ'),
@@ -282,7 +283,9 @@ projects:[{
    t('Foreground: Schilf/Gräser/Zäune/Äste','P2','Shot',15,'MIC 0','S24 + Stativ'),
    t('Details: Wasser, Sand, Schuhe, Hände, Jacke im Wind, Promenade','P2','B-Roll',22,'MIC 0','S24 + Stativ'),
    t('Clean Plate + 20 s Atmo + Foto','P1','Foto',13,'MIC 0','S24'),
-   t('Drohne nur bei legalem, trockenem und deutlich windärmerem Fenster','BONUS','Drohne',21,'MIC 0','DJI Mini 4 Pro'),
+   t('DROHNEN-CHECK Zippendorf: DIPUL-Geozone + örtliche Hinweise + trocken + Wind/Böen + Menschen am Strand + sicherer Start/Landeplatz; bei einem Nein komplett auslassen','BONUS','Drohne',5,'MIC 0','DJI Mini 4 Pro + RC2'),
+   t('Zippendorf Küsten-/Ufer-Reveal: 12–20 s langsam vom Ufer/Wasser aufziehen, Horizont gerade, keine abrupten Gimbalbewegungen','BONUS','Drohne',8,'MIC 0','DJI Mini 4 Pro'),
+   t('Zippendorf Person klein im Bild oder Top-down entlang Strandkante: eine langsame konstante Bewegung, keine unbeteiligten Personen im geplanten Flugbereich','BONUS','Drohne',8,'MIC 0','DJI Mini 4 Pro'),
    t('Field Recording: 2 Sounds + 1 Stereo-Atmo','P1','Audio',22,'MIC S / MIC D','S24 / DJI Mic Mini + Windschutz')
   ]),
   loc('sat-transfer','Sa 10.10.2026','11:30-12:30','Hotelpause: Zippendorf → Backup + Essen · Outfit B bleibt an','The Avalon Hotel, Bürgermeister-Bade-Platz 8, 19055 Schwerin','Logistik / Hotel',
