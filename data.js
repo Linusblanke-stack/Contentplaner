@@ -2,7 +2,7 @@
 const t=(text,priority='P2',category='Shot',minutes=4,mic='MIC 0',gear='S24 + Stativ')=>({text,priority,category,minutes,mic,gear});
 const loc=(id,date,time,name,address,type,notes,fieldrec,tasks)=>({id,date,time,name,address,type,notes,fieldrec,tasks});
 window.BLUEPRINT_SEED={
-version:6,
+version:7,
 master:{
  name:'Universal Content-Trip Blueprint',
  description:'Wiederverwendbarer Master für City-/Location-Drehs. Locations, Adressen, Route, Licht, Saison, Outfits und lokale Drohnenlage werden angepasst; die Produktionslogik bleibt.',
@@ -101,6 +101,7 @@ projects:[{
  id:'schwerin-2026-10',name:'Schwerin 48H Content',city:'Schwerin',dates:'09.10.2026 - 11.10.2026',
  subtitle:'Ich hatte nur 48 Stunden für einen Monat Content',pdf:'Schwerin_48H_Blueprint_TIMED_MOBILE.pdf',
  notes:'Timed-Mobile-PDF ist die Referenz. Keine unnötigen Doppelbesuche; Rückkehr nur für fehlende P1, echten Tag/Nacht-Mehrwert oder sicheres Drohnenfenster.',
+ outfits:{A:'Outfit A',B:'Outfit B'},
  accommodation:{
    name:'The Avalon Hotel',
    address:'Bürgermeister-Bade-Platz, Schwerin',
@@ -121,7 +122,7 @@ projects:[{
    t('Weg MediaMarkt → Alter Garten / Schlossbrücke','P1','Transfer',15,'MIC 0','zu Fuß / ÖPNV je nach Lage'),
    t('5 Minuten Ankunfts-/Aufbaupuffer','P1','Puffer',5,'MIC 0','—')
   ]),
-  loc('alter-garten','Fr 09.10.2026','13:30-14:25','Alter Garten + Schlossbrücke','Alter Garten, 19055 Schwerin','Schloss-Cluster',
+  loc('alter-garten','Fr 09.10.2026','13:30-14:30','Alter Garten + Schlossbrücke','Alter Garten, 19055 Schwerin','Schloss-Cluster',
    'Schloss direkt gegenüber: Lennéstraße 1, 19053 Schwerin. Start des Schloss-Clusters.',
    'Schritte auf Brücke/Pflaster, Wind an Geländer/Bäumen, Wasser/Umgebung, ggf. einzelne Fahrzeuge aus sicherem Standpunkt.',[
    t("BTS: 10-20 s Selfie - 'Erster Hauptspot, Ziel ist heute Schloss komplett abzuhaken.'",'P1','BTS',4,'MIC 1','S24 + DJI Mic Mini'),
@@ -136,13 +137,13 @@ projects:[{
    t('Thumbnail/Foto: Schloss klar erkennbar; nicht mittig vor Hauptturm','P1','Foto',3,'MIC 0','S24'),
    t('Field Recording: 2 saubere Sounds + 1 Stereo-Atmo','P1','Audio',6,'MIC S / MIC D','S24 / DJI Mic Mini + Windschutz')
   ]),
-  loc('fri-transfer-1','Fr 09.10.2026','14:25-14:35','Transfer: Alter Garten → Schlossinsel','Alter Garten → Schloss Schwerin','Transfer',
+  loc('fri-transfer-1','Fr 09.10.2026','14:30-14:40','Transfer: Alter Garten → Schlossinsel','Alter Garten → Schloss Schwerin','Transfer',
    'Abbau, kurzer Fußweg und neues Setup. Die Orte liegen nah beieinander, aber Null-Minuten-Übergänge sind unrealistisch.','',[
    t('Stativ abbauen / Equipment sichern','P1','Organisation',3,'MIC 0','—'),
    t('Zur Schlossinsel gehen','P1','Transfer',4,'MIC 0','zu Fuß'),
    t('Neues Setup / Linse kurz prüfen','P1','Puffer',3,'MIC 0','S24 + Stativ')
   ]),
-  loc('schlossinsel','Fr 09.10.2026','14:35-15:30','Schlossinsel / Burggarten','Lennéstraße 1, 19053 Schwerin','Schloss-Cluster','',
+  loc('schlossinsel','Fr 09.10.2026','14:40-15:40','Schlossinsel / Burggarten','Lennéstraße 1, 19053 Schwerin','Schloss-Cluster','',
    'Laubrascheln, Schritte auf unterschiedlichen Untergründen, Wind in Bäumen, ruhige Schloss-/Park-Atmo.',[
    t('BTS: Weg/Eingang zeigen + sagen, welche Perspektive du suchst','P1','BTS',4,'MIC 1','S24 + DJI Mic Mini'),
    t('Architektur: Türme, Türen, Fassadendetails, Statuen, Geländer, Treppen','P2','B-Roll',7,'MIC 0','S24 + Stativ'),
@@ -155,12 +156,12 @@ projects:[{
    t('Clean Plate + 20 s Atmo','P1','Clean Plate',4,'MIC 0','S24 + Stativ'),
    t('Field Recording: 2 Sounds + 1 Stereo-Atmo','P1','Audio',7,'MIC S / MIC D','S24 / DJI Mic Mini + Windschutz')
   ]),
-  loc('fri-transfer-2','Fr 09.10.2026','15:30-15:40','Transfer: Schlossinsel → Schlossgarten','Schloss Schwerin → Schlossgarten','Transfer',
+  loc('fri-transfer-2','Fr 09.10.2026','15:40-15:50','Transfer: Schlossinsel → Schlossgarten','Schloss Schwerin → Schlossgarten','Transfer',
    'Kurzer Fußweg plus Abbau/Aufbau.','',[
    t('Equipment sichern und Standort wechseln','P1','Transfer',6,'MIC 0','zu Fuß'),
    t('Aufbau / Testframe / Linse prüfen','P1','Puffer',4,'MIC 0','S24 + Stativ')
   ]),
-  loc('schlossgarten','Fr 09.10.2026','15:40-16:45','Schlossgarten / Kreuzkanal','Lennéstraße, 19053 Schwerin','Schloss-Cluster','',
+  loc('schlossgarten','Fr 09.10.2026','15:50-16:55','Schlossgarten / Kreuzkanal','Lennéstraße, 19053 Schwerin','Schloss-Cluster','',
    'Wind in Baumkronen, Blätter am Boden, Schritte, Wasser am Kanal; 30-60 s Clean Atmo.',[
    t('BTS: Setup + symmetrische Sichtachse + kurzer Vorher/Nachher-Kommentar','P1','BTS',5,'MIC 1','S24 + DJI Mic Mini'),
    t('Wide symmetrisch: du mittig oder leicht off-center','P1','Shot',6,'MIC 0','S24 + Stativ'),
@@ -172,13 +173,13 @@ projects:[{
    t('Clean Plate + Foto/Thumbnail','P1','Foto',4,'MIC 0','S24'),
    t('Field Recording: 2 Sounds + 1 Stereo-Atmo','P1','Audio',7,'MIC S / MIC D','S24 / DJI Mic Mini + Windschutz')
   ]),
-  loc('fri-transfer-3','Fr 09.10.2026','16:45-16:55','Transfer: Schlossgarten → Burgsee-Ufer','Schlossgarten → Bertha-Klingberg-Platz','Transfer',
+  loc('fri-transfer-3','Fr 09.10.2026','16:55-17:05','Transfer: Schlossgarten → Burgsee-Ufer','Schlossgarten → Bertha-Klingberg-Platz','Transfer',
    'Kurzer Standortwechsel; bewusst 10 Minuten statt direkt nahtlos weiter.','',[
    t('Abbau + Equipment sichern','P1','Organisation',3,'MIC 0','—'),
    t('Zum Burgsee-Ufer / Schwimmende Wiese gehen','P1','Transfer',5,'MIC 0','zu Fuß'),
    t('Ufer-Setup / Linse / Windschutz prüfen','P1','Puffer',2,'MIC 0','S24 + Stativ')
   ]),
-  loc('burgsee','Fr 09.10.2026','16:55-18:45','Schwimmende Wiese + Burgsee-Ufer','Bertha-Klingberg-Platz, 19053 Schwerin','Schloss-Cluster','',
+  loc('burgsee','Fr 09.10.2026','17:05-19:00','Schwimmende Wiese + Burgsee-Ufer','Bertha-Klingberg-Platz, 19053 Schwerin','Schloss-Cluster','',
    'Schilfrascheln, Wasserplätschern/Wellen, Vögel, Wind, ferne Stadt. Nahgeräusche mit DJI Mic windgeschützt.',[
    t("BTS: Ufer/Schlossblick + 'Jetzt kommen die klein-im-Bild-Shots'",'P1','BTS',6,'MIC 1','S24 + DJI Mic Mini'),
    t('P1 Hero: Schloss vom Ufer mit Schilf unscharf im Vordergrund','P1','Shot',8,'MIC 0','S24 + Stativ'),
@@ -200,7 +201,7 @@ projects:[{
    t('Du aus Vogelperspektive auf freier Fläche; gleiche Pose für Collage','BONUS','Drohne',7,'MIC 0','DJI Mini 4 Pro'),
    t('Ein vertikaler Drohnen-Hero zusätzlich zum Querformat','BONUS','Drohne',7,'MIC 0','DJI Mini 4 Pro')
   ]),
-  loc('fri-dinner-transfer','Fr 09.10.2026','18:45-20:10','Abendessen + Backup + Weg in die Altstadt','Burgsee-Ufer → Altstädtischer Markt','Pause / Transfer',
+  loc('fri-dinner-transfer','Fr 09.10.2026','19:00-20:25','Abendessen + Backup + Weg in die Altstadt','Burgsee-Ufer → Altstädtischer Markt','Pause / Transfer',
    'Der 85-Minuten-Block verhindert, dass der Nachtteil direkt an den langen Schloss-Cluster anschließt. Erst essen, Material sichern, Akkus prüfen, dann entspannt in den Nachtblock.','',[
    t('Kurzer Materialcheck des Schloss-Clusters; nichts löschen','P1','QC',10,'MIC 0','S24'),
    t('S24 / wichtige Dateien auf SSD kopieren, Originale behalten','P1','Daten',15,'MIC 0','SSD + S24'),
@@ -208,7 +209,7 @@ projects:[{
    t('Akkus / Mic / Powerbank prüfen und bei Bedarf nachladen','P1','Organisation',10,'MIC 0','Ladegeräte / Powerbank'),
    t('Weg Burgsee-Ufer → Altstädtischer Markt + Ankunftspuffer','P1','Transfer',15,'MIC 0','zu Fuß / ÖPNV je nach Lage')
   ]),
-  loc('markt','Fr 09.10.2026','20:10-21:00','Altstädtischer Markt - Nacht','Am Markt, 19055 Schwerin','Nacht-Cluster','',
+  loc('markt','Fr 09.10.2026','20:25-21:15','Altstädtischer Markt - Nacht','Am Markt, 19055 Schwerin','Nacht-Cluster','',
    'Regen auf Pflaster, Schritte durch Pfützen, einzelne Auto-Pass-bys vom sicheren Gehweg, Stadt-Hall/Markt-Atmo. Keine privaten Gespräche/fremde Musik als Hauptsample.',[
    t('BTS: Night-Setup + Satz über Regen/Reflexionen','P1','BTS',3,'MIC 1','S24 + DJI Mic Mini'),
    t('Clean Plate: Markt/Fassaden 10 s','P1','Clean Plate',3,'MIC 0','S24 + Stativ'),
@@ -222,13 +223,13 @@ projects:[{
    t('Thumbnail: nasses Pflaster + Architektur + du','P1','Foto',3,'MIC 0','S24'),
    t('Field Recording: 2 Sounds + 1 Stereo-Atmo','P1','Audio',5,'MIC S / MIC D','S24 / DJI Mic Mini + Windschutz')
   ]),
-  loc('fri-transfer-night-1','Fr 09.10.2026','21:00-21:15','Transfer: Altstädtischer Markt → Schelfstadt','Am Markt → Puschkinstraße 3','Transfer',
+  loc('fri-transfer-night-1','Fr 09.10.2026','21:15-21:30','Transfer: Altstädtischer Markt → Schelfstadt','Am Markt → Puschkinstraße 3','Transfer',
    'Fußweg, Abbau und kurzes neues Setup.','',[
    t('Equipment sichern / Standort verlassen','P1','Organisation',3,'MIC 0','—'),
    t('Zur Schelfkirche / Schelfstadt gehen','P1','Transfer',9,'MIC 0','zu Fuß'),
    t('Testframe / Nachtbelichtung prüfen','P1','Puffer',3,'MIC 0','S24 + Stativ')
   ]),
-  loc('schelfstadt','Fr 09.10.2026','21:15-22:05','Schelfstadt / Schelfkirche','Puschkinstraße 3, 19055 Schwerin','Nacht-Cluster','',
+  loc('schelfstadt','Fr 09.10.2026','21:30-22:20','Schelfstadt / Schelfkirche','Puschkinstraße 3, 19055 Schwerin','Nacht-Cluster','',
    'Kopfsteinpflaster-Schritte, Regenrinne/Tropfen, Wind in Gassen, Tür-/Torgeräusch nur öffentlich und ohne Personen zu stören.',[
    t("BTS: 10 s Gasse + 'enge Gassen / Fachwerk / Nachtlook'",'P1','BTS',3,'MIC 1','S24 + DJI Mic Mini'),
    t('Walking-Collage: seitlich 5-7 m, Körper fast komplett sichtbar','P1','Shot',5,'MIC 0','S24 + Stativ'),
@@ -240,12 +241,12 @@ projects:[{
    t('Clean Plate + Atmo 20 s','P1','Clean Plate',3,'MIC 0','S24 + Stativ'),
    t('Field Recording: 2 Sounds + 1 Stereo-Atmo','P1','Audio',6,'MIC S / MIC D','S24 / DJI Mic Mini + Windschutz')
   ]),
-  loc('fri-transfer-night-2','Fr 09.10.2026','22:05-22:15','Transfer: Schelfstadt → Pfaffenteich','Puschkinstraße 3 → Pfaffenteich','Transfer',
+  loc('fri-transfer-night-2','Fr 09.10.2026','22:20-22:30','Transfer: Schelfstadt → Pfaffenteich','Puschkinstraße 3 → Pfaffenteich','Transfer',
    'Kurzer Fußweg plus Abbau/Aufbau.','',[
    t('Equipment sichern und zum Pfaffenteich wechseln','P1','Transfer',7,'MIC 0','zu Fuß'),
    t('Wasser-/Licht-Setup kurz prüfen','P1','Puffer',3,'MIC 0','S24 + Stativ')
   ]),
-  loc('pfaffenteich','Fr 09.10.2026','22:15-23:05','Pfaffenteich - Nacht','Pfaffenteich, 19055 Schwerin','Nacht-Cluster','',
+  loc('pfaffenteich','Fr 09.10.2026','22:30-23:20','Pfaffenteich - Nacht','Pfaffenteich, 19055 Schwerin','Nacht-Cluster','',
    'Wasser, Wind, Vögel, ferne Stadt/Verkehr; ggf. Straßenbahn-Sound aus sicherem öffentlichen Bereich.',[
    t('BTS: Wasser/Häuser zeigen + sagen, was noch fehlt','P1','BTS',4,'MIC 1','S24 + DJI Mic Mini'),
    t('Wide: du am Wasser, Häuser/Lichter im Hintergrund','P1','Shot',5,'MIC 0','S24 + Stativ'),
@@ -257,7 +258,7 @@ projects:[{
    t("Clean Plate + 20 s Atmo + Abschluss-BTS 'Nacht-Cluster geschafft'",'P1','BTS',4,'MIC 1','S24 + DJI Mic Mini'),
    t('Field Recording: 2 Sounds + 1 Stereo-Atmo','P1','Audio',6,'MIC S / MIC D','S24 / DJI Mic Mini + Windschutz')
   ]),
-  loc('fri-return','Fr 09.10.2026','23:05-23:35','Rückweg zum Avalon Hotel + Tagesabschluss','Bürgermeister-Bade-Platz, Schwerin','Rückfahrt / Abschluss',
+  loc('fri-return','Fr 09.10.2026','23:20-23:50','Rückweg zum Avalon Hotel + Tagesabschluss','Bürgermeister-Bade-Platz, Schwerin','Rückfahrt / Abschluss',
    'Ziel: The Avalon Hotel, Bürgermeister-Bade-Platz, Schwerin. 30 Minuten Reserve; wenn der tatsächliche Weg kürzer ist, wird die Restzeit zum Backup-/Ladepuffer.','',[
    t('Equipment vollständig einpacken und Pfaffenteich verlassen','P1','Organisation',5,'MIC 0','—'),
    t('Rückweg zur Unterkunft','P1','Transfer',20,'MIC 0','zu Fuß / ÖPNV / Fahrzeug'),
@@ -359,4 +360,53 @@ projects:[{
  ]
 }]
 };
+
+const outfitCfg={
+ 'alter-garten':{start:'A',plan:'Start in Outfit A. Walking-Collage und erste Performance in A. Vor der markierten Outfit-B-Performance wechseln.',switchText:'Performance Outfit B',switchTo:'B'},
+ 'schlossinsel':{start:'A',plan:'Start in Outfit A. Outfit A zuerst komplett abarbeiten; vor Performance Outfit B wechseln.',switchText:'Performance Outfit B',switchTo:'B'},
+ 'schlossgarten':{start:'A',plan:'Start in Outfit A. Performance A und Walking zuerst. Outfit B nur als zweites Setup; vor dem B-Shot wechseln.',switchText:'Performance Outfit B',switchTo:'B'},
+ 'burgsee':{start:'A',plan:'Start in Outfit A. Hero/Wide/Walking und Performance A zuerst. Danach Wechsel zu Outfit B für die zweite Performance und anschließende Personen-Details.',switchText:'Performance Outfit B',switchTo:'B'},
+ 'markt':{start:'A',plan:'Start in Outfit A. Nacht-Hauptlook A zuerst; Outfit B nur wenn der zweite Look wirklich anders wirkt.',switchText:'Performance Outfit B',switchTo:'B',switchPriority:'P2'},
+ 'schelfstadt':{start:'B',plan:'Start in Outfit B – das ist hier der P1-Look. Outfit A nur optional danach.',switchText:'Performance Outfit A',switchTo:'A',switchPriority:'P2'},
+ 'pfaffenteich':{start:'A',plan:'Start in Outfit A. Beim Performance-Block erst A aufnehmen, dann einmal zu B wechseln. Danach nicht zurückwechseln.',switchText:'Performance: nur 1 starkes Setup pro Outfit',switchTo:'B',switchAfter:true},
+ 'zippendorf':{start:'B',plan:'Start in Outfit B – Hauptlook für See/Strand. Outfit A nur optional, wenn Wind und Look klar funktionieren.',switchText:'Performance Outfit B',switchTo:'A',switchAfter:true,switchPriority:'P2',switchLabel:'Optionaler Outfitwechsel B → A'},
+ 'sat-universal':{start:'FLEX',plan:'Vor Block genau EIN Hauptoutfit wählen und möglichst durchziehen. Nur wechseln, wenn die neue Location einen klaren zweiten Look rechtfertigt.'},
+ 'sat-bluehour':{start:'FLEX',plan:'Outfit nach dem fehlenden Hero-/Performance-Shot wählen. Kein zusätzlicher Outfitwechsel ohne konkreten Zweck.'},
+ 'sat-longform':{start:'FLEX',plan:'BTS/Longform: Outfit frei, aber für zusammenhängende Talking-Passagen nicht mittendrin wechseln.'},
+ 'sun-final':{start:'FLEX',plan:'Outfit ausschließlich nach der offenen P1-Liste wählen. Keine neue Outfit-Matrix anfangen.'}
+};
+const personShot=/\b(BTS|Walking|Performance|Wide|Hero|Close|Silhouette|Stillness|Foreground|Vogelperspektive|du\b|Thumbnail\/Foto)/i;
+const p0=window.BLUEPRINT_SEED.projects.find(p=>p.id==='schwerin-2026-10');
+if(p0){
+ for(const l of p0.locations){
+   const cfg=outfitCfg[l.id];
+   if(!cfg) continue;
+   l.outfitPlan=cfg.plan;
+   let current=cfg.start;
+   const out=[];
+   const label=x=>x==='A'?'Outfit A':x==='B'?'Outfit B':'FLEX';
+   out.push(t('OUTFIT-CHECK: '+(current==='FLEX'?'passendes Outfit für diesen Block festlegen':label(current)+' anziehen / Sitz, Haare, Kragen und Kontinuität prüfen'),'P1','Outfit',2,'MIC 0','Outfit / Spiegelcheck'));
+   for(const task of l.tasks){
+     const explicitA=/Outfit A/i.test(task.text);
+     const explicitB=/Outfit B/i.test(task.text);
+     const both=/pro Outfit|A \+ B|Outfit A.*Outfit B|Outfit B.*Outfit A/i.test(task.text);
+     if(cfg.switchText && task.text.includes(cfg.switchText) && !cfg.switchAfter){
+       out.push(t((cfg.switchLabel||('OUTFITWECHSEL: '+label(current)+' → '+label(cfg.switchTo)))+'; kurz Kontinuität/Falten/Kragen prüfen',cfg.switchPriority||'P1','Outfit',4,'MIC 0','Outfit / Spiegelcheck'));
+       current=cfg.switchTo;
+     }
+     if(both) task.outfit='A/B';
+     else if(explicitA && explicitB) task.outfit='A/B';
+     else if(explicitA) task.outfit='A';
+     else if(explicitB) task.outfit='B';
+     else if(personShot.test(task.text)) task.outfit=current==='FLEX'?'FLEX':current;
+     else task.outfit='—';
+     out.push(task);
+     if(cfg.switchText && task.text.includes(cfg.switchText) && cfg.switchAfter){
+       out.push(t((cfg.switchLabel||('OUTFITWECHSEL: '+label(current)+' → '+label(cfg.switchTo)))+'; nur durchführen, wenn der zweite Look noch gebraucht wird',cfg.switchPriority||'P1','Outfit',4,'MIC 0','Outfit / Spiegelcheck'));
+       current=cfg.switchTo;
+     }
+   }
+   l.tasks=out;
+ }
+}
 })();
