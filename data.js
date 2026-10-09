@@ -2,7 +2,7 @@
 const t=(text,priority='P2',category='Shot',minutes=4,mic='MIC 0',gear='S24 + Stativ')=>({text,priority,category,minutes,mic,gear});
 const loc=(id,date,time,name,address,type,notes,fieldrec,tasks)=>({id,date,time,name,address,type,notes,fieldrec,tasks});
 window.BLUEPRINT_SEED={
-version:5,
+version:6,
 master:{
  name:'Universal Content-Trip Blueprint',
  description:'Wiederverwendbarer Master für City-/Location-Drehs. Locations, Adressen, Route, Licht, Saison, Outfits und lokale Drohnenlage werden angepasst; die Produktionslogik bleibt.',
@@ -101,6 +101,13 @@ projects:[{
  id:'schwerin-2026-10',name:'Schwerin 48H Content',city:'Schwerin',dates:'09.10.2026 - 11.10.2026',
  subtitle:'Ich hatte nur 48 Stunden für einen Monat Content',pdf:'Schwerin_48H_Blueprint_TIMED_MOBILE.pdf',
  notes:'Timed-Mobile-PDF ist die Referenz. Keine unnötigen Doppelbesuche; Rückkehr nur für fehlende P1, echten Tag/Nacht-Mehrwert oder sicheres Drohnenfenster.',
+ accommodation:{
+   name:'The Avalon Hotel',
+   address:'Bürgermeister-Bade-Platz, Schwerin',
+   checkIn:'',
+   checkOut:'',
+   notes:'Feste Basis für Hin-/Rückwege im Schwerin-Blueprint.'
+ },
  locations:[
   loc('media-markt','Fr 09.10.2026','12:00-12:45','Ausrüstung holen','Marienplatz 5-7, 19053 Schwerin','Logistik','MediaMarkt Schwerin.','',[
    t('Stativ + mechanische Handyhalterung besorgen','P1','Organisation',14,'MIC 0','—'),
@@ -250,14 +257,14 @@ projects:[{
    t("Clean Plate + 20 s Atmo + Abschluss-BTS 'Nacht-Cluster geschafft'",'P1','BTS',4,'MIC 1','S24 + DJI Mic Mini'),
    t('Field Recording: 2 Sounds + 1 Stereo-Atmo','P1','Audio',6,'MIC S / MIC D','S24 / DJI Mic Mini + Windschutz')
   ]),
-  loc('fri-return','Fr 09.10.2026','23:05-23:35','Rückweg zur Unterkunft + Tagesabschluss','Pfaffenteich → Unterkunft','Rückfahrt / Abschluss',
-   'Unterkunft ist im Blueprint nicht mit Adresse hinterlegt; deshalb 30 Minuten Reserve. Falls der tatsächliche Weg kürzer ist, wird die Restzeit direkt zum Backup-/Ladepuffer.','',[
+  loc('fri-return','Fr 09.10.2026','23:05-23:35','Rückweg zum Avalon Hotel + Tagesabschluss','Bürgermeister-Bade-Platz, Schwerin','Rückfahrt / Abschluss',
+   'Ziel: The Avalon Hotel, Bürgermeister-Bade-Platz, Schwerin. 30 Minuten Reserve; wenn der tatsächliche Weg kürzer ist, wird die Restzeit zum Backup-/Ladepuffer.','',[
    t('Equipment vollständig einpacken und Pfaffenteich verlassen','P1','Organisation',5,'MIC 0','—'),
    t('Rückweg zur Unterkunft','P1','Transfer',20,'MIC 0','zu Fuß / ÖPNV / Fahrzeug'),
    t('In Unterkunft: Geräte ans Ladegerät, SSD sicher ablegen','P1','Organisation',5,'MIC 0','Ladegeräte + SSD')
   ]),
-  loc('sat-outbound','Sa 10.10.2026','08:00-08:30','Unterkunft → Zippendorfer Strand','Unterkunft → Am Strand 14, 19063 Schwerin','Transfer',
-   '30 Minuten Reserve, weil die Unterkunftsadresse noch nicht im Blueprint hinterlegt ist. Vor Abfahrt Route in Maps prüfen.','',[
+  loc('sat-outbound','Sa 10.10.2026','08:00-08:30','Avalon Hotel → Zippendorfer Strand','Am Strand 14, 19063 Schwerin','Transfer',
+   'Start: The Avalon Hotel, Bürgermeister-Bade-Platz, Schwerin. 30 Minuten Reserve; vor Abfahrt Route in Maps prüfen.','',[
    t('Tagesausrüstung vollständig prüfen und Unterkunft verlassen','P1','Organisation',5,'MIC 0','—'),
    t('Fahrt / Weg zum Zippendorfer Strand','P1','Transfer',20,'MIC 0','zu Fuß / ÖPNV / Fahrzeug'),
    t('5 Minuten Ankunfts- und Aufbaupuffer','P1','Puffer',5,'MIC 0','—')
@@ -318,13 +325,13 @@ projects:[{
    t('Optional genau einen fehlenden Nacht-P1-Shot nachholen','P1','Shot',35,'MIC 0 / MIC 1 nur Live-Rap','S24 + Stativ'),
    t('Zweite vollständige SSD-Sicherung / Stichprobe großer Dateien','P1','Daten',25,'MIC 0','SSD + S24')
   ]),
-  loc('sun-outbound','So 11.10.2026','08:00-08:30','Unterkunft → erster Pickup-Spot','Unterkunft → offene P1-Location','Transfer',
-   '30 Minuten Reserve. Ziel erst vor Abfahrt anhand der offenen P1-Liste festlegen.','',[
+  loc('sun-outbound','So 11.10.2026','08:00-08:30','Avalon Hotel → erster Pickup-Spot','Offene P1-Location','Transfer',
+   'Start: The Avalon Hotel, Bürgermeister-Bade-Platz, Schwerin. 30 Minuten Reserve. Ziel erst vor Abfahrt anhand der offenen P1-Liste festlegen.','',[
    t('Offene P1-Liste prüfen und genau einen ersten Zielspot festlegen','P1','Organisation',5,'MIC 0','—'),
    t('Fahrt / Weg zum ersten Pickup-Spot','P1','Transfer',20,'MIC 0','zu Fuß / ÖPNV / Fahrzeug'),
    t('5 Minuten Ankunfts- und Aufbaupuffer','P1','Puffer',5,'MIC 0','—')
   ]),
-  loc('sun-final','So 11.10.2026','08:30-13:00','Letzte Pickups + Abschluss','Nur offene P1/P2 / Unterkunft','Abschluss',
+  loc('sun-final','So 11.10.2026','08:30-13:00','Letzte Pickups + Abschluss','Nur offene P1/P2 / The Avalon Hotel','Abschluss',
    'Timed-PDF-Grundblock bleibt vollständig erhalten; zusätzliche Abreise-/Soundblöcke folgen danach.','',[
    t('Offene P1 zuerst','P1','Organisation',60,'MIC 0','—'),
    t('Drohne nur wenn Geo-Zone + Wetter + Wind + Menschenlage wirklich passen','BONUS','Drohne',31,'MIC 0','DJI Mini 4 Pro'),
@@ -340,7 +347,7 @@ projects:[{
    t('Wasser, Wind, Schritte, Laub, Stoff oder Verkehr aus sicherem Standpunkt variieren','P2','Audio',15,'MIC S / MIC D','S24 / DJI Mic Mini'),
    t('Keine privaten Gespräche oder fremde Musik gezielt aufnehmen','P1','Regel',2,'MIC 0','—')
   ]),
-  loc('sun-pack','So 11.10.2026','13:00-13:30','Packen + Equipment-Check','Unterkunft','Logistik','Nichts mehr anfangen, was die Abreise gefährdet.','',[
+  loc('sun-pack','So 11.10.2026','13:00-13:30','Packen + Equipment-Check','Bürgermeister-Bade-Platz, Schwerin','Logistik','Nichts mehr anfangen, was die Abreise gefährdet.','',[
    t('S24, SSD, Mic, Drohne, Controller, Akkus, Ladegeräte, Stativ und Kleidung prüfen','P1','Organisation',15,'MIC 0','—'),
    t('Speicherkarten / SSD sicher verstauen','P1','Organisation',5,'MIC 0','—'),
    t('Unterkunft vollständig kontrollieren','P1','Organisation',5,'MIC 0','—')
