@@ -1,11 +1,25 @@
-LÖWENBLUT BLUEPRINT APP
+Löwenblut Blueprint App v3.1
 
-1) Direkt testen: index.html in Chrome/Edge öffnen.
-2) Häkchen, Änderungen und Blueprints werden lokal im Browser gespeichert.
-3) Für echte Installation als PWA: Ordner auf HTTPS hosten (z.B. Netlify). Dann im Browser -> Zum Startbildschirm/App installieren.
-4) Google-Maps-Buttons öffnen die eingetragene Adresse direkt.
-5) JSON Export/Import dient als Backup und Gerätewechsel.
-6) PDFs können pro Blueprint lokal im Browser hinterlegt werden.
-7) Der Schwerin-PDF ist bereits im Paket enthalten.
+Aktueller Stand:
+- eigener Legenden-Reiter: P1 / P2 / BONUS, Shot, Take, Performance, B-Roll, Hero, BTS, Clean Plate, Top-down, MIC 0/1/S/D
+- Browser-/Android-Zurück navigiert innerhalb der App statt sofort aus der PWA
+- aktuelle Ansicht, Projekt, Tab, Filter, Suche und Scrollposition bleiben beim Reload erhalten
+- konkrete Zeitbudgets pro Shot mit automatisch berechneten Start-/Endzeiten
+- Puffer- und Überplanungsanzeige pro Location-Block
+- Locations, Shots, Reihenfolge, Priorität, Kategorie, Mic, Equipment und Dauer bearbeitbar
+- Google-Maps-Links direkt je Location
+- lokale Versions-Backups + herunterladbare Backup-Dateien + Auto-Backup
+- Auto-Backup vor Import, Reset und Löschaktionen
+- JSON Import/Export als verlustfreies Strukturformat
+- CSV, HTML, ODT und PDF/Drucken als Ausgabeformate
+- Dokument-Manager für PDF, ODT, DOCX, Bilder und andere Dateien
+- universeller Master + Schwerin als Referenztrip
+- Field Recording / Foley und Mic-Logik integriert
+- größeres, besser erkennbares LB-App-Logo
 
-Hinweis: Beim Löschen von Browserdaten können lokale Häkchen/PDFs verloren gehen. Regelmäßig JSON exportieren.
+Deployment:
+Das Repository ist für statisches Hosting ausgelegt. netlify.toml bleibt erhalten.
+Bei installierter PWA nach größeren Updates ggf. App einmal schließen/neu öffnen; der Service-Worker-Cache ist auf v3.1 aktualisiert.
+
+Backup:
+JSON/Backup ist das verlustfreie Austauschformat. Browser-/Gerätespeicher kann gelöscht werden, daher regelmäßig eine Backup-Datei herunterladen.
