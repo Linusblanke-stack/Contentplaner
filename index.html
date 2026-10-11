@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0B1220">
+<meta name="theme-color" content="#0d1b2a">
 <title>Löwenblut Blueprint</title>
 <link rel="manifest" href="manifest.webmanifest?v=5.0">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
@@ -21,11 +21,11 @@
   </div>
 </div>
 <nav class="bottomnav"><div>
-  <button class="navbtn active" data-view="home"><span>⌂</span><small>Trips</small></button>
-  <button class="navbtn" data-view="remaining"><span>✓</span><small>Offen</small></button>
-  <button class="navbtn" data-view="costs"><span>€</span><small>Kosten</small></button>
-  <button class="navbtn" data-view="master"><span>◇</span><small>Blueprint</small></button>
-  <button class="navbtn" data-view="more"><span>•••</span><small>Mehr</small></button>
+  <button class="navbtn active" data-view="home" aria-label="Trips"><svg viewBox="0 0 24 24"><path d="M4 7.5h16v11H4z"/><path d="M8 7.5V5.5h8v2"/></svg><span>Trips</span></button>
+  <button class="navbtn" data-view="remaining" aria-label="Offen"><svg viewBox="0 0 24 24"><path d="M5 12.5l4 4 10-10"/></svg><span>Offen</span></button>
+  <button class="navbtn" data-view="costs" aria-label="Kosten"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M14.5 8.5c-.6-.5-1.4-.8-2.4-.8-1.5 0-2.6.7-2.6 1.8 0 1.2 1 1.6 2.7 2 1.6.4 2.5.8 2.5 2 0 1.2-1.1 2-2.7 2-1.1 0-2-.3-2.8-.9M12 6.5v11"/></svg><span>Kosten</span></button>
+  <button class="navbtn" data-view="master" aria-label="Blueprint"><svg viewBox="0 0 24 24"><path d="M7 4h10v16H7z"/><path d="M9.5 8h5M9.5 12h5M9.5 16h3"/></svg><span>Blueprint</span></button>
+  <button class="navbtn" data-view="more" aria-label="Mehr"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg><span>Mehr</span></button>
 </div></nav>
 <dialog id="dlg"><div class="modal" id="modal"></div></dialog>
 <script src="data.js?v=5.0"></script>
