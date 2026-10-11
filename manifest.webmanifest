@@ -1,10 +1,10 @@
 {
-  "name": "Löwenblut Blueprint",
-  "short_name": "LB Blueprint",
+  "name": "Löwenblut",
+  "short_name": "Löwenblut",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#0e0e10",
-  "theme_color": "#5b1625",
+  "background_color": "#f4f7fb",
+  "theme_color": "#0b1220",
   "icons": [
     {
       "src": "icon.svg",
