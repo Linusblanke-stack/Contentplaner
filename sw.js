@@ -1,5 +1,5 @@
-const C='lb-blueprint-v4-8-github';
-const CORE=['./','./index.html','./styles.css?v=4.8','./data.js?v=4.8','./app.js?v=4.8','./manifest.webmanifest?v=4.8','./icon.svg'];
+const C='lb-blueprint-v4-9-github';
+const CORE=['./','./index.html','./styles.css?v=4.9','./data.js?v=4.9','./app.js?v=4.9','./manifest.webmanifest?v=4.9','./icon.svg'];
 self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(C).then(c=>c.addAll(CORE)))});
 self.addEventListener('activate',e=>e.waitUntil((async()=>{const ks=await caches.keys();await Promise.all(ks.filter(k=>k!==C).map(k=>caches.delete(k)));await self.clients.claim()})()));
 self.addEventListener('fetch',e=>{
