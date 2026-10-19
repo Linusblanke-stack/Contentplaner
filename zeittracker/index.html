@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101118">
+  <meta name="description" content="Private, offlinefähige Arbeitszeiterfassung für dein Musikbusiness.">
+  <meta name="color-scheme" content="dark">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" type="image/png" href="./icons/icon-192.png">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+<style>
+:root{font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:#f2f1f4;background:#101118;font-synthesis:none;--bg:#101118;--panel:#1a1b24;--panel2:#22232e;--border:#31323e;--text:#f2f1f4;--muted:#999ba9;--accent:#b42d48;--accent-bright:#e05a73;--accent-faint:#43202e;--radius:18px;--safe-bottom:env(safe-area-inset-bottom,0px)}*{box-sizing:border-box}body{margin:0;min-width:320px}button,input,select{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.5}input,select{color:var(--text);background:#161720;border:1px solid #3b3c48;border-radius:11px;padding:13px 14px;outline:0;width:100%;min-width:0;transition:border-color .2s}select{appearance:none;padding-right:38px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23aeb0ba' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}input:focus,select:focus{border-color:var(--accent-bright);box-shadow:0 0 0 3px #b42d4825}input[type=date],input[type=time]{color-scheme:dark}h1,h2,h3,p{margin-top:0}h1{font-size:clamp(27px,3vw,36px);letter-spacing:-1px;margin-bottom:0}h2{font-size:23px;letter-spacing:-.45px;margin-bottom:0}h3{font-size:17px;letter-spacing:-.15px;margin-bottom:0}p{line-height:1.6}.app-shell{display:flex;min-height:100vh}.sidebar{position:sticky;top:0;width:240px;flex-shrink:0;height:100vh;padding:33px 17px 20px;background:#14151c;border-right:1px solid #262731;display:flex;flex-direction:column}.brand{display:flex;align-items:center;gap:11px;padding:0 12px 42px}.brand-mark{display:flex;align-items:center;justify-content:center;font-size:22px;font-family:Georgia,serif;font-weight:bold;width:42px;height:42px;border:1px solid #b94e63;border-radius:11px;background:linear-gradient(135deg,#5a2635,#231a24);color:#f2c4c7}.brand-mark span{font-size:15px;margin-top:12px}.brand strong{font-size:12px;letter-spacing:1.8px}.brand small{display:block;font-size:10px;color:var(--muted);letter-spacing:2px;margin-top:4px}.desktop-nav{display:flex;flex-direction:column;gap:7px}.nav-item{border:0;background:transparent;text-align:left;color:#abadb6;padding:13px 16px;border-radius:11px;display:flex;gap:14px;align-items:center;font-size:14px;font-weight:550}.nav-item:hover,.nav-item.active{background:#33232f;color:#fff}.nav-item.active{box-shadow:inset 3px 0 0 var(--accent-bright)}.nav-icon{font-size:21px;width:24px;text-align:center;font-weight:400}.sidebar-bottom{margin-top:auto;padding:18px 15px 0;border-top:1px solid #292b34;color:var(--muted);font-size:12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.sidebar-bottom small{width:100%;margin-left:17px;opacity:.6}.status-dot{width:8px;height:8px;border-radius:50%;background:#5f9d7a}.main-content{width:100%;max-width:1590px;margin:0 auto;padding:41px clamp(22px,4.2vw,64px) 20px;min-width:0}.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;gap:16px}.eyebrow,.section-caption{color:#cb6e82;font-size:11px;letter-spacing:1.7px;font-weight:800;margin-bottom:9px}.topbar-actions{display:flex;align-items:center;gap:17px}.today-label{color:var(--muted);font-size:13px;white-space:nowrap}.view{display:none;animation:fadein .22s ease}.view.active{display:block}@keyframes fadein{from{opacity:.25;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}.kpi-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:18px}.kpi-card,.panel{border:1px solid var(--border);background:var(--panel);border-radius:var(--radius)}.kpi-card{padding:24px 24px 20px;min-width:0}.kpi-label{display:block;color:#c0a7ae;letter-spacing:1.2px;font-size:11px;font-weight:750;margin-bottom:15px}.kpi-card strong{display:block;font-size:clamp(22px,2.4vw,31px);letter-spacing:-.75px;font-weight:700;white-space:nowrap}.kpi-sub{display:block;color:var(--muted);font-size:12px;margin-top:7px}.timer-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(310px,1fr);gap:18px;align-items:start}.timer-panel{padding:27px clamp(20px,2.7vw,36px) 21px}.panel-topline,.panel-title-row{display:flex;justify-content:space-between;align-items:center;gap:10px}.timer-state{color:#b5b3bd;font-size:12px;display:flex;align-items:center;gap:8px}.pulse-dot{width:8px;height:8px;border-radius:50%;background:#747584}.timer-state.running .pulse-dot{background:#db526a;box-shadow:0 0 0 5px #db526a22;animation:breathe 1.6s infinite}.timer-state.paused .pulse-dot{background:#e7b45d;box-shadow:0 0 0 5px #e7b45d22}@keyframes breathe{50%{box-shadow:0 0 0 9px #db526a00}}.timer-face{display:flex;justify-content:center;padding:19px 0 21px}.timer-ring{height:min(32vw,284px);width:min(32vw,284px);min-width:220px;min-height:220px;border-radius:50%;border:2px solid #713448;background:radial-gradient(circle,#2b202b 0%,#211c28 60%,#1b1b24 80%);box-shadow:0 0 0 12px #b42d4809,0 0 0 23px #b42d4806,inset 0 0 38px #96344e25;display:grid;place-items:center;transition:border-color .2s}.timer-ring.running{border-color:#da4c69}.timer-readout{display:flex;flex-direction:column;align-items:center;gap:11px;text-align:center}.timer-digits{font-size:clamp(32px,3.5vw,48px);font-weight:730;letter-spacing:-1.8px;font-variant-numeric:tabular-nums}.timer-readout span:last-child{color:#a3a0af;font-size:11px}.field-stack{display:flex;flex-direction:column;gap:15px}.timer-fields{max-width:540px;margin:0 auto}.field{min-width:0}.field label{display:block;font-size:12px;font-weight:650;margin-bottom:8px;color:#d0cbd2}.optional{font-weight:400;color:var(--muted)}.timer-actions{display:flex;flex-wrap:wrap;gap:11px;margin:21px auto 0;max-width:540px}.btn{border:1px solid transparent;border-radius:11px;padding:12px 17px;font-weight:690;font-size:13px;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;white-space:normal;text-align:center;transition:background .12s,transform .12s,border .12s}.btn:active{transform:scale(.985)}.btn-primary{background:linear-gradient(130deg,#b8324e,#94253f);color:white;border-color:#bb3c56}.btn-primary:hover{background:#c93c5b}.btn-outline{background:#252530;border:1px solid #49434c;color:#eee9ee}.btn-outline:hover,.btn-quiet:hover{background:#35303c}.btn-quiet{background:#302631;border:1px solid #593447;color:#f0d6dd}.btn-sm{padding:10px 12px;font-size:12px}.btn-lg{flex:1;min-height:50px}.btn-text{border:0;background:transparent;color:#d78ba0;padding:7px;font-size:12px}.btn-text:hover{text-decoration:underline}.small-help{color:#888895;text-align:center;font-size:11px;margin:14px 0 0}.day-panel{padding:25px 23px;min-height:370px}.day-panel h2{font-size:20px}.entry-list{margin-top:24px}.entry{display:flex;align-items:center;gap:13px;min-width:0;padding:15px 0;border-bottom:1px solid #32313c}.entry:first-child{padding-top:4px}.entry-main{flex:1;min-width:0}.entry-title{color:#f1ecf0;font-size:14px;font-weight:690;overflow-wrap:anywhere}.entry-sub{margin-top:6px;color:#999aa6;font-size:12px;overflow-wrap:anywhere}.entry-note{color:#c1bac4;font-size:12px;margin-top:6px;overflow-wrap:anywhere}.entry-time{margin-left:auto;text-align:right;white-space:nowrap}.entry-time strong{display:block;font-size:13px;font-variant-numeric:tabular-nums}.entry-time small{display:block;color:#90909c;font-size:11px;margin-top:5px}.entry-actions{display:flex;gap:3px}.small-icon-button,.icon-button{border:0;color:#a8a7b3;background:transparent;border-radius:7px;padding:7px;font-size:17px}.small-icon-button:hover,.icon-button:hover{color:white;background:#37313c}.category-dot{width:8px;height:8px;border-radius:50%;background:#ce5b79;flex-shrink:0}.day-footer{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-top:19px;color:#b7b3bf;font-size:13px}.day-footer strong{color:#fff;font-size:17px}.empty-state{text-align:center;color:#93919d;padding:38px 12px;font-size:13px;line-height:1.65}.empty-glyph{font-size:28px;color:#874359;display:block;margin-bottom:12px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:21px}.section-head h2{font-size:29px}.section-caption{margin-bottom:6px}.section-head select{width:auto;min-width:170px}.insight-overview{display:grid;grid-template-columns:2fr 1fr;gap:17px;margin-bottom:17px}.insight-hero{padding:28px}.insight-hero strong{display:block;font-size:clamp(30px,5vw,43px);margin:18px 0 7px;letter-spacing:-1.4px}.subdued{color:#9997a6;font-size:12px}.report-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px;margin-bottom:17px}.report-panel,.manage-panel{padding:25px}.report-panel h3{margin-bottom:25px}.bar-list{display:flex;flex-direction:column;gap:20px}.bar-title{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;margin-bottom:9px}.bar-title span{color:#d8d4dc;overflow-wrap:anywhere}.bar-title strong{font-variant-numeric:tabular-nums;white-space:nowrap}.bar-track{width:100%;height:8px;border-radius:8px;background:#30303b;overflow:hidden}.bar-fill{background:linear-gradient(90deg,#983047,#e36a7b);height:100%;border-radius:8px}.chart-empty{color:var(--muted);font-size:13px;padding:15px 0}.week-chart{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));height:185px;gap:12px;margin:0 8px}.week-day{display:flex;flex-direction:column;gap:7px;align-items:center;min-width:0}.week-hour{font-size:11px;color:#b6b1be;min-height:15px}.week-bar-wrap{flex:1;min-height:0;width:100%;display:flex;align-items:end;justify-content:center;background:linear-gradient(to top,#25242f,#25242f) center bottom/1px 100% no-repeat}.week-bar{width:min(47px,73%);min-height:3px;border-radius:6px 6px 2px 2px;background:linear-gradient(#d95573,#8e2944);transition:height .2s}.week-label{font-size:12px;color:#a7a4b1}.history-panel{padding:24px}.history-controls{display:flex;gap:15px;align-items:end}.history-controls .field:first-child{min-width:185px}.history-controls .grow{flex:1}.history-summary{display:flex;justify-content:space-between;align-items:center;margin:25px 0 17px;padding-bottom:17px;border-bottom:1px solid var(--border)}.history-summary strong{font-size:24px}.history-summary span{font-size:12px;color:var(--muted)}.day-divider{font-size:12px;font-weight:700;letter-spacing:.2px;color:#a5a0ae;margin:22px 0 10px}.history-list .entry{padding:14px 0}.history-list .entry-time{margin-right:12px}.management-grid{align-items:start}.manage-panel h3{margin-bottom:0}.muted-copy{font-size:12px;color:var(--muted);margin:12px 0 18px}.manage-list{display:flex;flex-direction:column}.manage-row{display:flex;align-items:center;gap:12px;padding:14px 0;border-top:1px solid var(--border)}.manage-row:first-child{border-top:0}.manage-row .manage-name{flex:1;min-width:0;font-size:13px;font-weight:600;overflow-wrap:anywhere}.manage-row .manage-meta{font-size:11px;color:var(--muted);display:block;margin-top:5px}.manage-row .entry-actions{margin-left:auto}.settings-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.settings-panel{padding:26px;min-height:215px}.settings-panel p{color:#a7a4af;font-size:13px;margin:12px 0 20px}.settings-icon{color:#dc7991;font-size:30px;line-height:1;margin-bottom:17px}.setting-buttons{display:flex;gap:10px;flex-wrap:wrap}.import-button{cursor:pointer}.settings-panel .fineprint{color:#8d8a97;font-size:11px}.site-footer{text-align:center;color:#61616c;letter-spacing:1.8px;font-size:10px;margin:32px 0 10px}.site-footer span{padding:0 8px}.mobile-nav{display:none}.modal{width:min(94vw,490px);background:#1b1c25;border:1px solid #46404b;border-radius:18px;padding:0;color:var(--text);box-shadow:0 20px 90px #000b;max-height:min(90vh,770px);overflow:auto}.modal::backdrop{background:#09090bd9;backdrop-filter:blur(6px)}.modal form{padding:27px}.modal-head{display:flex;align-items:start;justify-content:space-between;margin-bottom:26px}.modal-head h2{font-size:23px}.modal .field-stack{gap:13px}.two-fields{display:grid;grid-template-columns:1fr 1fr;gap:13px}.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:27px}.fineprint{font-size:11px;color:#92909e;margin:1px 0}.inline-error{font-size:12px;color:#ff96a4;border:1px solid #ad3453;background:#3d202b;padding:11px;border-radius:9px}.toast{position:fixed;bottom:22px;right:23px;background:#e6e0e5;color:#21202a;border-radius:12px;padding:13px 19px;font-weight:680;font-size:13px;z-index:200;box-shadow:0 10px 30px #0005;transform:translateY(150%);opacity:0;transition:transform .3s,opacity .3s;max-width:min(90vw,400px)}.toast.visible{transform:translateY(0);opacity:1}.hidden{display:none!important}
+@media(max-width:1100px){.sidebar{width:205px}.main-content{padding:28px 24px}.timer-layout{grid-template-columns:1fr}.timer-ring{height:280px;width:280px}.day-panel{min-height:240px}.kpi-card{padding:20px}.topbar{margin-bottom:24px}}
+@media(max-width:700px){.app-shell{display:block}.sidebar{display:none}.main-content{padding:25px 15px calc(90px + var(--safe-bottom));min-height:100vh}.topbar{margin-bottom:22px;align-items:start}.topbar-actions{flex-direction:column;align-items:end;gap:7px}.today-label{font-size:11px}.topbar-actions .btn{font-size:11px;padding:9px}.eyebrow{font-size:10px}.kpi-grid{gap:8px;margin-bottom:11px}.kpi-card{padding:16px 11px;border-radius:12px}.kpi-label{font-size:9px;letter-spacing:.5px;margin-bottom:10px}.kpi-card strong{font-size:clamp(15px,4.4vw,23px);letter-spacing:-.5px}.kpi-sub{font-size:10px;min-height:25px}.timer-layout,.insight-overview,.report-grid,.settings-grid{grid-template-columns:1fr;gap:12px}.timer-panel{padding:19px 17px}.timer-ring{height:215px;width:215px;min-width:215px;min-height:215px}.timer-face{padding:25px 0}.timer-digits{font-size:38px}.day-panel,.report-panel,.manage-panel,.history-panel,.settings-panel{padding:20px 17px}.day-panel{min-height:230px}.timer-actions{flex-direction:column}.btn-lg{width:100%}.section-head h2{font-size:25px}.section-head select{min-width:142px;padding-left:10px}.insight-hero{padding:22px}.insight-hero strong{font-size:32px}.report-panel h3{margin-bottom:21px}.week-chart{gap:5px;margin:0;height:165px}.week-label{font-size:10px}.week-hour{font-size:10px}.history-controls{gap:10px}.history-controls .field:first-child{min-width:138px}.history-controls input,.history-controls select{padding:11px 8px;font-size:12px}.history-list .entry{gap:8px}.entry-actions{gap:0}.small-icon-button{font-size:17px;padding:8px}.mobile-nav{display:flex;position:fixed;z-index:90;bottom:0;left:0;right:0;justify-content:space-around;align-items:center;background:#181820f7;border-top:1px solid #38323e;padding:9px 3px calc(9px + var(--safe-bottom));backdrop-filter:blur(14px)}.mobile-nav button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;flex:1;color:#a1a0ad;border:0;background:none;font-size:10px;font-weight:600;min-height:42px}.mobile-nav button span{font-size:22px;line-height:1}.mobile-nav button.active{color:#ec809a}.toast{bottom:calc(81px + var(--safe-bottom));right:12px}.site-footer{font-size:9px}.settings-grid{gap:12px}}
+@media(min-width:701px) and (max-width:860px){.sidebar{width:180px}.brand{padding-left:3px}.nav-item{padding:12px 9px}.topbar-actions{flex-direction:column;align-items:end}.kpi-grid{grid-template-columns:1fr 1fr 1fr}.kpi-card strong{font-size:20px}.report-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+</style>
+  <title>Löwenblut · Zeittracker</title>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark" aria-hidden="true">L<span>B</span></div><div><strong>LÖWENBLUT</strong><small>ZEITTRACKER</small></div></div>
+      <nav class="desktop-nav" aria-label="Hauptnavigation">
+        <button class="nav-item active" data-view="timer" aria-current="page"><span class="nav-icon">◷</span><span>Timer</span></button>
+        <button class="nav-item" data-view="insights"><span class="nav-icon">▥</span><span>Auswertung</span></button>
+        <button class="nav-item" data-view="history"><span class="nav-icon">≡</span><span>Verlauf</span></button>
+        <button class="nav-item" data-view="projects"><span class="nav-icon">▦</span><span>Projekte</span></button>
+        <button class="nav-item" data-view="settings"><span class="nav-icon">⚙</span><span>Einstellungen</span></button>
+      </nav>
+      <div class="sidebar-bottom"><span class="status-dot"></span> Lokal gespeichert <small>Version 1.0</small></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar"><div><p class="eyebrow">DEIN BUSINESS. DEINE ZEIT.</p><h1 id="page-title">Arbeitszeit</h1></div><div class="topbar-actions"><span class="today-label" id="today-label"></span><button class="btn btn-quiet btn-sm" id="top-manual" type="button">+ Zeit nachtragen</button></div></header>
+
+      <section id="view-timer" class="view active" aria-label="Timer">
+        <div class="kpi-grid">
+          <div class="kpi-card"><span class="kpi-label">HEUTE</span><strong id="kpi-today">0 h 00 min</strong><span class="kpi-sub">Aktive Arbeitszeit</span></div>
+          <div class="kpi-card"><span class="kpi-label">DIESE WOCHE</span><strong id="kpi-week">0 h 00 min</strong><span class="kpi-sub">Montag bis Sonntag</span></div>
+          <div class="kpi-card"><span class="kpi-label">DIESER MONAT</span><strong id="kpi-month">0 h 00 min</strong><span class="kpi-sub">Gesamte Monatszeit</span></div>
+        </div>
+
+        <div class="timer-layout">
+          <section class="panel timer-panel">
+            <div class="panel-topline"><span class="eyebrow">ZEITERFASSUNG</span><span class="timer-state" id="timer-state"><span class="pulse-dot"></span> Bereit</span></div>
+            <div class="timer-face"><div class="timer-ring" id="timer-ring"><div class="timer-readout"><span class="timer-digits" id="timer-display" role="timer" aria-label="Erfasste Zeit">00:00:00</span><span id="timer-hint">Bereit für die nächste Session</span></div></div></div>
+            <div class="field-stack timer-fields">
+              <div class="field"><label for="timer-project">Projekt</label><select id="timer-project" required></select></div>
+              <div class="field"><label for="timer-activity">Tätigkeit</label><select id="timer-activity" required></select></div>
+              <div class="field"><label for="timer-note">Notiz <span class="optional">optional</span></label><input id="timer-note" maxlength="220" type="text" placeholder="z. B. Song, Aufgabe oder Details"></div>
+            </div>
+            <div class="timer-actions"><button id="timer-primary" class="btn btn-primary btn-lg" type="button"><span id="primary-icon">▶</span> <span id="primary-label">Arbeitszeit starten</span></button><button id="timer-stop" class="btn btn-outline btn-lg hidden" type="button">■ Speichern & beenden</button></div>
+            <p class="small-help">Deine Zeit bleibt erhalten, auch wenn du die App schließt. Pausen werden nicht mitgezählt.</p>
+          </section>
+
+          <section class="panel day-panel"><div class="panel-title-row"><div><span class="eyebrow">DEIN TAG</span><h2>Heutige Einträge</h2></div><button class="btn btn-text" data-goto="history">Alle ansehen →</button></div><div id="today-entries" class="entry-list compact-list"></div><div class="day-footer"><span>Heute insgesamt</span><strong id="today-total">0 h 00 min</strong></div></section>
+        </div>
+      </section>
+
+      <section id="view-insights" class="view" aria-label="Auswertung">
+        <div class="section-head"><div><p class="section-caption">Wohin fließt deine Arbeitszeit?</p><h2>Auswertung</h2></div><select id="report-period" aria-label="Auswertungszeitraum"><option value="today">Heute</option><option value="week">Diese Woche</option><option value="month" selected>Dieser Monat</option><option value="all">Gesamtzeit</option></select></div>
+        <div class="insight-overview"><div class="panel insight-hero"><span class="eyebrow">GELEISTETE ARBEIT</span><strong id="report-total">0 h 00 min</strong><span class="subdued" id="report-range"></span></div><div class="panel insight-hero"><span class="eyebrow">ERFASSTE SESSIONS</span><strong id="report-count">0</strong><span class="subdued">Gespeicherte Arbeitsblöcke</span></div></div>
+        <div class="report-grid"><div class="panel report-panel"><h3>Nach Projekten</h3><div id="project-chart"></div></div><div class="panel report-panel"><h3>Nach Tätigkeiten</h3><div id="activity-chart"></div></div></div>
+        <section class="panel report-panel"><div class="panel-title-row"><h3>Letzte 7 Tage</h3><span class="subdued">Arbeitsstunden pro Tag</span></div><div id="week-chart" class="week-chart"></div></section>
+      </section>
+
+      <section id="view-history" class="view" aria-label="Verlauf">
+        <div class="section-head"><div><p class="section-caption">Alle erfassten Arbeitsblöcke</p><h2>Zeitenverlauf</h2></div><button class="btn btn-primary btn-sm" id="history-add">+ Eintrag</button></div>
+        <div class="panel history-panel"><div class="history-controls"><div class="field"><label for="history-range">Zeitraum</label><select id="history-range"><option value="all">Alle Einträge</option><option value="today">Heute</option><option value="7">Letzte 7 Tage</option><option value="30">Letzte 30 Tage</option></select></div><div class="field grow"><label for="history-search">Suchen</label><input id="history-search" type="search" placeholder="Projekt, Tätigkeit oder Notiz"></div></div><div class="history-summary"><strong id="history-total">0 h 00 min</strong><span id="history-count">0 Einträge</span></div><div id="history-entries" class="history-list"></div></div>
+      </section>
+
+      <section id="view-projects" class="view" aria-label="Projekte">
+        <div class="section-head"><div><p class="section-caption">Organisiere deine Arbeit</p><h2>Projekte & Tätigkeiten</h2></div></div>
+        <div class="report-grid management-grid"><div class="panel manage-panel"><div class="panel-title-row"><h3>Projekte</h3><button class="btn btn-quiet btn-sm" id="add-project">+ Neues Projekt</button></div><p class="muted-copy">Beispiel: Album, Single, Musikvideo oder Löwenblut allgemein.</p><div id="projects-list" class="manage-list"></div></div><div class="panel manage-panel"><div class="panel-title-row"><h3>Tätigkeiten</h3><button class="btn btn-quiet btn-sm" id="add-activity">+ Neue Tätigkeit</button></div><p class="muted-copy">Beispiel: Recording, Videoschnitt oder Marketing.</p><div id="activities-list" class="manage-list"></div></div></div>
+      </section>
+
+      <section id="view-settings" class="view" aria-label="Einstellungen">
+        <div class="section-head"><div><p class="section-caption">Deine Daten bleiben deine Daten</p><h2>Einstellungen & Backup</h2></div></div>
+        <div class="settings-grid">
+          <div class="panel settings-panel"><div class="settings-icon">⇩</div><h3>Backup & Export</h3><p>Sichere alle Projekte, Tätigkeiten und Zeiteinträge als JSON-Datei oder exportiere deine Arbeitszeiten als CSV für Excel.</p><div class="setting-buttons"><button id="export-json" class="btn btn-primary">JSON-Backup herunterladen</button><button id="export-csv" class="btn btn-outline">Zeiten als CSV exportieren</button></div></div>
+          <div class="panel settings-panel"><div class="settings-icon">⇧</div><h3>Backup wiederherstellen</h3><p>Importiere ein zuvor exportiertes JSON-Backup. Die bisherigen lokalen Daten werden nach Rückfrage ersetzt.</p><label class="btn btn-outline import-button" for="import-json">JSON-Backup auswählen</label><input id="import-json" type="file" accept="application/json,.json" hidden></div>
+          <div class="panel settings-panel"><div class="settings-icon">⌂</div><h3>Offline & Installation</h3><p>Die App funktioniert nach dem ersten Laden auch offline. Auf dem Handy kannst du sie über das Browsermenü zum Startbildschirm hinzufügen.</p><button id="install-app" class="btn btn-outline hidden">App installieren</button><p class="fineprint">Für eine installierbare App muss sie über HTTPS oder localhost geöffnet werden.</p></div>
+          <div class="panel settings-panel"><div class="settings-icon">⌁</div><h3>Datenschutz</h3><p>Keine Anmeldung, keine Tracker, kein externer Server. Die Daten liegen ausschließlich im Speicher dieses Browsers auf diesem Gerät.</p><p class="fineprint">Wichtig: Werden Browserdaten gelöscht oder wird ein anderes Gerät verwendet, sind die Einträge dort nicht vorhanden. Regelmäßig JSON-Backups anlegen.</p></div>
+        </div>
+      </section>
+      <footer class="site-footer">LÖWENBLUT ZEITTRACKER <span>·</span> PRIVATE WORKSPACE</footer>
+    </main>
+
+    <nav class="mobile-nav" aria-label="Mobile Navigation"><button data-view="timer" class="active"><span>◷</span>Timer</button><button data-view="insights"><span>▥</span>Analyse</button><button data-view="history"><span>≡</span>Verlauf</button><button data-view="projects"><span>▦</span>Projekte</button><button data-view="settings"><span>⚙</span>Mehr</button></nav>
+  </div>
+
+  <dialog id="editor-dialog" class="modal"><form id="editor-form" method="dialog" novalidate><div class="modal-head"><div><span class="eyebrow" id="editor-kicker">ZEITERFASSUNG</span><h2 id="editor-title">Zeit nachtragen</h2></div><button class="icon-button" type="button" data-close="editor-dialog" aria-label="Schließen">×</button></div>
+    <div class="field-stack"><div class="field"><label for="entry-project">Projekt</label><select id="entry-project" required></select></div><div class="field"><label for="entry-activity">Tätigkeit</label><select id="entry-activity" required></select></div><div class="field"><label for="entry-date">Datum</label><input id="entry-date" type="date" required></div><div class="two-fields"><div class="field"><label for="entry-start">Von</label><input id="entry-start" type="time" required></div><div class="field"><label for="entry-end">Bis</label><input id="entry-end" type="time" required></div></div><p class="fineprint" id="editor-time-help">Wenn die Endzeit vor der Startzeit liegt, zählt die Zeit bis zum nächsten Tag.</p><div class="field"><label for="entry-note">Notiz (optional)</label><input id="entry-note" type="text" maxlength="220" placeholder="Was hast du gemacht?"></div><div id="editor-error" class="inline-error hidden" role="alert"></div></div>
+    <div class="modal-actions"><button type="button" class="btn btn-outline" data-close="editor-dialog">Abbrechen</button><button type="submit" class="btn btn-primary" id="editor-save">Eintrag speichern</button></div></form></dialog>
+
+  <dialog id="name-dialog" class="modal compact-modal"><form id="name-form" method="dialog" novalidate><div class="modal-head"><div><span class="eyebrow">ORGANISATION</span><h2 id="name-title">Neues Projekt</h2></div><button class="icon-button" type="button" data-close="name-dialog" aria-label="Schließen">×</button></div><div class="field"><label for="name-input">Bezeichnung</label><input id="name-input" type="text" maxlength="64" required placeholder="Name"></div><div id="name-error" class="inline-error hidden" role="alert"></div><div class="modal-actions"><button type="button" class="btn btn-outline" data-close="name-dialog">Abbrechen</button><button type="submit" class="btn btn-primary">Speichern</button></div></form></dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script>
+/* Löwenblut Zeittracker – eigenständige, offlinefähige Web-App. Keine Fremdbibliotheken. */
+(() => {
+  'use strict';
+
+  const STORE_KEY = 'loewenblut-zeittracker-v1';
+  const DAY = 86400000;
+  const el = id => document.getElementById(id);
+  const uuid = () => (globalThis.crypto?.randomUUID?.() || `id-${Date.now()}-${Math.random().toString(36).slice(2)}`);
+  const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const fmtDate = (ts, options) => new Date(ts).toLocaleDateString('de-DE', options || {day:'2-digit',month:'2-digit',year:'numeric'});
+  const fmtTime = ts => new Date(ts).toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});
+  const ymd = date => `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`;
+  const floorDay = ts => {let d = new Date(ts);d.setHours(0,0,0,0);return d.getTime();};
+  const todayStart = () => floorDay(Date.now());
+  const weekStart = () => {let d=new Date(); d.setHours(0,0,0,0);d.setDate(d.getDate() - ((d.getDay()+6)%7));return d.getTime();};
+  const monthStart = () => new Date(new Date().getFullYear(),new Date().getMonth(),1).getTime();
+  const hoursAndMinutes = ms => {let mins=Math.floor(Math.max(0,ms)/60000);return `${Math.floor(mins/60)} h ${String(mins%60).padStart(2,'0')} min`;};
+  const clock = ms => {let s=Math.floor(Math.max(0,ms)/1000);return [Math.floor(s/3600),Math.floor(s%3600/60),s%60].map(x=>String(x).padStart(2,'0')).join(':');};
+  const duration = item => item.segments.reduce((n,s)=>n+Math.max(0,s.end-s.start),0);
+  const entryStart = item => Math.min(...item.segments.map(s=>s.start));
+  const entryEnd = item => Math.max(...item.segments.map(s=>s.end));
+  const makeDefault = () => ({
+    schema:1,
+    projects:[{id:'p-loewenblut',name:'Löwenblut · Allgemein',archived:false}],
+    activities:[
+      'Songwriting','Beatmaking / Produktion','Recording','Mixing','Mastering',
+      'Videodreh','Videoschnitt / Color Grading','Social Media / Content','Marketing','Administration'
+    ].map((name,i)=>({id:`a-${i}`,name,archived:false})),
+    entries:[],active:null
+  });
+
+  /* Formattreue und Datenintegrität beim Import */
+  function validateBackup(input) {
+    if (!input || typeof input!=='object' || input.schema!==1) throw Error('Unbekanntes Backupformat.');
+    if (!Array.isArray(input.projects)||!Array.isArray(input.activities)||!Array.isArray(input.entries)) throw Error('Projekt-, Tätigkeits- oder Zeitdaten fehlen.');
+    if(input.projects.length>20000||input.activities.length>20000||input.entries.length>250000) throw Error('Backup überschreitet die zulässige Größe.');
+    const safeItems=(arr,category)=>arr.map((v,i)=>{
+      if(!v||typeof v!=='object'||typeof v.id!=='string'||!v.id||v.id.length>128||typeof v.name!=='string'||!v.name.trim()||v.name.length>120) throw Error(`${category} ${i+1} ist ungültig.`);
+      return {id:v.id,name:v.name.trim(),archived:Boolean(v.archived)};
+    });
+    const projects=safeItems(input.projects,'Projekt'),activities=safeItems(input.activities,'Tätigkeit');
+    if(new Set(projects.map(x=>x.id)).size!==projects.length||new Set(activities.map(x=>x.id)).size!==activities.length) throw Error('Doppelte Kennungen im Backup.');
+    const validProjects=new Set(projects.map(x=>x.id));
+    const validActivities=new Set(activities.map(x=>x.id));
+    const safeSegments=segments=>{
+      if(!Array.isArray(segments)||!segments.length||segments.length>30000) throw Error('Ein Zeiteintrag enthält ungültige Zeitabschnitte.');
+      const cleaned=segments.map(s=>{
+        if(!s||!Number.isSafeInteger(s.start)||!Number.isSafeInteger(s.end)||s.end<=s.start||s.start<0||s.end>Date.now()+DAY*37000) throw Error('Ein Zeitabschnitt ist ungültig.');
+        return {start:s.start,end:s.end};
+      }).sort((a,b)=>a.start-b.start);
+      if(cleaned.some((s,i)=>i>0&&s.start<cleaned[i-1].end)) throw Error('Überlappende Zeitabschnitte in einem Eintrag.');
+      return cleaned;
+    };
+    const entries=input.entries.map((v,i)=>{
+      if(!v||typeof v.id!=='string'||v.id.length>128||!validProjects.has(v.projectId)||!validActivities.has(v.activityId)||typeof v.note!=='string'||v.note.length>2000) throw Error(`Zeiteintrag ${i+1} ist ungültig.`);
+      return {id:v.id,projectId:v.projectId,activityId:v.activityId,note:v.note,segments:safeSegments(v.segments),manual:Boolean(v.manual)};
+    });
+    if(new Set(entries.map(x=>x.id)).size!==entries.length) throw Error('Doppelte Eintragskennungen im Backup.');
+    let active=null;
+    if(input.active!=null){
+      const a=input.active;
+      if(!validProjects.has(a.projectId)||!validActivities.has(a.activityId)||typeof a.note!=='string'||a.note.length>2000||!Array.isArray(a.segments)) throw Error('Laufender Timer ist ungültig.');
+      const segs=a.segments.length?safeSegments(a.segments):[];
+      const started=a.runningStartedAt;
+      if(started!==null&&(!Number.isSafeInteger(started)||started<=0||started>Date.now()+DAY)) throw Error('Startzeit des Timers ist ungültig.');
+      if(started!==null&&segs.length&&started<segs[segs.length-1].end) throw Error('Timer-Zeitabschnitte sind überlappend.');
+      active={projectId:a.projectId,activityId:a.activityId,note:a.note,segments:segs,runningStartedAt:started};
+    }
+    return {schema:1,projects,activities,entries,active};
+  }
+
+  function load() {
+    const raw=localStorage.getItem(STORE_KEY);
+    if(!raw)return makeDefault();
+    try{return validateBackup(JSON.parse(raw));}
+    catch(err){ console.error('Zeittracker: Bestehende Daten sind ungültig:',err);return null; }
+  }
+  let data;
+  try{data=load()}catch(err){data=null;console.error(err)}
+  const failedLoad=data===null;
+  if(failedLoad){
+    // Kein automatisches Überschreiben beschädigter Daten; Nutzer kann diese wiederherstellen.
+    data=makeDefault();
+  }
+  let currentView='timer';
+  let editingId=null;
+  let editingMultiSegment=false;
+  let naming={type:'project',id:null};
+  let toastTimeout;
+  let lastSummaryBucket=-1;
+  let installPrompt=null;
+
+  function save(){
+    if(failedLoad && !window.__allowNewDataAfterFailedLoad){
+      alert('Gespeicherte Browserdaten sind beschädigt und wurden nicht überschrieben. Bitte erst ein Backup importieren oder den lokalen Speicher manuell bereinigen.');
+      return false;
+    }
+    try{localStorage.setItem(STORE_KEY,JSON.stringify(data));return true}
+    catch(err){console.error(err);toast('Speichern fehlgeschlagen: Bitte Speicherplatz prüfen.');return false}
+  }
+  function toast(message){
+    const box=el('toast');box.textContent=message;box.classList.add('visible');clearTimeout(toastTimeout);toastTimeout=setTimeout(()=>box.classList.remove('visible'),3300);
+  }
+  function projectName(id){return data.projects.find(x=>x.id===id)?.name||'Unbekanntes Projekt'}
+  function activityName(id){return data.activities.find(x=>x.id===id)?.name||'Unbekannte Tätigkeit'}
+  function getVirtualEntry(now=Date.now()){
+    if(!data.active)return null;
+    const a=data.active;
+    const segments=[...a.segments];
+    if(a.runningStartedAt!==null && now>a.runningStartedAt)segments.push({start:a.runningStartedAt,end:now});
+    if(!segments.length)return null;
+    return {id:'__active__',projectId:a.projectId,activityId:a.activityId,note:a.note,segments,active:true,paused:a.runningStartedAt===null};
+  }
+  function allEntries(includeActive=true,now=Date.now()){
+    const virtual=includeActive?getVirtualEntry(now):null;
+    return virtual?[...data.entries,virtual]:[...data.entries];
+  }
+  function windowDuration(entry,start=-Infinity,end=Infinity){
+    return entry.segments.reduce((acc,s)=>acc+Math.max(0,Math.min(s.end,end)-Math.max(s.start,start)),0);
+  }
+  function getWindow(type){
+    const now=Date.now();
+    if(type==='today')return [todayStart(),now];
+    if(type==='week')return [weekStart(),now];
+    if(type==='month')return [monthStart(),now];
+    if(type==='7')return [floorDay(new Date().setDate(new Date().getDate()-6)),now];
+    if(type==='30')return [floorDay(new Date().setDate(new Date().getDate()-29)),now];
+    return [-Infinity,now];
+  }
+  function selectedEntries(type,includeActive=true){
+    const [from,to]=getWindow(type);
+    return allEntries(includeActive).filter(entry=>windowDuration(entry,from,to)>0);
+  }
+  function sumForWindow(type){
+    const [start,end]=getWindow(type);
+    return allEntries().reduce((acc,e)=>acc+windowDuration(e,start,end),0);
+  }
+  function setOptions(selectId,items,selected){
+    const select=el(selectId),previous=selected||select.value;
+    select.innerHTML=items.filter(x=>!x.archived||x.id===selected).map(x=>`<option value="${escapeHTML(x.id)}">${escapeHTML(x.name)}${x.archived?' (archiviert)':''}</option>`).join('');
+    if(items.some(x=>x.id===previous && (!x.archived||x.id===selected)))select.value=previous;
+  }
+  function populateSelectors(){
+    setOptions('timer-project',data.projects,data.active?.projectId);
+    setOptions('timer-activity',data.activities,data.active?.activityId);
+    setOptions('entry-project',data.projects);
+    setOptions('entry-activity',data.activities);
+  }
+  function toggleView(view){
+    if(!['timer','insights','history','projects','settings'].includes(view))return;
+    currentView=view;
+    for(const panel of document.querySelectorAll('.view'))panel.classList.toggle('active',panel.id===`view-${view}`);
+    document.querySelectorAll('[data-view]').forEach(button=>{const active=button.dataset.view===view;button.classList.toggle('active',active);if(active)button.setAttribute('aria-current','page');else button.removeAttribute('aria-current')});
+    el('page-title').textContent=({timer:'Arbeitszeit',insights:'Auswertung',history:'Verlauf',projects:'Projekte',settings:'Einstellungen'})[view];
+    render();window.scrollTo({top:0,behavior:'instant'});
+  }
+  function startOrPause(){
+    if(!data.active){
+      const projectId=el('timer-project').value,activityId=el('timer-activity').value;
+      if(!projectId||!activityId){toast('Bitte zuerst ein Projekt und eine Tätigkeit anlegen.');return}
+      data.active={projectId,activityId,note:el('timer-note').value.trim(),segments:[],runningStartedAt:Date.now()};
+      if(!save()){data.active=null;return}
+      toast('Zeiterfassung gestartet.');
+    } else if(data.active.runningStartedAt!==null){
+      const end=Date.now(),start=data.active.runningStartedAt;
+      if(end>start)data.active.segments.push({start,end});
+      data.active.runningStartedAt=null;
+      if(!save())return;
+      toast('Timer pausiert.');
+    } else {
+      data.active.runningStartedAt=Date.now();
+      if(!save())return;
+      toast('Timer fortgesetzt.');
+    }
+    render();
+  }
+  function stopTimer(){
+    if(!data.active)return;
+    const a=data.active;
+    if(a.runningStartedAt!==null){const end=Date.now();if(end>a.runningStartedAt)a.segments.push({start:a.runningStartedAt,end})}
+    if(!a.segments.length){if(!confirm('Der Timer enthält noch keine erfasste Zeit. Timer verwerfen?'))return;data.active=null;save();render();return;}
+    const entry={id:uuid(),projectId:a.projectId,activityId:a.activityId,note:a.note,segments:a.segments,manual:false};
+    data.entries.push(entry);data.active=null;
+    if(!save())return;
+    el('timer-note').value='';
+    render();toast('Arbeitszeit gespeichert.');
+  }
+  function renderTimer(){
+    const a=data.active,now=Date.now();
+    const virtual=getVirtualEntry(now);
+    el('timer-display').textContent=clock(virtual?duration(virtual):0);
+    el('timer-hint').textContent=!a?'Bereit für die nächste Session':a.runningStartedAt===null?'Pausiert – jederzeit fortsetzbar':'Die Arbeitszeit wird erfasst';
+    el('primary-label').textContent=!a?'Arbeitszeit starten':a.runningStartedAt===null?'Fortsetzen':'Pause';
+    el('primary-icon').textContent=!a?'▶':a.runningStartedAt===null?'▶':'Ⅱ';
+    el('timer-stop').classList.toggle('hidden',!a);
+    const state=el('timer-state');
+    state.classList.toggle('running',Boolean(a&&a.runningStartedAt!==null));state.classList.toggle('paused',Boolean(a&&a.runningStartedAt===null));
+    state.innerHTML=`<span class="pulse-dot"></span> ${!a?'Bereit':a.runningStartedAt===null?'Pausiert':'Läuft'}`;
+    el('timer-ring').classList.toggle('running',Boolean(a&&a.runningStartedAt!==null));
+    for(const id of ['timer-project','timer-activity','timer-note'])el(id).disabled=Boolean(a);
+    if(a){el('timer-project').value=a.projectId;el('timer-activity').value=a.activityId;el('timer-note').value=a.note}
+    el('timer-primary').disabled=!a&&(!el('timer-project').value||!el('timer-activity').value);
+  }
+  function renderKPIs(){
+    el('kpi-today').textContent=hoursAndMinutes(sumForWindow('today'));
+    el('kpi-week').textContent=hoursAndMinutes(sumForWindow('week'));
+    el('kpi-month').textContent=hoursAndMinutes(sumForWindow('month'));
+    el('today-total').textContent=hoursAndMinutes(sumForWindow('today'));
+  }
+  function entryHTML(e,editable){
+    const start=entryStart(e),end=entryEnd(e),multiDay=floorDay(start)!==floorDay(end);
+    const timeStr=`${fmtTime(start)}–${fmtTime(end)}${multiDay?' +1T':''}`;
+    return `<div class="entry"><span class="category-dot" aria-hidden="true"></span><div class="entry-main"><div class="entry-title">${escapeHTML(projectName(e.projectId))}</div><div class="entry-sub">${escapeHTML(activityName(e.activityId))}${e.active?` · ${e.paused?'Pausiert':'Läuft'}`:''}</div>${e.note?`<div class="entry-note">${escapeHTML(e.note)}</div>`:''}</div><div class="entry-time"><strong>${hoursAndMinutes(duration(e))}</strong><small>${escapeHTML(timeStr)}</small></div>${editable?`<div class="entry-actions"><button class="small-icon-button" type="button" title="Eintrag bearbeiten" aria-label="Eintrag bearbeiten" data-edit-entry="${escapeHTML(e.id)}">✎</button><button class="small-icon-button" type="button" title="Eintrag löschen" aria-label="Eintrag löschen" data-delete-entry="${escapeHTML(e.id)}">×</button></div>`:''}</div>`;
+  }
+  function renderToday(){
+    const entries=selectedEntries('today').sort((a,b)=>entryStart(b)-entryStart(a)).slice(0,7);
+    el('today-entries').innerHTML=entries.length?entries.map(e=>entryHTML(e,false)).join(''):'<div class="empty-state"><span class="empty-glyph">◷</span>Noch keine Arbeitszeit erfasst.<br>Starte deinen ersten Arbeitsblock.</div>';
+  }
+  function distributionHTML(key,items,from,to){
+    const group=new Map();
+    let total=0;
+    for(const e of items){const d=windowDuration(e,from,to);group.set(e[key],(group.get(e[key])||0)+d);total+=d;}
+    const ranked=[...group].sort((a,b)=>b[1]-a[1]);
+    if(!ranked.length)return '<div class="chart-empty">In diesem Zeitraum gibt es noch keine Daten.</div>';
+    return `<div class="bar-list">${ranked.map(([id,ms])=>{
+      const name=key==='projectId'?projectName(id):activityName(id);
+      const percent=total?ms/total*100:0;
+      return `<div class="bar-item"><div class="bar-title"><span>${escapeHTML(name)}</span><strong>${hoursAndMinutes(ms)}</strong></div><div class="bar-track" role="img" aria-label="${escapeHTML(name)}, ${Math.round(percent)} Prozent"><div class="bar-fill" style="width:${Math.max(1,percent).toFixed(2)}%"></div></div></div>`;
+    }).join('')}</div>`;
+  }
+  function renderInsights(){
+    const p=el('report-period').value,[from,to]=getWindow(p),entries=selectedEntries(p),ms=sumForWindow(p);
+    el('report-total').textContent=hoursAndMinutes(ms);
+    el('report-count').textContent=String(entries.length);
+    el('report-range').textContent=({today:'Arbeitsstunden heute',week:'Ab Wochenbeginn (Montag)',month:'Ab Monatsbeginn',all:'Seit Beginn der Zeiterfassung'})[p];
+    el('project-chart').innerHTML=distributionHTML('projectId',entries,from,to);
+    el('activity-chart').innerHTML=distributionHTML('activityId',entries,from,to);
+    const buckets=[];let max=0;
+    for(let i=6;i>=0;i--){let day=new Date();day.setHours(0,0,0,0);day.setDate(day.getDate()-i);const start=day.getTime();day.setDate(day.getDate()+1);const end=day.getTime();const v=allEntries().reduce((acc,e)=>acc+windowDuration(e,start,end),0);buckets.push({day:start,ms:v});max=Math.max(max,v)}
+    el('week-chart').innerHTML=buckets.map(({day,ms})=>`<div class="week-day" title="${escapeHTML(fmtDate(day))}: ${hoursAndMinutes(ms)}"><span class="week-hour">${ms?`${(ms/3600000).toLocaleString('de-DE',{maximumFractionDigits:1})}h`:'–'}</span><div class="week-bar-wrap"><div class="week-bar" style="height:${max?Math.max(2,ms/max*100):2}%"></div></div><span class="week-label">${escapeHTML(fmtDate(day,{weekday:'short'}))}</span></div>`).join('');
+  }
+  function renderHistory(){
+    const range=el('history-range').value,search=el('history-search').value.trim().toLocaleLowerCase('de');
+    const [from,to]=getWindow(range);
+    const entries=data.entries.filter(e=>windowDuration(e,from,to)>0&&(!search||`${projectName(e.projectId)} ${activityName(e.activityId)} ${e.note}`.toLocaleLowerCase('de').includes(search))).sort((a,b)=>entryStart(b)-entryStart(a));
+    el('history-total').textContent=hoursAndMinutes(entries.reduce((acc,e)=>acc+windowDuration(e,from,to),0));
+    el('history-count').textContent=`${entries.length} ${entries.length===1?'Eintrag':'Einträge'}`;
+    if(!entries.length){el('history-entries').innerHTML='<div class="empty-state">Keine passenden Zeiteinträge gefunden.</div>';return;}
+    let group=null,html='';
+    for(const e of entries){const start=entryStart(e),key=ymd(new Date(start));
+      if(key!==group){group=key;html+=`<div class="day-divider">${escapeHTML(fmtDate(start,{weekday:'long',day:'numeric',month:'long',year:'numeric'}))}</div>`;}
+      html+=entryHTML(e,true);
+    }
+    el('history-entries').innerHTML=html;
+  }
+  function renderManage(){
+    const makeRows=(type,items)=>items.map(item=>{
+      const useCount=data.entries.filter(e=>e[type==='project'?'projectId':'activityId']===item.id).length;
+      return `<div class="manage-row"><span class="category-dot"></span><div class="manage-name">${escapeHTML(item.name)} <span class="manage-meta">${useCount} ${useCount===1?'Eintrag':'Einträge'}${item.archived?' · Archiviert':''}</span></div><div class="entry-actions"><button class="small-icon-button" title="Umbenennen" aria-label="${escapeHTML(item.name)} umbenennen" data-rename-type="${type}" data-rename-id="${escapeHTML(item.id)}">✎</button><button class="small-icon-button" title="${item.archived?'Reaktivieren':'Archivieren'}" aria-label="${escapeHTML(item.name)} ${item.archived?'reaktivieren':'archivieren'}" data-archive-type="${type}" data-archive-id="${escapeHTML(item.id)}">${item.archived?'↺':'▤'}</button></div></div>`;
+    }).join('');
+    el('projects-list').innerHTML=makeRows('project',data.projects);
+    el('activities-list').innerHTML=makeRows('activity',data.activities);
+  }
+  function render(){
+    populateSelectors();renderTimer();renderKPIs();renderToday();
+    if(currentView==='insights')renderInsights();
+    if(currentView==='history')renderHistory();
+    if(currentView==='projects')renderManage();
+  }
+
+  function openManual(id=null){
+    if(!data.projects.some(x=>!x.archived)||!data.activities.some(x=>!x.archived)){
+      if(!id){toast('Bitte zuerst ein aktives Projekt und eine Tätigkeit anlegen.');return;}
+    }
+    editingId=id;editingMultiSegment=false;
+    let entry=id?data.entries.find(x=>x.id===id):null;
+    if(id&&!entry){toast('Eintrag nicht gefunden.');return;}
+    el('editor-title').textContent=entry?'Eintrag bearbeiten':'Zeit nachtragen';
+    el('editor-kicker').textContent=entry?'ZEITEINTRAG ÄNDERN':'MANUELLE ERFASSUNG';
+    el('editor-error').classList.add('hidden');
+    const now=new Date();const before=new Date(now.getTime()-3600000);
+    const useStart=entry?new Date(entryStart(entry)):before;
+    const useEnd=entry?new Date(entryEnd(entry)):now;
+    setOptions('entry-project',data.projects,entry?.projectId||el('timer-project').value);
+    setOptions('entry-activity',data.activities,entry?.activityId||el('timer-activity').value);
+    el('entry-date').value=ymd(useStart);
+    el('entry-start').value=useStart.toTimeString().slice(0,5);
+    el('entry-end').value=useEnd.toTimeString().slice(0,5);
+    el('entry-note').value=entry?.note||'';
+    editingMultiSegment=Boolean(entry&&entry.segments.length>1);
+    for(const field of ['entry-date','entry-start','entry-end'])el(field).disabled=editingMultiSegment;
+    el('editor-time-help').textContent=editingMultiSegment?'Dieser Eintrag enthält Pausen. Daher können nur Projekt, Tätigkeit und Notiz geändert werden.':'Wenn die Endzeit vor der Startzeit liegt, zählt die Zeit bis zum nächsten Tag.';
+    el('editor-dialog').showModal();
+  }
+  function saveManual(event){
+    event.preventDefault();
+    const projectId=el('entry-project').value,activityId=el('entry-activity').value,note=el('entry-note').value.trim();
+    const err=message=>{el('editor-error').textContent=message;el('editor-error').classList.remove('hidden')};
+    if(!projectId||!activityId){err('Bitte Projekt und Tätigkeit auswählen.');return;}
+    let segments;
+    if(!editingMultiSegment){
+      const day=el('entry-date').value,startText=el('entry-start').value,endText=el('entry-end').value;
+      if(!day||!startText||!endText){err('Datum, Beginn und Ende sind erforderlich.');return;}
+      if(startText===endText){err('Start- und Endzeit dürfen nicht identisch sein.');return;}
+      const start=new Date(`${day}T${startText}:00`).getTime();let end=new Date(`${day}T${endText}:00`).getTime();
+      if(end<start){const next=new Date(start);next.setDate(next.getDate()+1);const dayAfter=ymd(next);end=new Date(`${dayAfter}T${endText}:00`).getTime();}
+      if(!Number.isFinite(start)||!Number.isFinite(end)||end<=start||end>Date.now()+60000){err('Bitte einen gültigen Arbeitszeitraum in der Vergangenheit eingeben.');return;}
+      segments=[{start,end}];
+    }
+    if(editingId){const entry=data.entries.find(x=>x.id===editingId);if(!entry){err('Eintrag nicht gefunden.');return;}
+      entry.projectId=projectId;entry.activityId=activityId;entry.note=note;
+      if(segments)entry.segments=segments;
+    }else data.entries.push({id:uuid(),projectId,activityId,note,segments,manual:true});
+    if(!save()){err('Konnte nicht speichern.');return;}
+    el('editor-dialog').close();render();toast(editingId?'Eintrag aktualisiert.':'Zeit nachgetragen.');
+  }
+  function removeEntry(id){
+    const entry=data.entries.find(e=>e.id===id);if(!entry)return;
+    if(!confirm(`Diesen Eintrag (${hoursAndMinutes(duration(entry))}, ${fmtDate(entryStart(entry))}) endgültig löschen?`))return;
+    data.entries=data.entries.filter(e=>e.id!==id);if(save()){render();toast('Eintrag gelöscht.');}
+  }
+  function openName(type,id=null){
+    naming={type,id};
+    const item=id?(type==='project'?data.projects:data.activities).find(x=>x.id===id):null;
+    el('name-title').textContent=id?(type==='project'?'Projekt umbenennen':'Tätigkeit umbenennen'):(type==='project'?'Neues Projekt':'Neue Tätigkeit');
+    el('name-input').value=item?.name||'';
+    el('name-input').placeholder=type==='project'?'z. B. Album 2026':'z. B. Mixing';
+    el('name-error').classList.add('hidden');
+    el('name-dialog').showModal();el('name-input').focus();
+  }
+  function saveName(event){
+    event.preventDefault();
+    const name=el('name-input').value.trim(),items=naming.type==='project'?data.projects:data.activities;
+    const err=msg=>{el('name-error').textContent=msg;el('name-error').classList.remove('hidden');};
+    if(!name){err('Bitte einen Namen eingeben.');return;}
+    if(items.some(x=>x.name.toLocaleLowerCase('de')===name.toLocaleLowerCase('de')&&x.id!==naming.id)){err('Dieser Name existiert bereits.');return;}
+    if(naming.id){const item=items.find(x=>x.id===naming.id);if(item)item.name=name;}
+    else items.push({id:uuid(),name,archived:false});
+    if(!save()){err('Speichern fehlgeschlagen.');return;}
+    el('name-dialog').close();render();toast(naming.id?'Name geändert.':'Erfolgreich angelegt.');
+  }
+  function toggleArchive(type,id){
+    const items=type==='project'?data.projects:data.activities,item=items.find(x=>x.id===id);
+    if(!item)return;
+    if(!item.archived&&data.active&&((type==='project'&&data.active.projectId===id)||(type==='activity'&&data.active.activityId===id))){toast('Die Tätigkeit bzw. das Projekt wird gerade getrackt. Timer zuerst beenden.');return;}
+    if(!item.archived&&items.filter(x=>!x.archived).length<=1){toast('Mindestens ein aktiver Eintrag muss erhalten bleiben.');return;}
+    item.archived=!item.archived;
+    if(save()){render();toast(item.archived?'Archiviert. Alte Zeiten bleiben erhalten.':'Wieder aktiviert.');}
+  }
+  function download(name,blob){const a=document.createElement('a'),url=URL.createObjectURL(blob);a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000);}
+  function backupJSON(){
+    const snapshot = JSON.parse(JSON.stringify(data));
+    if(snapshot.active?.runningStartedAt!==null && snapshot.active){
+      const ended=Date.now();
+      if(ended>snapshot.active.runningStartedAt)snapshot.active.segments.push({start:snapshot.active.runningStartedAt,end:ended});
+      snapshot.active.runningStartedAt=null; // Im importierten Backup pausiert wiederherstellen.
+    }
+    const payload={...snapshot,exportedAt:new Date().toISOString(),app:'Löwenblut Zeittracker'};
+    download(`loewenblut-zeiten-backup-${ymd(new Date())}.json`,new Blob([JSON.stringify(payload,null,2)],{type:'application/json;charset=utf-8'}));
+    toast('JSON-Backup heruntergeladen.');
+  }
+  function exportCSV(){
+    const safe=s=>{let v=String(s??'');if(/^[\s]*[=+\-@\t\r]/.test(v))v="'"+v;return `"${v.replaceAll('"','""')}"`;};
+    const cols=['Datum','Projekt','Tätigkeit','Start','Ende','Dauer (Minuten)','Pausen (Anzahl)','Notiz','Typ'];
+    const rows=data.entries.slice().sort((a,b)=>entryStart(a)-entryStart(b)).map(e=>[fmtDate(entryStart(e)),projectName(e.projectId),activityName(e.activityId),new Date(entryStart(e)).toLocaleString('de-DE'),new Date(entryEnd(e)).toLocaleString('de-DE'),(duration(e)/60000).toFixed(2).replace('.',','),Math.max(0,e.segments.length-1),e.note,e.manual?'Manuell':'Timer']);
+    const text='\ufeff'+[cols,...rows].map(row=>row.map(safe).join(';')).join('\r\n');
+    download(`loewenblut-zeiten-${ymd(new Date())}.csv`,new Blob([text],{type:'text/csv;charset=utf-8'}));
+    toast('CSV-Datei heruntergeladen.');
+  }
+  async function importJSON(event){
+    const file=event.target.files?.[0];event.target.value='';if(!file)return;
+    if(file.size>35*1024*1024){toast('Die Datei ist zu groß (max. 35 MB).');return}
+    let imported;
+    try{imported=validateBackup(JSON.parse(await file.text()));}
+    catch(err){alert(`Import fehlgeschlagen: ${err.message}`);return;}
+    if(!confirm(`Backup einspielen? Dabei werden alle derzeit gespeicherten Daten ersetzt.\n\nIm Backup: ${imported.entries.length} Zeiteinträge, ${imported.projects.length} Projekte.`))return;
+    const existing=data;data=imported;
+    if(failedLoad)window.__allowNewDataAfterFailedLoad=true;
+    if(!save()){data=existing;return;}
+    render();toast('Backup erfolgreich wiederhergestellt.');
+  }
+
+  function bind(){
+    document.querySelectorAll('[data-view]').forEach(btn=>btn.addEventListener('click',()=>toggleView(btn.dataset.view)));
+    document.querySelectorAll('[data-goto]').forEach(btn=>btn.addEventListener('click',()=>toggleView(btn.dataset.goto)));
+    el('timer-primary').addEventListener('click',startOrPause);el('timer-stop').addEventListener('click',stopTimer);
+    el('timer-project').addEventListener('change',renderTimer);el('timer-activity').addEventListener('change',renderTimer);
+    el('report-period').addEventListener('change',renderInsights);
+    el('history-range').addEventListener('change',renderHistory);el('history-search').addEventListener('input',renderHistory);
+    for(const id of ['top-manual','history-add'])el(id).addEventListener('click',()=>openManual());
+    el('editor-form').addEventListener('submit',saveManual);
+    el('name-form').addEventListener('submit',saveName);
+    el('add-project').addEventListener('click',()=>openName('project'));el('add-activity').addEventListener('click',()=>openName('activity'));
+    document.querySelectorAll('[data-close]').forEach(btn=>btn.addEventListener('click',()=>el(btn.dataset.close).close()));
+    el('history-entries').addEventListener('click',event=>{
+      const edit=event.target.closest('[data-edit-entry]'),del=event.target.closest('[data-delete-entry]');
+      if(edit)openManual(edit.dataset.editEntry);if(del)removeEntry(del.dataset.deleteEntry);
+    });
+    const manageHandler=event=>{
+      const rename=event.target.closest('[data-rename-type]'),archive=event.target.closest('[data-archive-type]');
+      if(rename)openName(rename.dataset.renameType,rename.dataset.renameId);
+      if(archive)toggleArchive(archive.dataset.archiveType,archive.dataset.archiveId);
+    };
+    el('projects-list').addEventListener('click',manageHandler);el('activities-list').addEventListener('click',manageHandler);
+    el('export-json').addEventListener('click',backupJSON);el('export-csv').addEventListener('click',exportCSV);
+    el('import-json').addEventListener('change',importJSON);
+    window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();installPrompt=event;el('install-app').classList.remove('hidden')});
+    el('install-app').addEventListener('click',async()=>{if(!installPrompt)return;installPrompt.prompt();await installPrompt.userChoice;installPrompt=null;el('install-app').classList.add('hidden')});
+    window.addEventListener('appinstalled',()=>toast('App wurde installiert.'));
+    document.addEventListener('visibilitychange',()=>{if(!document.hidden)render()});
+  }
+  function tick(){
+    if(document.hidden)return;
+    if(data.active)renderTimer();
+    const bucket=Math.floor(Date.now()/15000);
+    if(data.active&&bucket!==lastSummaryBucket){lastSummaryBucket=bucket;renderKPIs();renderToday();if(currentView==='insights')renderInsights();}
+  }
+  function init(){
+    el('today-label').textContent=fmtDate(Date.now(),{weekday:'short',day:'numeric',month:'long',year:'numeric'});
+    bind();render();setInterval(tick,1000);
+    if(failedLoad)alert('Deine gespeicherten Zeittracker-Daten konnten nicht gelesen werden. Sie wurden NICHT gelöscht. Bitte spiele über Einstellungen ein gültiges Backup ein.');
+    if('serviceWorker' in navigator && (location.protocol==='https:'||location.hostname==='localhost'||location.hostname==='127.0.0.1')){
+      navigator.serviceWorker.register('./sw.js').catch(e=>console.warn('Offline-Modus konnte nicht eingerichtet werden:',e));
+    }
+  }
+  init();
+})();
+
+</script>
+</body>
+</html>
