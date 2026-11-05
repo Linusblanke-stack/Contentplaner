@@ -157,6 +157,9 @@ body{min-height:100vh}
 .cost-top-actions{display:flex;gap:7px;flex-wrap:wrap}
 .cost-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:16px 0}
 .cost-card{background:#f6f8fb;border-radius:15px;padding:13px;display:flex;flex-direction:column;gap:5px}
+.cost-filter-card{border:2px solid transparent;text-align:left;font:inherit;width:100%;cursor:pointer;appearance:none;-webkit-appearance:none;transition:border-color .15s,background .15s}
+.cost-filter-card:focus-visible{outline:3px solid #2563eb;outline-offset:2px}
+.cost-filter-active{border-color:#2563eb;background:#e7f0ff}
 .cost-card span{color:var(--muted);font-size:11px}
 .cost-card b{font-size:18px;color:var(--navy)}
 .cost-list{border-top:1px solid var(--line)}
